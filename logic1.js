@@ -1,5 +1,5 @@
 // Joseph P. Pasaoa
-// Javascript exercises found at https://the-winter.github.io/codingjs/
+// JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
 //
 
 
