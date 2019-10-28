@@ -268,4 +268,104 @@ function without2(str){
       without2('x') → x	x	✔	
       without2('') →		✔	
       without2('Fruits') → Fruits	Fruits	✔
-      
+
+
+function deFront(str){
+  let output = '';
+  if (str[0] === 'a') {
+    output += 'a';
+  }
+  if (str[1] === 'b') {
+    output += 'b';
+  }
+  return output += str.slice(2);
+}
+      deFront('Hello') → llo	llo	✔	
+      deFront('java') → va	va	✔	
+      deFront('away') → aay	aay	✔	
+      deFront('axy') → ay	ay	✔	
+      deFront('abc') → abc	abc	✔	
+      deFront('xby') → by	by	✔	
+      deFront('ab') → ab	ab	✔	
+      deFront('ax') → a	a	✔	
+      deFront('axb') → ab	ab	✔	
+      deFront('aaa') → aa	aa	✔	
+      deFront('xbc') → bc	bc	✔	
+      deFront('bbb') → bb	bb	✔	
+      deFront('bazz') → zz	zz	✔	
+      deFront('ba') →		✔	
+      deFront('abxyz') → abxyz	abxyz	✔	
+      deFront('hi') →		✔	
+      deFront('his') → s	s	✔	
+      deFront('xz') →		✔	
+      deFront('zzz') → z	z	✔
+
+
+function startWord(str,word){
+  if (word.length === 1 || word.slice(1) === str.slice(1, word.length)) {
+    return str.slice(0, word.length);
+  }
+  return '';
+}
+      startWord('hippo', 'hi') → hi	hi	✔	
+      startWord('hippo', 'xip') → hip	hip	✔	
+      startWord('hippo', 'i') → h	h	✔	
+      startWord('hippo', 'ix') →		✔	
+      startWord('h', 'ix') →		✔	
+      startWord('', 'i') →		✔	
+      startWord('hip', 'zi') → hi	hi	✔	
+      startWord('hip', 'zip') → hip	hip	✔	
+      startWord('hip', 'zig') →		✔	
+      startWord('h', 'z') → h	h	✔	
+      startWord('hippo', 'xippo') → hippo	hippo	✔	
+      startWord('hippo', 'xyz') →		✔	
+      startWord('hippo', 'hip') → hip	hip	✔	
+      startWord('kitten', 'cit') → kit	kit	✔	
+      startWord('kit', 'cit') → kit	kit	✔
+
+
+function withoutX(str) {
+  let output = str.split('');
+  if (str[0] === 'x') {
+    output.shift();
+  }
+  if (str[str.length - 1] === 'x') {
+    output.pop();
+  }
+  return output.join('');
+}
+      withoutX('xHix') → Hi	Hi	✔	
+      withoutX('xHi') → Hi	Hi	✔	
+      withoutX('Hxix') → Hxi	Hxi	✔	
+      withoutX('Hi') → Hi	Hi	✔	
+      withoutX('xxHi') → xHi	xHi	✔	
+      withoutX('Hix') → Hi	Hi	✔	
+      withoutX('xaxbx') → axb	axb	✔	
+      withoutX('xx') →		✔	
+      withoutX('x') →		✔	
+      withoutX('') →		✔	
+      withoutX('Hello') → Hello	Hello	✔	
+      withoutX('Hexllo') → Hexllo	Hexllo	✔	
+
+
+function withoutX2(str){
+  let output = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i >= 2 || str[i] !== 'x') {
+      output += str[i];
+    }
+  }
+  return output;
+}
+      withoutX2('xHi') → Hi	Hi	✔	
+      withoutX2('Hxi') → Hi	Hi	✔	
+      withoutX2('Hi') → Hi	Hi	✔	
+      withoutX2('xxHi') → Hi	Hi	✔	
+      withoutX2('Hix') → Hix	Hix	✔	
+      withoutX2('xaxb') → axb	axb	✔	
+      withoutX2('xx') →		✔	
+      withoutX2('x') →		✔	
+      withoutX2('') →		✔	
+      withoutX2('Hello') → Hello	Hello	✔	
+      withoutX2('Hexllo') → Hexllo	Hexllo	✔	
+      withoutX2('xHxllo') → Hxllo	Hxllo	✔	
