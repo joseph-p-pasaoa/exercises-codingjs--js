@@ -240,3 +240,32 @@ function minCat(a, b){
       minCat('abc', 'x'); // → cx	cx	✔	
       minCat('x', 'abc'); // → xc	xc	✔	
       minCat('abc', ''); // →  ✔	
+
+
+function extraFront(str){
+  return str.slice(0,2) + str.slice(0,2) + str.slice(0,2);
+}
+      extraFront('Hello') → HeHeHe	HeHeHe	✔	
+      extraFront('ab') → ababab	ababab	✔	
+      extraFront('H') → HHH	HHH	✔	
+      extraFront('') →		✔	
+      extraFront('Candy') → CaCaCa	CaCaCa	✔	
+      extraFront('Code') → CoCoCo	CoCoCo	✔
+
+
+function without2(str){
+  if (str.length !== 1 && str.slice(0,2) === str.slice(-2)) {
+    return str.slice(2);
+  }
+  return str;
+}
+      without2('HelloHe') → lloHe	lloHe	✔	
+      without2('HelloHi') → HelloHi	HelloHi	✔	
+      without2('Hi') →		✔	
+      without2('Chocolate') → Chocolate	Chocolate	✔	
+      without2('xxx') → x	x	✔	
+      without2('xx') →		✔	
+      without2('x') → x	x	✔	
+      without2('') →		✔	
+      without2('Fruits') → Fruits	Fruits	✔
+      
