@@ -153,3 +153,71 @@ missingChar('code', 1); // → cde	cde	✔
 missingChar('code', 2); // → coe	coe	✔	
 missingChar('code', 3); // → cod	cod	✔	
 missingChar('chocolate', 8); // → chocolat	chocolat	✔
+
+
+function frontBack(str){
+  let output = str.split('');
+  let temp = output.shift();
+  output.unshift(output.pop());
+  output.push(temp);
+  return output.join('');
+}
+      frontBack('code') // → eodc	eodc	✔	
+      frontBack('a') // → a	a	✔	
+      frontBack('ab') // → ba	ba	✔	
+      frontBack('abc') // → cba	cba	✔	
+      frontBack('') // →		✔	
+      frontBack('Chocolate') // → ehocolatC	ehocolatC	✔	
+      frontBack('aavj') // → java	java	✔	
+      frontBack('hello') // → oellh	oellh	✔ 
+
+
+function front3(str){
+  return str.slice(0,3) + str.slice(0,3) + str.slice(0,3);
+}
+      front3('Java') // → JavJavJav	JavJavJav	✔	
+      front3('Chocolate') // → ChoChoCho	ChoChoCho	✔	
+      front3('abc') // → abcabcabc	abcabcabc	✔	
+      front3('abcXYZ') // → abcabcabc	abcabcabc	✔	
+      front3('ab') // → ababab	ababab	✔	
+      front3('a') // → aaa	aaa	✔	
+      front3('') // →		✔
+
+
+function backAround(str){
+  return str[str.length -1] + str + str[str.length -1];
+}
+      backAround('cat') // → tcatt	tcatt	✔	
+      backAround('Hello') // → oHelloo	oHelloo	✔	
+      backAround('a') // → aaa	aaa	✔	
+      backAround('abc') // → cabcc	cabcc	✔	
+      backAround('read') // → dreadd	dreadd	✔	
+      backAround('boo') // → obooo	obooo	✔
+
+
+function or35(n){
+  return !(n % 3) || !(n % 5);
+}
+      or35(3) // → true	true	✔	
+      or35(10) // → true	true	✔	
+      or35(8) // → false	false	✔	
+      or35(15) // → true	true	✔	
+      or35(5) // → true	true	✔	
+      or35(4) // → false	false	✔	
+      or35(9) // → true	true	✔	
+      or35(4) // → false	false	✔	
+      or35(7) // → false	false	✔	
+      or35(6) // → true	true	✔	
+      or35(17) // → false	false	✔	
+      or35(18) // → true	true	✔	
+      or35(29) // → false	false	✔	
+      or35(20) // → true	true	✔	
+      or35(21) // → true	true	✔	
+      or35(22) // → false	false	✔	
+      or35(45) // → true	true	✔	
+      or35(99) // → true	true	✔	
+      or35(100) // → true	true	✔	
+      or35(101) // → false	false	✔	
+      or35(121) // → false	false	✔	
+      or35(122) // → false	false	✔	
+      or35(123) // → true	true	✔
