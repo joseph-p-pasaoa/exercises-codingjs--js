@@ -265,4 +265,34 @@ function icyHot(temp1,temp2){
       icyHot(120, 120) // → false	false	✔
 
 
-      
+function in1020(a,b){
+  return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
+}
+      in1020(12, 99) // → true	true	✔	
+      in1020(21, 12) // → true	true	✔	
+      in1020(8, 99) // → false	false	✔	
+      in1020(99, 10) // → true	true	✔	
+      in1020(20, 20) // → true	true	✔	
+      in1020(21, 21) // → false	false	✔	
+      in1020(9, 9) // → false	false	✔
+
+
+function hasTeen(a,b,c){
+  if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19)) {
+    return true;
+  }
+  return c >= 13 && c <= 19;
+}
+      hasTeen(13, 20, 10) // → true	true	✔	
+      hasTeen(20, 19, 10) // → true	true	✔	
+      hasTeen(20, 10, 13) // → true	true	✔	
+      hasTeen(1, 20, 12) // → false	false	✔	
+      hasTeen(19, 20, 12) // → true	true	✔	
+      hasTeen(12, 20, 19) // → true	true	✔	
+      hasTeen(12, 9, 20) // → false	false	✔	
+      hasTeen(12, 18, 20) // → true	true	✔	
+      hasTeen(14, 2, 20) // → true	true	✔	
+      hasTeen(4, 2, 20) // → false	false	✔	
+      hasTeen(11, 22, 22) // → false	false	✔
+
+
