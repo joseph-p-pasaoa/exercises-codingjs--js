@@ -296,3 +296,58 @@ function hasTeen(a,b,c){
       hasTeen(11, 22, 22) // → false	false	✔
 
 
+function loneTeen(a,b){
+  const yesA = a >= 13 && a <= 19;
+  const yesB = b >= 13 && b <= 19;
+  if (yesA) {
+    return !yesB;
+  }
+  if (yesB) {
+    return !yesA;
+  }
+  return false;
+}
+      loneTeen(13, 99) // → true	true	✔	
+      loneTeen(21, 19) // → true	true	✔	
+      loneTeen(13, 13) // → false	false	✔	
+      loneTeen(14, 20) // → true	true	✔	
+      loneTeen(20, 15) // → true	true	✔	
+      loneTeen(16, 17) // → false	false	✔	
+      loneTeen(16, 9) // → true	true	✔	
+      loneTeen(16, 18) // → false	false	✔	
+      loneTeen(13, 19) // → false	false	✔	
+      loneTeen(13, 20) // → true	true	✔	
+      loneTeen(6, 18) // → true	true	✔	
+      loneTeen(99, 13) // → true	true	✔	
+      loneTeen(99, 99) // → false	false	✔
+
+
+function delDel(str){
+  if (str.slice(1, 4) === "del") {
+    return str[0] + str.slice(4);
+  }
+  return str;
+}
+      delDel('adelbc') // → abc	abc	✔	
+      delDel('adelHello') // → aHello	aHello	✔	
+      delDel('abcdel') // → abcdel	abcdel	✔	
+      delDel('add') // → add	add	✔	
+      delDel('ad') // → ad	ad	✔	
+      delDel('a') // → a	a	✔	
+      delDel('') // →		✔	
+      delDel('del') // → del	del	✔	
+      delDel('adel') // → a	a	✔	
+      delDel('aadelbb') // → aadelbb	aadelbb	✔
+
+
+function mixStart(str){
+  return str.slice(1, 3) === "ix";
+}
+      mixStart('mix snacks') // → true	true	✔	
+      mixStart('pix snacks') // → true	true	✔	
+      mixStart('piz snacks') // → false	false	✔	
+      mixStart('nix') // → true	true	✔	
+      mixStart('ni') // → false	false	✔	
+      mixStart('n') // → false	false	✔
+
+
