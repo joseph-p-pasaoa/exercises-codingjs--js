@@ -221,3 +221,48 @@ function or35(n){
       or35(121) // → false	false	✔	
       or35(122) // → false	false	✔	
       or35(123) // → true	true	✔
+
+
+function front22(str){
+  return str.slice(0,2) + str + str.slice(0,2);
+}
+      front22('kitten') // → kikittenki	kikittenki	✔	
+      front22('Ha') // → HaHaHa	HaHaHa	✔	
+      front22('abc') // → ababcab	ababcab	✔	
+      front22('ab') // → ababab	ababab	✔	
+      front22('a') // → aaa	aaa	✔	
+      front22('') // →		✔	
+      front22('Logic') // → LoLogicLo	LoLogicLo	✔
+
+
+function startHi(str){
+  return str.slice(0,2) === "hi";
+}
+      startHi('hi there') // → true	true	✔	
+      startHi('hi') // → true	true	✔	
+      startHi('hello hi') // → false	false	✔	
+      startHi('he') // → false	false	✔	
+      startHi('h') // → false	false	✔	
+      startHi('') // → false	false	✔	
+      startHi('ho hi') // → false	false	✔	
+      startHi('hi ho') // → true	true	✔
+
+
+function icyHot(temp1,temp2){
+  if (temp1 < 0) {
+    return temp2 > 100;
+  }
+  if (temp1 > 100) {
+    return temp2 < 0;
+  }
+  return false;
+}
+      icyHot(120, -1) // → true	true	✔	
+      icyHot(-1, 120) // → true	true	✔	
+      icyHot(2, 120) // → false	false	✔	
+      icyHot(-1, 100) // → false	false	✔	
+      icyHot(-2, 120) // → true	true	✔	
+      icyHot(120, 120) // → false	false	✔
+
+
+      
