@@ -351,3 +351,82 @@ function mixStart(str){
       mixStart('n') // → false	false	✔
 
 
+function startOz(str){
+  return (str[0] === "o" ? "o" : "") + (str[1] === "z" ? "z" : "");
+}
+      startOz('ozymandias') // → oz	oz	✔	
+      startOz('bzoo') // → z	z	✔	
+      startOz('oxx') // → o	o	✔	
+      startOz('ounce') // → o	o	✔	
+      startOz('o') // → o	o	✔	
+      startOz('abc') // →		✔	
+      startOz('') // →		✔	
+      startOz('zoo') // →		✔	
+      startOz('aztec') // → z	z	✔	
+      startOz('zzzz') // → z	z	✔	
+      startOz('oznic') // → oz	oz	✔
+
+
+function intMax(a,b,c){
+  if (a > b) {
+    return a > c ? a : c;
+  }
+  return b > c ? b : c;
+}
+      intMax(1, 2, 3) // → 3	3	✔	
+      intMax(1, 3, 2) // → 3	3	✔	
+      intMax(3, 2, 1) // → 3	3	✔	
+      intMax(9, 3, 3) // → 9	9	✔	
+      intMax(3, 9, 3) // → 9	9	✔	
+      intMax(3, 3, 9) // → 9	9	✔	
+      intMax(8, 2, 3) // → 8	8	✔	
+      intMax(-3, -1, -2) // → -1	-1	✔	
+      intMax(6, 2, 5) // → 6	6	✔	
+      intMax(5, 6, 2) // → 6	6	✔	
+      intMax(5, 2, 6) // → 6	6	✔
+
+
+function close10(a,b){
+  if ((a + b) / 2 === 10) {
+    return 0;
+  }
+  return Math.abs(10 - a) < Math.abs(10 - b) ? a : b;
+}
+      close10(8, 13) // → 8	8	✔	
+      close10(13, 8) // → 8	8	✔	
+      close10(13, 7) // → 0	0	✔	
+      close10(7, 13) // → 0	0	✔	
+      close10(9, 13) // → 9	9	✔	
+      close10(13, 8) // → 8	8	✔	
+      close10(10, 12) // → 10	10	✔	
+      close10(11, 10) // → 10	10	✔	
+      close10(5, 21) // → 5	5	✔	
+      close10(0, 20) // → 0	0	✔	
+      close10(0, 20) // → 0	0	✔	
+      close10(10, 10) // → 0	0	✔
+
+
+function in3050(a,b){
+  if (a === 40) {
+    return b >= 30 && b <= 50;
+  }
+  if (a < 40 && a >= 30) {
+    return b >= 30 && b <= 40;
+  }
+  if (a > 40 && a <= 50) {
+    return b >= 40 && b <= 50;
+  }
+  return false;
+}
+      in3050(30, 31) // → true	true	✔	
+      in3050(30, 41) // → false	false	✔	
+      in3050(40, 50) // → true	true	✔	
+      in3050(40, 51) // → false	false	✔	
+      in3050(39, 50) // → false	false	✔	
+      in3050(50, 39) // → false	false	✔	
+      in3050(40, 39) // → true	true	✔	
+      in3050(49, 48) // → true	true	✔	
+      in3050(50, 40) // → true	true	✔	
+      in3050(50, 51) // → false	false	✔	
+      in3050(35, 36) // → true	true	✔	
+      in3050(35, 45) // → false	false	✔
