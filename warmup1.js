@@ -430,3 +430,18 @@ function in3050(a,b){
       in3050(50, 51) // → false	false	✔	
       in3050(35, 36) // → true	true	✔	
       in3050(35, 45) // → false	false	✔
+
+
+function lastDigit(a,b){
+  return a % 10 === b % 10;
+}
+      lastDigit(7, 17) // → true	true	✔	
+      lastDigit(6, 17) // → false	false	✔	
+      lastDigit(3, 113) // → true	true	✔	
+      lastDigit(114, 113) // → false	false	✔	
+      lastDigit(114, 4) // → true	true	✔	
+      lastDigit(10, 0) // → true	true	✔	
+      lastDigit(11, 0) // → false	false	✔
+
+
+      
