@@ -116,4 +116,3 @@ wordsWithoutList(['a', 'bb', 'b', 'ccc'], 3) → a,bb,b	a,bb,b	✔
 wordsWithoutList(['a', 'bb', 'b', 'ccc'], 4) → a,bb,b,ccc	a,bb,b,ccc	✔	
 wordsWithoutList(['xx', 'yyy', 'x', 'yy', 'z'], 1) → xx,yyy,yy	xx,yyy,yy	✔
 
-
