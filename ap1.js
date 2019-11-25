@@ -48,15 +48,15 @@ function scoresClump(scores){
   }
   return false;
 }
-scoresClump([3, 4, 5]) → true	true	✔	
-scoresClump([3, 4, 6]) → false	false	✔	
-scoresClump([1, 3, 5, 5]) → true	true	✔	
-scoresClump([2, 4, 5, 6]) → true	true	✔	
-scoresClump([2, 4, 5, 7]) → false	false	✔	
-scoresClump([2, 4, 4, 7]) → true	true	✔	
-scoresClump([3, 3, 6, 7, 9]) → false	false	✔	
-scoresClump([3, 3, 7, 7, 9]) → true	true	✔	
-scoresClump([4, 5, 8]) → false	false	✔
+scoresClump([3, 4, 5]) // → true	true	✔	
+scoresClump([3, 4, 6]) // → false	false	✔	
+scoresClump([1, 3, 5, 5]) // → true	true	✔	
+scoresClump([2, 4, 5, 6]) // → true	true	✔	
+scoresClump([2, 4, 5, 7]) // → false	false	✔	
+scoresClump([2, 4, 4, 7]) // → true	true	✔	
+scoresClump([3, 3, 6, 7, 9]) // → false	false	✔	
+scoresClump([3, 3, 7, 7, 9]) // → true	true	✔	
+scoresClump([4, 5, 8]) // → false	false	✔
 
 
 function scoresAverage(scores){
@@ -111,8 +111,62 @@ wordsFront(['Hi', 'There'], 1) // → Hi	Hi	✔
 function wordsWithoutList(words,len){
   return words.filter(word => word.length !== len);
 }
-wordsWithoutList(['a', 'bb', 'b', 'ccc'], 1) → bb,ccc	bb,ccc	✔	
-wordsWithoutList(['a', 'bb', 'b', 'ccc'], 3) → a,bb,b	a,bb,b	✔	
-wordsWithoutList(['a', 'bb', 'b', 'ccc'], 4) → a,bb,b,ccc	a,bb,b,ccc	✔	
-wordsWithoutList(['xx', 'yyy', 'x', 'yy', 'z'], 1) → xx,yyy,yy	xx,yyy,yy	✔
+wordsWithoutList(['a', 'bb', 'b', 'ccc'], 1) // → bb,ccc	bb,ccc	✔	
+wordsWithoutList(['a', 'bb', 'b', 'ccc'], 3) // → a,bb,b	a,bb,b	✔	
+wordsWithoutList(['a', 'bb', 'b', 'ccc'], 4) // → a,bb,b,ccc	a,bb,b,ccc	✔	
+wordsWithoutList(['xx', 'yyy', 'x', 'yy', 'z'], 1) // → xx,yyy,yy	xx,yyy,yy	✔
+
+
+function dividesSelf(n){
+  const digits = [];
+  function buildDigits(num) {
+    let rightDigit = num % 10;
+    digits.push(rightDigit);
+    if (num / 10 > 1) {
+      return buildDigits(Math.floor(num / 10));
+    }
+  }
+  buildDigits(n);
+  for (let digit of digits) {
+    if (n % digit !== 0) {
+      return false;
+    }
+  }
+  return true;
+}
+dividesSelf(128) // → true	true	✔	
+dividesSelf(12) // → true	true	✔	
+dividesSelf(120) // → false	false	✔	
+dividesSelf(122) // → true	true	✔	
+dividesSelf(13) // → false	false	✔	
+dividesSelf(32) // → false	false	✔	
+dividesSelf(22) // → true	true	✔	
+dividesSelf(42) // → false	false	✔	
+dividesSelf(212) // → true	true	✔	
+dividesSelf(213) // → false	false	✔	
+dividesSelf(162) // → true	true	✔
+
+
+function copyEvens(nums,count){
+  const outputArr = [];
+  for (let i = 0; outputArr.length < count; i++) {
+    if (nums[i] % 2 === 0) {
+      outputArr.push(nums[i]);
+    }
+  }
+  return outputArr;
+}
+copyEvens([3, 2, 4, 5, 8], 2) // → 2,4	2,4	✔	
+copyEvens([3, 2, 4, 5, 8], 3) // → 2,4,8	2,4,8	✔	
+copyEvens([6, 1, 2, 4, 5, 8], 3) // → 6,2,4	6,2,4	✔	
+copyEvens([6, 1, 2, 4, 5, 8], 4) // → 6,2,4,8	6,2,4,8	✔	
+copyEvens([3, 1, 4, 1, 5], 1) // → 4	4	✔	
+copyEvens([2], 1) // → 2	2	✔	
+copyEvens([6, 2, 4, 8], 2) // → 6,2	6,2	✔	
+copyEvens([6, 2, 4, 8], 3) // → 6,2,4	6,2,4	✔	
+copyEvens([6, 2, 4, 8], 4) // → 6,2,4,8	6,2,4,8	✔	
+copyEvens([1, 8, 4], 1) // → 8	8	✔	
+copyEvens([1, 8, 4], 2) // → 8,4	8,4	✔	
+copyEvens([2, 8, 4], 2) // → 2,8	2,8	✔
+
 
