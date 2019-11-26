@@ -170,3 +170,80 @@ copyEvens([1, 8, 4], 2) // → 8,4	8,4	✔
 copyEvens([2, 8, 4], 2) // → 2,8	2,8	✔
 
 
+function copyEndy(nums,count){
+  function isEndy(n) {
+    const a = (n >= 0 && n <= 10);
+    const b = (n >= 90 && n <= 100);
+    return a || b;
+  }
+  let outputArr = [];
+  for (let i = 0; outputArr.length < count; i++) {
+    if (isEndy(nums[i])) {
+      outputArr.push(nums[i]);
+    }
+  }
+  return outputArr;
+}
+copyEndy([9, 11, 90, 22, 6], 2) // → 9,90	9,90	✔	
+copyEndy([9, 11, 90, 22, 6], 3) // → 9,90,6	9,90,6	✔	
+copyEndy([12, 1, 1, 13, 0, 20], 2) // → 1,1	1,1	✔	
+copyEndy([12, 1, 1, 13, 0, 20], 3) // → 1,1,0	1,1,0	✔	
+copyEndy([0], 1) // → 0	0	✔	
+copyEndy([10, 11, 90], 2) // → 10,90	10,90	✔	
+copyEndy([90, 22, 100], 2) // → 90,100	90,100	✔	
+copyEndy([12, 11, 10, 89, 101, 4], 1) // → 10	10	✔	
+copyEndy([13, 2, 2, 0], 2) // → 2,2	2,2	✔	
+copyEndy([13, 2, 2, 0], 3) // → 2,2,0	2,2,0	✔	
+copyEndy([13, 2, 13, 2, 0, 30], 2) // → 2,2	2,2	✔	
+copyEndy([13, 2, 13, 2, 0, 30], 3) // → 2,2,0	2,2,0	✔
+
+
+function matchUp(a,b){
+  let count = 0;
+  for (let i = 0; i < a.length; i++) {
+    const diff = Math.abs(a[i] - b[i]);
+    if (diff <= 2 && diff >= 1) {
+      count += 1;
+    }
+  }
+  return count;
+}
+matchUp([1, 2, 3], [2, 3, 10]) // → 2	2	✔	
+matchUp([1, 2, 3], [2, 3, 5]) // → 3	3	✔	
+matchUp([1, 2, 3], [2, 3, 3]) // → 2	2	✔	
+matchUp([5, 3], [5, 5]) // → 1	1	✔	
+matchUp([5, 3], [4, 4]) // → 2	2	✔	
+matchUp([5, 3], [3, 3]) // → 1	1	✔	
+matchUp([5, 3], [2, 2]) // → 1	1	✔	
+matchUp([5, 3], [1, 1]) // → 1	1	✔	
+matchUp([5, 3], [0, 0]) // → 0	0	✔	
+matchUp([4], [4]) // → 0	0	✔	
+matchUp([4], [5]) // → 1	1 ✔	
+
+
+function has77(nums){
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] === 7) {
+      if (nums[i + 1] === 7 || nums[i + 2] === 7) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+has77([1, 7, 7]) // → true	true	✔	
+has77([1, 7, 1, 7]) // → true	true	✔	
+has77([1, 7, 1, 1, 7]) // → false	false	✔	
+has77([7, 7, 1, 1, 7]) // → true	true	✔	
+has77([2, 7, 2, 2, 7, 2]) // → false	false	✔	
+has77([2, 7, 2, 2, 7, 7]) // → true	true	✔	
+has77([7, 2, 7, 2, 2, 7]) // → true	true	✔	
+has77([7, 2, 6, 2, 2, 7]) // → false	false	✔	
+has77([7, 7, 7]) // → true	true	✔	
+has77([7, 1, 7]) // → true	true	✔	
+has77([7, 1, 1]) // → false	false	✔	
+has77([1, 2]) // → false	false	✔	
+has77([1, 7]) // → false	false	✔	
+has77([7]) // → false	false	✔
+
+
