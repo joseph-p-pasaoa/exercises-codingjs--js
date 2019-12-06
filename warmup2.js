@@ -156,3 +156,39 @@ arrayCount9([4,2,4,3,1]) // → 0	0	✔
 arrayCount9([9,2,4,3,1]) // → 1	1	✔
 
 
+function arrayFront9(nums){
+  for (let i = 0; i < 4; i++) {
+    if (nums[i]) {
+      if (nums[i] === 9) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+arrayFront9([1,2,9,3,4]) // → true	true	✔	
+arrayFront9([1,2,3,4,9]) // → false	false	✔	
+arrayFront9([1,2,3,4,5]) // → false	false	✔	
+arrayFront9([9,2,3]) // → true	true	✔	
+arrayFront9([1,9,9]) // → true	true	✔	
+arrayFront9([1,2,3]) // → false	false	✔	
+arrayFront9([1,9]) // → true	true	✔	
+arrayFront9([5,5]) // → false	false	✔	
+arrayFront9([2]) // → false	false	✔	
+arrayFront9([9]) // → true	true	✔	
+arrayFront9([]) // → false	false	✔	
+arrayFront9([3,9,2,3,3]) // → true	true	✔
+
+
+function array123(nums){
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] === 1) {
+      if (nums[i + 1] === 2) {
+        if (nums[i + 2] === 3) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
