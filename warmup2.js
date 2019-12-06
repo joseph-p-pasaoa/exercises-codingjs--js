@@ -114,3 +114,45 @@ function stringSplosion(str){
 stringSplosion("Code") // → CCoCodCode	✔	
 
 
+function last2(str){
+  const last2 = str.slice(-2);
+  let counter = 0;
+  for (let i = 0; i < str.length - 2; i++) {
+    if (str.slice(i, i + 2) === last2) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
+last2('hixxhi') // → 1	1	✔	
+last2('xaxxaxaxx') // → 1	1	✔	
+last2('axxaaxx') // → 1	1	✔	
+last2('xxaxxaxxaxx') // → 3	3	✔	
+last2('xaxaxaa') // → 0	0	✔	
+last2('xxxx') // → 2	2	✔	
+last2('13121312') // → 1	1	✔	
+last2('11212') // → 1	1	✔	
+last2('13121311') // → 0	0	✔	
+last2('hi') // → 0	0	✔	
+last2('h') // → 0	0	✔	
+last2('') // → 0	0	✔
+
+
+function arrayCount9(nums){
+  let counter = 0;
+  for (let num of nums) {
+    if (num === 9) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
+arrayCount9([1,2,9]) // → 1	1	✔	
+arrayCount9([1,9,9]) // → 2	2	✔	
+arrayCount9([1,9,9,3,9]) // → 3	3	✔	
+arrayCount9([1,2,3]) // → 0	0	✔	
+arrayCount9([]) // → 0	0	✔	
+arrayCount9([4,2,4,3,1]) // → 0	0	✔	
+arrayCount9([9,2,4,3,1]) // → 1	1	✔
+
+
