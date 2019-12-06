@@ -81,3 +81,36 @@ doubleX('xx') // → true	true	✔
 doubleX('xaxx') // → false	false	✔
 
 
+function stringBits(str){
+  let outputStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (!(i % 2)) {
+      outputStr += str[i];
+    }
+  }
+  return outputStr;
+}
+stringBits('Hello') // → Hlo	Hlo	✔	
+stringBits('Hi') // → H	H	✔	
+stringBits('Heeololeo') // → Hello	Hello	✔	
+stringBits('HiHiHi') // → HHH	HHH	✔	
+stringBits('') →		✔	
+stringBits('Greetings') // → Getns	Getns	✔	
+stringBits('Chocolate') // → Cooae	Cooae	✔	
+stringBits('pi') // → p	p	✔	
+stringBits('Hello Kitten') // → HloKte	HloKte	✔	
+stringBits('hxaxpxpxy') // → happy	happy	✔
+
+
+function stringSplosion(str){
+  let outputStr = "";
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 0; j <= i; j++) {
+      outputStr += str[j];
+    }
+  }
+  return outputStr;
+}
+stringSplosion("Code") // → CCoCodCode	✔	
+
+
