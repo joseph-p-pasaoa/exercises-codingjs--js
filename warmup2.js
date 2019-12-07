@@ -220,3 +220,37 @@ stringMatch('aaxxaaxx', 'iaxxai') // → 3	3	✔
 stringMatch('iaxxai', 'aaxxaaxx') // → 3	3	✔
 
 
+function stringX(str){
+  const arrayed = str.split('');
+  return arrayed.filter((char, i) => {
+      return (i === 0 || i === str.length - 1 || char !== 'x');
+  }).join('');
+}
+stringX('xxHxix') // → xHix	xHix	✔	
+stringX('abxxxcd') // → abcd	abcd	✔	
+stringX('xabxxxcdx') // → xabcdx	xabcdx	✔	
+stringX('xKittenx') // → xKittenx	xKittenx	✔	
+stringX('Hello') // → Hello	Hello	✔	
+stringX('xx') // → xx	xx	✔	
+stringX('') // →		✔
+
+
+function altPairs(str){
+  let outputStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (i % 4 === 0 || i % 4 === 1) {
+      outputStr += str[i];
+    }
+  }
+  return outputStr;
+}
+altPairs('kitten') // → kien	kien	✔	
+altPairs('Chocolate') // → Chole	Chole	✔	
+altPairs('CodingHorror') // → Congrr	Congrr	✔	
+altPairs('yak') // → ya	ya	✔	
+altPairs('ya') // → ya	ya	✔	
+altPairs('y') // → y	y	✔	
+altPairs('') // →		✔	
+altPairs('ThisThatTheOther') // → ThThThth	ThThThth	✔
+
+
