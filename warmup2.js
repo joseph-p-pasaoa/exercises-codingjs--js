@@ -192,3 +192,31 @@ function array123(nums){
   }
   return false;
 }
+array123([-1, -1, 0, 1, 2, 3, 4, 5, 0, 1, 2]); // → true	true	✔	
+array123([-1, -2, -3, 1, 2, 0, 0, 1, 2, 3, 0, -1]); // → true	true	✔	
+array123([0, 0, -1, 1, 2, 0, 3, 1, 2, 0, 1, -1, -2]); // → false	false	✔	
+
+
+function stringMatch(a,b){
+  let counter = 0;
+  for (let i = 0; i < a.length - 1; i++) {
+    if (!b[i + 1]) {
+      return counter;
+    }
+    if (a[i] === b[i] && a[i + 1] === b[i + 1]) {
+      counter += 1;
+    }
+  }
+  return counter;
+}
+stringMatch('xxcaazz', 'xxbaaz') // → 3	3	✔	
+stringMatch('abc', 'abc') // → 2	2	✔	
+stringMatch('abc', 'axc') // → 0	0	✔	
+stringMatch('hello', 'he') // → 1	1	✔	
+stringMatch('he', 'hello') // → 1	1	✔	
+stringMatch('', 'hello') // → 0	0	✔	
+stringMatch('aabbccdd', 'abbbxxd') // → 1	1	✔	
+stringMatch('aaxxaaxx', 'iaxxai') // → 3	3	✔	
+stringMatch('iaxxai', 'aaxxaaxx') // → 3	3	✔
+
+
