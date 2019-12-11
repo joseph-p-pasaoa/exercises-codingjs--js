@@ -254,3 +254,71 @@ altPairs('') // →		✔
 altPairs('ThisThatTheOther') // → ThThThth	ThThThth	✔
 
 
+function array667(nums){
+  let counter = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 6) {
+      if (nums[i + 1] === 6 || nums[i + 1] === 7) {
+        counter += 1;
+      }
+    }
+  }
+  return counter;
+}
+array667([6,6,2]) // → 1	1	✔	
+array667([6,6,2,6]) // → 1	1	✔	
+array667([6,7,2,6]) // → 1	1	✔	
+array667([6,6,2,7,6,7]) // → 2	2	✔	
+array667([1,6,3]) // → 0	0	✔	
+array667([6,1]) // → 0	0	✔	
+array667([]) // → 0	0	✔	
+array667([3,6,7,6]) // → 1	1	✔	
+array667([3,6,6,7]) // → 2	2	✔	
+array667([6,3,6,6]) // → 1	1	✔	
+array667([6,7,6,6]) // → 2	2	✔	
+array667([1,2,3,5,6]) // → 0	0	✔	
+array667([1,2,3,6,6]) // → 1	1	✔
+
+
+function noTriples(nums){
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] === nums[i + 1] && nums[i] === nums[i + 2]) {
+      return false;
+    }
+  }
+  return true;
+}
+noTriples([1,1,2,2,1]) // → true	true	✔	
+noTriples([1,1,2,2,2,1]) // → false	false	✔	
+noTriples([1,1,2,2,2,1]) // → false	false	✔	
+noTriples([1,2,1]) // → true	true	✔	
+noTriples([1,1,1]) // → false	false	✔	
+noTriples([1,1]) // → true	true	✔	
+noTriples([1]) // → true	true	✔	
+noTriples([1]) // → true	true	✔	
+noTriples([]) // → true	true	✔
+
+
+function has271(nums){
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i + 1] - nums[i] === 5) {
+      if (Math.abs(nums[i] - 1 - nums[i + 2]) <= 2) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+has271([1,2,7,1]) // → true	true	✔	
+has271([1,2,8,1]) // → false	false	✔	
+has271([2,7,1]) // → true	true	✔	
+has271([3,8,2]) // → true	true	✔	
+has271([2,7,3]) // → true	true	✔	
+has271([2,7,4]) // → false	false	✔	
+has271([2,7,-1]) // → true	true	✔	
+has271([2,7,-2]) // → false	false	✔	
+has271([4,5,3,8,0]) // → true	true	✔	
+has271([2,7,5,10,4]) // → true	true	✔	
+has271([2,7,-2,4,9,3]) // → true	true	✔	
+has271([2,7,5,10,1]) // → false	false	✔	
+has271([2,7,-2,10,2]) // → false	false	✔
