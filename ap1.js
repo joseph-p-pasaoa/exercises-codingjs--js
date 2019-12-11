@@ -247,3 +247,40 @@ has77([1, 7]) // → false	false	✔
 has77([7]) // → false	false	✔
 
 
+function scoreUp(key,answers){
+  let score = 0;
+  for (let i = 0; i < key.length; i++) {
+    if (key[i] === answers[i]) {
+      score += 4;
+    } else if (answers[i] !== "?") {
+      score -= 1;
+    }
+  }
+  return score;
+}
+scoreUp(['a', 'a', 'b', 'b'], ['a', 'c', 'b', 'c']) // → 6	6	✔	
+scoreUp(['a', 'a', 'b', 'b'], ['a', 'a', 'b', 'c']) // → 11	11	✔	
+scoreUp(['a', 'a', 'b', 'b'], ['a', 'a', 'b', 'b']) // → 16	16	✔	
+scoreUp(['a', 'a', 'b', 'b'], ['?', 'c', 'b', '?']) // → 3	3	✔	
+scoreUp(['a', 'a', 'b', 'b'], ['?', 'c', '?', '?']) // → -1	-1	✔	
+scoreUp(['a', 'a', 'b', 'b'], ['c', '?', 'b', 'b']) // → 7	7	✔	
+scoreUp(['a', 'a', 'b', 'b'], ['c', '?', 'b', '?']) // → 3	3	✔	
+scoreUp(['a', 'b', 'c'], ['a', 'c', 'b']) // → 2	2	✔	
+scoreUp(['a', 'a', 'b', 'b', 'c', 'c'], ['a', 'c', 'a', 'c', 'a', 'c']) // → 4	4	✔	
+scoreUp(['a', 'a', 'b', 'b', 'c', 'c'], ['a', 'c', '?', '?', 'a', 'c']) // → 6	6	✔	
+scoreUp(['a', 'a', 'b', 'b', 'c', 'c'], ['a', 'c', '?', '?', 'c', 'c']) // → 11	11	✔	
+scoreUp(['a', 'b', 'c'], ['a', 'b', 'c']) // → 12	12	✔
+
+
+function wordsWithout(words,target){
+  return words.filter(str => str !== target);
+}
+wordsWithout(['a', 'b', 'c', 'a'], 'a') // → b,c	b,c	✔	
+wordsWithout(['a', 'b', 'c', 'a'], 'b') // → a,c,a	a,c,a	✔	
+wordsWithout(['a', 'b', 'c', 'a'], 'c') // → a,b,a	a,b,a	✔	
+wordsWithout(['b', 'c', 'a', 'a'], 'b') // → c,a,a	c,a,a	✔	
+wordsWithout(['xx', 'yyy', 'x', 'yy', 'x'], 'x') // → xx,yyy,yy	xx,yyy,yy	✔	
+wordsWithout(['xx', 'yyy', 'x', 'yy', 'x'], 'yy') // → xx,yyy,x,x	xx,yyy,x,x	✔	
+wordsWithout(['aa', 'ab', 'ac', 'aa'], 'aa') // → ab,ac	ab,ac	✔
+
+
