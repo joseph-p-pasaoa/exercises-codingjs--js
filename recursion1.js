@@ -129,3 +129,83 @@ sumDigits1(10110) // → 3	3	✔
 sumDigits1(235) // → 10	10	✔
 
 
+function count7(n){
+  let next = Math.floor(n / 10);
+  if (next < 0) {
+    return;
+  }
+  if (next === 0) {
+    return n === 7 ? 1 : 0;
+  }
+  return (n % 10 === 7 ? 1 : 0) + count7(next);
+}
+count7(717) // → 2	2	✔	
+count7(7) // → 1	1	✔	
+count7(123) // → 0	0	✔	
+count7(77) // → 2	2	✔	
+count7(7123) // → 1	1	✔	
+count7(771237) // → 3	3	✔	
+count7(771737) // → 4	4	✔	
+count7(47571) // → 2	2	✔	
+count7(777777) // → 6	6	✔	
+count7(70701277) // → 4	4	✔	
+count7(777576197) // → 5	5	✔	
+count7(99999) // → 0	0	✔	
+count7(99799) // → 1	1	✔
+
+
+function count8(n){
+  const next = Math.floor(n / 10);
+  if (next < 0) {
+    return;
+  }
+  if (next === 0) {
+    return n === 8 ? 1 : 0;
+  }
+  if (n % 100 === 88) {
+    return 2 + count8(next);
+  }
+  return (n % 10 === 8 ? 1 : 0) + count8(next);
+}
+count8(8) // → 1	1	✔	
+count8(818) // → 2	2	✔	
+count8(8818) // → 4	4	✔	
+count8(8088) // → 4	4	✔	
+count8(123) // → 0	0	✔	
+count8(81238) // → 2	2	✔	
+count8(88788) // → 6	6	✔	
+count8(8234) // → 1	1	✔	
+count8(2348) // → 1	1	✔	
+count8(23884) // → 3	3	✔	
+count8(0) // → 0	0	✔	
+count8(1818188) // → 5	5	✔	
+count8(8818181) // → 5	5	✔	
+count8(1080) // → 1	1	✔	
+count8(188) // → 3	3	✔	
+count8(88888) // → 9	9	✔	
+count8(9898) // → 2	2	✔	
+count8(78) // → 1	1	✔
+
+
+function powerN(base,n){
+  if (n < 1) {
+    return;
+  }
+  if (n === 1) {
+    return base;
+  }
+  return base * powerN(base, n - 1);
+}
+powerN(3, 1) // → 3	3	✔	
+powerN(3, 2) // → 9	9	✔	
+powerN(3, 3) // → 27	27	✔	
+powerN(2, 1) // → 2	2	✔	
+powerN(2, 2) // → 4	4	✔	
+powerN(2, 3) // → 8	8	✔	
+powerN(2, 4) // → 16	16	✔	
+powerN(2, 5) // → 32	32	✔	
+powerN(10, 1) // → 10	10	✔	
+powerN(10, 2) // → 100	100	✔	
+powerN(10, 3) // → 1000	1000	✔
+
+
