@@ -248,3 +248,27 @@ function maxMod5(a, b) {
         maxMod5(9, 14), // → 9
         maxMod5(1, 2) // → 2
       )
+
+
+function redTicket(a,b,c){
+  if (a + b + c === 6) {
+    return 10;
+  }
+  if (a + b + c === 0 || a * b * c === 1) {
+    return 5;
+  }
+  return (a !== b && a !== c) ? 1 : 0;
+}
+redTicket(2, 2, 2) // → 10	10	✔	
+redTicket(2, 2, 1) // → 0	0	✔	
+redTicket(0, 0, 0) // → 5	5	✔	
+redTicket(2, 0, 0) // → 1	1	✔	
+redTicket(1, 1, 1) // → 5	5	✔	
+redTicket(1, 2, 1) // → 0	0	✔	
+redTicket(1, 2, 0) // → 1	1	✔	
+redTicket(0, 2, 2) // → 1	1	✔	
+redTicket(1, 2, 2) // → 1	1	✔	
+redTicket(0, 2, 0) // → 0	0	✔	
+redTicket(1, 1, 2) // → 0	0	✔
+
+
