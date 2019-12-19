@@ -272,3 +272,50 @@ redTicket(0, 2, 0) // → 0	0	✔
 redTicket(1, 1, 2) // → 0	0	✔
 
 
+function greenTicket(a,b,c){
+  if (a === b && a === c) {
+      return 20;
+    }
+  if (a === b || b === c || a === c) {
+    return 10;
+  }
+  return 0;
+}
+greenTicket(1, 2, 3) // → 0	0	✔	
+greenTicket(2, 2, 2) // → 20	20	✔	
+greenTicket(1, 1, 2) // → 10	10	✔	
+greenTicket(2, 1, 1) // → 10	10	✔	
+greenTicket(1, 2, 1) // → 10	10	✔	
+greenTicket(3, 2, 1) // → 0	0	✔	
+greenTicket(0, 0, 0) // → 20	20	✔	
+greenTicket(2, 0, 0) // → 10	10	✔	
+greenTicket(0, 9, 10) // → 0	0	✔	
+greenTicket(0, 10, 0) // → 10	10	✔	
+greenTicket(9, 9, 9) // → 20	20	✔	
+greenTicket(9, 0, 9) // → 10	10	✔
+
+
+function blueTicket(a,b,c){
+  const ab = a + b;
+  const bc = b + c;
+  const ac = a + c;
+  if (ab === 10 || bc === 10 || ac === 10) {
+    return 10;
+  }
+  if (ab - 10 === bc || ab - 10 === ac) {
+    return 5;
+  }
+  return 0;
+}
+blueTicket(9, 1, 0) // → 10	10	✔	
+blueTicket(9, 2, 0) // → 0	0	✔	
+blueTicket(6, 1, 4) // → 10	10	✔	
+blueTicket(6, 1, 5) // → 0	0	✔	
+blueTicket(10, 0, 0) // → 10	10	✔	
+blueTicket(15, 0, 5) // → 5	5	✔	
+blueTicket(5, 15, 5) // → 10	10	✔	
+blueTicket(4, 11, 1) // → 5	5	✔	
+blueTicket(13, 2, 3) // → 5	5	✔	
+blueTicket(8, 4, 3) // → 0	0	✔	
+blueTicket(8, 4, 2) // → 10	10	✔	
+blueTicket(8, 4, 1) // → 0	0	✔
