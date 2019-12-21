@@ -417,6 +417,65 @@ fizzString2(45) // → FizzBuzz!	FizzBuzz!	✔
 fizzString2(100) // → Buzz!	Buzz!	✔
 
 
+function twoAsOne(a,b,c){
+  return a + b === c || a - b === c || b - a === c;
+}
+twoAsOne(1, 2, 3) // → true	true	✔	
+twoAsOne(3, 1, 2) // → true	true	✔	
+twoAsOne(3, 2, 2) // → false	false	✔	
+twoAsOne(2, 3, 1) // → true	true	✔	
+twoAsOne(5, 3, -2) // → true	true	✔	
+twoAsOne(5, 3, -3) // → false	false	✔	
+twoAsOne(2, 5, 3) // → true	true	✔	
+twoAsOne(9, 5, 5) // → false	false	✔	
+twoAsOne(9, 4, 5) // → true	true	✔	
+twoAsOne(5, 4, 9) // → true	true	✔	
+twoAsOne(3, 3, 0) // → true	true	✔	
+twoAsOne(3, 3, 2) // → false	false	✔
+
+
+function inOrder(a,b,c,bOk){
+  if (c > b) {
+    return b > a || bOk;
+  }
+  return false;
+}
+inOrder(1, 2, 4, false) // → true	true	✔	
+inOrder(1, 2, 1, false) // → false	false	✔	
+inOrder(1, 1, 2, true) // → true	true	✔	
+inOrder(3, 2, 4, false) // → false	false	✔	
+inOrder(2, 3, 4, false) // → true	true	✔	
+inOrder(3, 2, 4, true) // → true	true	✔	
+inOrder(4, 2, 2, true) // → false	false	✔	
+inOrder(4, 5, 2, true) // → false	false	✔	
+inOrder(2, 4, 6, true) // → true	true	✔	
+inOrder(7, 9, 10, false) // → true	true	✔	
+inOrder(7, 5, 6, true) // → true	true	✔	
+inOrder(7, 5, 4, true) // → false	false	✔
+
+
+function inOrderEqual(a,b,c,equalOk){
+  if (equalOk) {
+    return a <= b && b <= c;
+  }
+  return a < b && b < c;
+}
+inOrderEqual(2, 5, 11, false) // → true	true	✔	
+inOrderEqual(5, 7, 6, false) // → false	false	✔	
+inOrderEqual(5, 5, 7, true) // → true	true	✔	
+inOrderEqual(5, 5, 7, false) // → false	false	✔	
+inOrderEqual(2, 5, 4, false) // → false	false	✔	
+inOrderEqual(3, 4, 3, false) // → false	false	✔	
+inOrderEqual(3, 4, 4, false) // → false	false	✔	
+inOrderEqual(3, 4, 3, true) // → false	false	✔	
+inOrderEqual(3, 4, 4, true) // → true	true	✔	
+inOrderEqual(1, 5, 5, true) // → true	true	✔	
+inOrderEqual(5, 5, 5, true) // → true	true	✔	
+inOrderEqual(2, 2, 1, true) // → false	false	✔	
+inOrderEqual(9, 2, 2, true) // → false	false	✔	
+inOrderEqual(0, 1, 0, true) // → false	false	✔
+
+
 function maxMod5(a, b) {
   if (a === b) {
     return 0;
