@@ -223,6 +223,57 @@ more20(39); // → false	false	✔
 more20(42); // → true	true	✔
 
 
+function old35(n){
+  if (!(n % 3) && !(n % 5)) {
+    return false;
+  }
+  return (!(n % 3) || !(n % 5));
+}
+old35(3) // → true	true	✔	
+old35(10) // → true	true	✔	
+old35(15) // → false	false	✔	
+old35(5) // → true	true	✔	
+old35(9) // → true	true	✔	
+old35(8) // → false	false	✔	
+old35(7) // → false	false	✔	
+old35(6) // → true	true	✔	
+old35(17) // → false	false	✔	
+old35(18) // → true	true	✔	
+old35(29) // → false	false	✔	
+old35(20) // → true	true	✔	
+old35(21) // → true	true	✔	
+old35(22) // → false	false	✔	
+old35(45) // → false	false	✔	
+old35(99) // → true	true	✔
+
+
+function less20(n){
+  return ((n + 1) % 20 === 0 || (n + 2) % 20 === 0);  
+}
+less20(18) // → true	true	✔	
+less20(19) // → true	true	✔	
+less20(20) // → false	false	✔	
+less20(8) // → false	false	✔	
+less20(17) // → false	false	✔	
+less20(23) // → false	false	✔	
+less20(25) // → false	false	✔	
+less20(30) // → false	false	✔	
+less20(31) // → false	false	✔	
+less20(58) // → true	true	✔	
+less20(59) // → true	true	✔	
+less20(60) // → false	false	✔	
+less20(61) // → false	false	✔	
+less20(62) // → false	false	✔	
+less20(1017) // → false	false	✔	
+less20(1018) // → true	true	✔	
+less20(1019) // → true	true	✔	
+less20(1020) // → false	false	✔	
+less20(1021) // → false	false	✔	
+less20(1022) // → false	false	✔	
+less20(1023) // → false	false	✔	
+less20(37) // → false	false	✔
+
+
 function maxMod5(a, b) {
   if (a === b) {
     return 0;
