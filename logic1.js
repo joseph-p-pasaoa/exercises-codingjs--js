@@ -386,6 +386,37 @@ fizzString('bf') // → bf	bf	✔
 fizzString('fb') // → FizzBuzz	FizzBuzz	✔
 
 
+function fizzString2(n){
+  if (!(n % 3) && !(n % 5)) {
+    return 'FizzBuzz!';
+  }
+  if (!(n % 3)) {
+    return 'Fizz!';
+  }
+  if (!(n % 5)) {
+    return 'Buzz!';
+  }
+  return n + '!';
+}
+fizzString2(1) // → 1!	1!	✔	
+fizzString2(2) // → 2!	2!	✔	
+fizzString2(3) // → Fizz!	Fizz!	✔	
+fizzString2(4) // → 4!	4!	✔	
+fizzString2(5) // → Buzz!	Buzz!	✔	
+fizzString2(6) // → Fizz!	Fizz!	✔	
+fizzString2(7) // → 7!	7!	✔	
+fizzString2(8) // → 8!	8!	✔	
+fizzString2(9) // → Fizz!	Fizz!	✔	
+fizzString2(15) // → FizzBuzz!	FizzBuzz!	✔	
+fizzString2(16) // → 16!	16!	✔	
+fizzString2(18) // → Fizz!	Fizz!	✔	
+fizzString2(19) // → 19!	19!	✔	
+fizzString2(21) // → Fizz!	Fizz!	✔	
+fizzString2(44) // → 44!	44!	✔	
+fizzString2(45) // → FizzBuzz!	FizzBuzz!	✔	
+fizzString2(100) // → Buzz!	Buzz!	✔
+
+
 function maxMod5(a, b) {
   if (a === b) {
     return 0;
