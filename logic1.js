@@ -274,6 +274,118 @@ less20(1023) // → false	false	✔
 less20(37) // → false	false	✔
 
 
+function nearTen(num){
+  return num % 10 <= 2 || num % 10 >= 8;
+}
+nearTen(12) // → true	true	✔	
+nearTen(17) // → false	false	✔	
+nearTen(19) // → true	true	✔	
+nearTen(31) // → true	true	✔	
+nearTen(6) // → false	false	✔	
+nearTen(10) // → true	true	✔	
+nearTen(11) // → true	true	✔	
+nearTen(21) // → true	true	✔	
+nearTen(22) // → true	true	✔	
+nearTen(23) // → false	false	✔	
+nearTen(54) // → false	false	✔	
+nearTen(155) // → false	false	✔	
+nearTen(158) // → true	true	✔	
+nearTen(3) // → false	false	✔	
+nearTen(1) // → true	true	✔
+
+
+function teenSum(a,b){
+  if (a >= 13 && a <= 19 || b >= 13 && b <= 19) {
+    return 19;
+  }
+  return a + b;
+}
+teenSum(3, 4) // → 7	7	✔	
+teenSum(10, 13) // → 19	19	✔	
+teenSum(13, 2) // → 19	19	✔	
+teenSum(3, 19) // → 19	19	✔	
+teenSum(13, 13) // → 19	19	✔	
+teenSum(10, 10) // → 20	20	✔	
+teenSum(6, 14) // → 19	19	✔	
+teenSum(15, 2) // → 19	19	✔	
+teenSum(19, 19) // → 19	19	✔	
+teenSum(19, 20) // → 19	19	✔	
+teenSum(2, 18) // → 19	19	✔	
+teenSum(12, 4) // → 16	16	✔	
+teenSum(2, 20) // → 22	22	✔	
+teenSum(2, 17) // → 19	19	✔	
+teenSum(2, 16) // → 19	19	✔	
+teenSum(6, 7) // → 13	13	✔
+
+
+function answerCell(isMorning,isMom,isAsleep){
+  if (isAsleep || isMorning && !isMom) {
+    return false;
+  }
+  return true;
+}
+answerCell(false, false, false) // → true	true	✔	
+answerCell(false, false, true) // → false	false	✔	
+answerCell(true, false, false) // → false	false	✔	
+answerCell(true, true, false) // → true	true	✔	
+answerCell(false, true, false) // → true	true	✔	
+answerCell(true, true, true) // → false	false	✔
+
+
+function teaParty(tea,candy){
+  if (tea < 5 || candy < 5) {
+    return 0;
+  }
+  if (tea / candy <= 0.5 || tea /candy >= 2) {
+    return 2;
+  }
+  return 1;
+}
+teaParty(6, 8) // → 1	1	✔	
+teaParty(3, 8) // → 0	0	✔	
+teaParty(20, 6) // → 2	2	✔	
+teaParty(12, 6) // → 2	2	✔	
+teaParty(11, 6) // → 1	1	✔	
+teaParty(11, 4) // → 0	0	✔	
+teaParty(4, 5) // → 0	0	✔	
+teaParty(5, 5) // → 1	1	✔	
+teaParty(6, 6) // → 1	1	✔	
+teaParty(5, 10) // → 2	2	✔	
+teaParty(5, 9) // → 1	1	✔	
+teaParty(10, 4) // → 0	0	✔	
+teaParty(10, 20) // → 2	2	✔
+
+
+function fizzString(str){
+  if (str[0] === 'f' && str[str.length - 1] === 'b') {
+    return 'FizzBuzz';
+  }
+  if (str[0] === 'f') {
+    return 'Fizz';
+  }
+  if (str[str.length - 1] === 'b') {
+    return 'Buzz';
+  }
+  return str;
+}
+fizzString('fig') // → Fizz	Fizz	✔	
+fizzString('dib') // → Buzz	Buzz	✔	
+fizzString('fib') // → FizzBuzz	FizzBuzz	✔	
+fizzString('abc') // → abc	abc	✔	
+fizzString('fooo') // → Fizz	Fizz	✔	
+fizzString('booo') // → booo	booo	✔	
+fizzString('ooob') // → Buzz	Buzz	✔	
+fizzString('fooob') // → FizzBuzz	FizzBuzz	✔	
+fizzString('f') // → Fizz	Fizz	✔	
+fizzString('b') // → Buzz	Buzz	✔	
+fizzString('abcb') // → Buzz	Buzz	✔	
+fizzString('Hello') // → Hello	Hello	✔	
+fizzString('Hellob') // → Buzz	Buzz	✔	
+fizzString('af') // → af	af	✔	
+fizzString('bf') // → bf	bf	✔	
+fizzString('fb') // → FizzBuzz	FizzBuzz	✔
+
+
 function maxMod5(a, b) {
   if (a === b) {
     return 0;
