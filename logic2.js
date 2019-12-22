@@ -67,3 +67,58 @@ loneSum(4, 2, 3) // → 9	9	✔
 loneSum(1, 3, 1) // → 3	3	✔
 
 
+function luckySum(a,b,c){
+  let sum = 0;
+  const arr = [a, b, c];
+  for (let num of arr) {
+    if (num === 13) {
+      return sum;
+    }
+    sum += num;
+  }
+  return sum;
+}
+luckySum(1, 2, 3) // → 6	6	✔	
+luckySum(1, 2, 13) // → 3	3	✔	
+luckySum(1, 13, 3) // → 1	1	✔	
+luckySum(1, 13, 13) // → 1	1	✔	
+luckySum(6, 5, 2) // → 13	13	✔	
+luckySum(13, 2, 3) // → 0	0	✔	
+luckySum(13, 2, 13) // → 0	0	✔	
+luckySum(13, 13, 2) // → 0	0	✔	
+luckySum(9, 4, 13) // → 13	13	✔	
+luckySum(8, 13, 2) // → 8	8	✔	
+luckySum(7, 2, 1) // → 10	10	✔	
+luckySum(3, 3, 13) // → 6	6	✔
+
+
+function noTeenSum(a,b,c){
+  function zeroFilter(num) {
+    if (num === 13 || num === 14) {
+      return 0;
+    }
+    if (num >= 17 && num <= 19) {
+      return 0;
+    }
+    return num;
+  }
+  return zeroFilter(a) + zeroFilter(b) + zeroFilter(c);
+}
+noTeenSum(1, 2, 3) // → 6	6	✔	
+noTeenSum(2, 13, 1) // → 3	3	✔	
+noTeenSum(2, 1, 14) // → 3	3	✔	
+noTeenSum(2, 1, 15) // → 18	18	✔	
+noTeenSum(2, 1, 16) // → 19	19	✔	
+noTeenSum(2, 1, 17) // → 3	3	✔	
+noTeenSum(17, 1, 2) // → 3	3	✔	
+noTeenSum(2, 15, 2) // → 19	19	✔	
+noTeenSum(16, 17, 18) // → 16	16	✔	
+noTeenSum(17, 18, 19) // → 0	0	✔	
+noTeenSum(15, 16, 1) // → 32	32	✔	
+noTeenSum(15, 15, 19) // → 30	30	✔	
+noTeenSum(15, 19, 16) // → 31	31	✔	
+noTeenSum(5, 17, 18) // → 5	5	✔	
+noTeenSum(17, 18, 16) // → 16	16	✔	
+noTeenSum(17, 19, 18) // → 0	0	✔
+
+
