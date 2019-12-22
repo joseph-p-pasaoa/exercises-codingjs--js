@@ -476,6 +476,69 @@ inOrderEqual(9, 2, 2, true) // → false	false	✔
 inOrderEqual(0, 1, 0, true) // → false	false	✔
 
 
+function lastDigitOfThree(a,b,c){
+  const aDigit = a % 10;
+  const bDigit = b % 10;
+  const cDigit = c % 10;
+  return aDigit === bDigit || bDigit === cDigit || cDigit === aDigit;
+}
+lastDigitOfThree(23, 19, 13) // → true	true	✖	
+lastDigitOfThree(23, 19, 12) // → false	false	✔	
+lastDigitOfThree(23, 19, 3) // → true	true	✔	
+lastDigitOfThree(23, 19, 39) // → true	true	✔	
+lastDigitOfThree(1, 2, 3) // → false	false	✔	
+lastDigitOfThree(1, 1, 2) // → true	true	✔	
+lastDigitOfThree(1, 2, 2) // → true	true	✔	
+lastDigitOfThree(14, 25, 43) // → false	false	✔	
+lastDigitOfThree(14, 25, 45) // → true	true	✔	
+lastDigitOfThree(248, 106, 1002) // → false	false	✔	
+lastDigitOfThree(248, 106, 1008) // → true	true	✖	
+lastDigitOfThree(10, 11, 20) // → true	true	✖	
+lastDigitOfThree(0, 11, 0) // → true	true	✔
+
+
+function lessBy10(a,b,c){
+  const aDist = Math.abs(a - b);
+  const bDist = Math.abs(b - c);
+  const cDist = Math.abs(c - a);
+  return aDist >= 10 || bDist >= 10 || cDist >= 10;
+}
+lessBy10(1, 7, 11) // → true	true	✔	
+lessBy10(1, 7, 10) // → false	false	✔	
+lessBy10(11, 1, 7) // → true	true	✔	
+lessBy10(10, 7, 1) // → false	false	✔	
+lessBy10(-10, 2, 2) // → true	true	✔	
+lessBy10(2, 11, 11) // → false	false	✔	
+lessBy10(3, 3, 30) // → true	true	✔	
+lessBy10(3, 3, 3) // → false	false	✔	
+lessBy10(10, 1, 11) // → true	true	✔	
+lessBy10(10, 11, 1) // → true	true	✔	
+lessBy10(10, 11, 2) // → false	false	✔	
+lessBy10(3, 30, 3) // → true	true	✔	
+lessBy10(2, 2, -8) // → true	true	✔	
+lessBy10(2, 8, 12) // → true	true	✔
+
+
+function withoutDoubles(die1,die2,noDoubles){
+  if (die1 === die2 && noDoubles) {  
+    return die1 + die2 + (die1 === 6 ? -5 : 1);
+  }
+  return die1 + die2;
+}
+withoutDoubles(2, 3, true) // → 5	5	✔	
+withoutDoubles(3, 3, true) // → 7	7	✔	
+withoutDoubles(3, 3, false) // → 6	6	✔	
+withoutDoubles(2, 3, false) // → 5	5	✔	
+withoutDoubles(5, 4, true) // → 9	9	✔	
+withoutDoubles(5, 4, false) // → 9	9	✔	
+withoutDoubles(5, 5, true) // → 11	11	✔	
+withoutDoubles(5, 5, false) // → 10	10	✔	
+withoutDoubles(6, 6, true) // → 7	7	✔	
+withoutDoubles(6, 6, false) // → 12	12	✔	
+withoutDoubles(1, 6, true) // → 7	7	✔	
+withoutDoubles(6, 1, false) // → 7	7	✔
+
+
 function maxMod5(a, b) {
   if (a === b) {
     return 0;
