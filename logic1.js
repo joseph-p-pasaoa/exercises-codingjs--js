@@ -635,3 +635,45 @@ blueTicket(13, 2, 3) // → 5	5	✔
 blueTicket(8, 4, 3) // → 0	0	✔	
 blueTicket(8, 4, 2) // → 10	10	✔	
 blueTicket(8, 4, 1) // → 0	0	✔
+
+
+function shareDigit(a,b){
+  let present = {};
+  present[a % 10] = true;
+  present[Math.floor(a / 10)] = true;
+  return !!(present[b % 10] || present[Math.floor(b / 10)]);
+}
+shareDigit(12, 23) // → true	true	✔	
+shareDigit(12, 43) // → false	false	✔	
+shareDigit(12, 44) // → false	false	✔	
+shareDigit(23, 12) // → true	true	✔	
+shareDigit(23, 39) // → true	true	✔	
+shareDigit(23, 19) // → false	false	✔	
+shareDigit(30, 90) // → true	true	✔	
+shareDigit(30, 91) // → false	false	✔	
+shareDigit(55, 55) // → true	true	✔	
+shareDigit(55, 44) // → false	false	✔
+
+
+function sumLimit(a,b){
+  const sum = a + b;
+  if ((a + '').length < (sum + '').length) {
+    return a;
+  }
+  return sum;
+}
+sumLimit(2, 3) // → 5	5	✔	
+sumLimit(8, 3) // → 8	8	✔	
+sumLimit(8, 1) // → 9	9	✔	
+sumLimit(11, 39) // → 50	50	✔	
+sumLimit(11, 99) // → 11	11	✔	
+sumLimit(0, 0) // → 0	0	✔	
+sumLimit(99, 0) // → 99	99	✔	
+sumLimit(99, 1) // → 99	99	✔	
+sumLimit(123, 1) // → 124	124	✔	
+sumLimit(1, 123) // → 1	1	✔	
+sumLimit(23, 60) // → 83	83	✔	
+sumLimit(23, 80) // → 23	23	✔	
+sumLimit(9000, 1) // → 9001	9001	✔	
+sumLimit(90000000, 1) // → 90000001	90000001	✔	
+sumLimit(9000, 1000) // → 9000	9000	✔
