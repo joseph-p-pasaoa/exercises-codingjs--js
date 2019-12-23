@@ -222,6 +222,54 @@ function endsLy(str){
       endsLy('evenly'); // → true	true	✔
 
 
+function nTwice(str,n){
+  return n === 0 ? "" : str.slice(0, n) + str.slice(-n);
+}
+nTwice('hello', 2) // → helo	helo	✔	
+nTwice('Chocolate', 3) // → Choate	Choate	✔	
+nTwice('Chocolate', 1) // → Ce	Ce	✔	
+nTwice('Chocolate', 0) →		✔	
+nTwice('Hello', 4) // → Hellello	Hellello	✔	
+nTwice('Code', 4) // → CodeCode	CodeCode	✔	
+nTwice('Code', 2) // → Code	Code	✔
+
+
+function twoChar(str,index){
+  if (index < 0 || index >= str.length - 1) {
+    return str.slice(0, 2);
+  }
+  return str.slice(index, index + 2);
+}
+twoChar('java', 0) // → ja	ja	✔	
+twoChar('java', 2) // → va	va	✔	
+twoChar('java', 3) // → ja	ja	✔	
+twoChar('java', 4) // → ja	ja	✔	
+twoChar('java', -1) // → ja	ja	✔	
+twoChar('Hello', 0) // → He	He	✔	
+twoChar('Hello', 1) // → el	el	✔	
+twoChar('Hello', 99) // → He	He	✔	
+twoChar('Hello', 3) // → lo	lo	✔	
+twoChar('Hello', 4) // → He	He	✔	
+twoChar('Hello', 5) // → He	He	✔	
+twoChar('Hello', -7) // → He	He	✔	
+twoChar('Hello', 6) // → He	He	✔	
+twoChar('Hello', -1) // → He	He	✔	
+twoChar('yay', 0) // → ya	ya	✔
+
+
+function middleThree(str){
+  const start = Math.floor(str.length / 2) - 1;
+  return str.slice(start, start + 3);
+}
+middleThree('Candy') // → and	and	✔	
+middleThree('and') // → and	and	✔	
+middleThree('solving') // → lvi	lvi	✔	
+middleThree('Hi yet Hi') // → yet	yet	✔	
+middleThree('java yet java') // → yet	yet	✔	
+middleThree('Chocolate') // → col	col	✔	
+middleThree('XabcxyzabcX') // → xyz	xyz	✔
+
+
 function minCat(a, b){
   if (a.length === 0 || b.length === 0) {
     return '';
