@@ -270,6 +270,53 @@ middleThree('Chocolate') // → col	col	✔
 middleThree('XabcxyzabcX') // → xyz	xyz	✔
 
 
+function hasBad(str){
+  return str.slice(0, 4).includes('bad');
+}
+hasBad('badxx') // → true	true	✔	
+hasBad('xbadxx') // → true	true	✔	
+hasBad('xxbadxx') // → false	false	✔	
+hasBad('code') // → false	false	✔	
+hasBad('bad') // → true	true	✔	
+hasBad('ba') // → false	false	✔	
+hasBad('xba') // → false	false	✔	
+hasBad('xbad') // → true	true	✔	
+hasBad('') // → false	false	✔	
+hasBad('badyy') // → true	true	✔
+
+
+function atFirst(str){
+  if (str.length < 2) {
+    return str[0] ? str + '@' : '@@';
+  }
+  return str.slice(0, 2);
+}
+atFirst('hello') // → he	he	✔	
+atFirst('hi') // → hi	hi	✔	
+atFirst('h') // → h@	h@	✔	
+atFirst('') // → @@	@@	✔	
+atFirst('kitten') // → ki	ki	✔	
+atFirst('java') // → ja	ja	✔	
+atFirst('j') // → j@	j@	✔
+
+
+function lastChars(a,b){
+  return (a[0] || '@') + (b[b.length - 1] || '@');
+}
+lastChars('last', 'chars') // → ls	ls	✔	
+lastChars('yo', 'java') // → ya	ya	✔	
+lastChars('hi', '') // → h@	h@	✔	
+lastChars('', 'hello') // → @o	@o	✔	
+lastChars('', '') // → @@	@@	✔	
+lastChars('kitten', 'hi') // → ki	ki	✔	
+lastChars('k', 'zip') // → kp	kp	✔	
+lastChars('kitten', '') // → k@	k@	✔	
+lastChars('kitten', 'zip') // → kp	kp	✔
+
+
+
+
+
 function minCat(a, b){
   if (a.length === 0 || b.length === 0) {
     return '';
