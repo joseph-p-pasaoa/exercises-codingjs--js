@@ -314,7 +314,72 @@ lastChars('kitten', '') // → k@	k@	✔
 lastChars('kitten', 'zip') // → kp	kp	✔
 
 
+function conCat(a,b){
+  if (a.slice(-1) === b[0]) {
+    return a.slice(0, -1) + b;
+  }
+  return a + b;
+}
+conCat('abc', 'cat') // → abcat	abcat	✔	
+conCat('dog', 'cat') // → dogcat	dogcat	✔	
+conCat('abc', '') // → abc	abc	✔	
+conCat('', 'cat') // → cat	cat	✔	
+conCat('pig', 'g') // → pig	pig	✔	
+conCat('pig', 'doggy') // → pigdoggy	pigdoggy	✔
 
+
+function lastTwo(str){
+  if (str.length < 2) {
+    return str;
+  }
+  return str.slice(0, -2) + str[str.length - 1] + str[str.length - 2];
+}
+lastTwo('coding') // → codign	codign	✔	
+lastTwo('cat') // → cta	cta	✔	
+lastTwo('ab') // → ba	ba	✔	
+lastTwo('a') // → a	a	✔	
+lastTwo('') // →		✔
+
+
+function seeColor(str){
+  if (str.slice(0, 3) === 'red') {
+    return 'red';
+  }
+  if (str.slice(0, 4) === 'blue') {
+    return 'blue';
+  }
+  return '';
+}
+seeColor('redxx') // → red	red	✔	
+seeColor('xxred') // →		✔	
+seeColor('blueTimes') // → blue	blue	✔	
+seeColor('NoColor') // →		✔	
+seeColor('red') // → red	red	✔	
+seeColor('re') // →		✔	
+seeColor('blu') // →		✔	
+seeColor('blue') // → blue	blue	✔	
+seeColor('a') // →		✔	
+seeColor('') // →		✔	
+seeColor('xyzred') // →		✔
+
+
+function frontAgain(str){
+  if (str.length < 2) {
+    return false;
+  }
+  return str.slice(0, 2) === str.slice(-2);
+}
+frontAgain('edited') // → true	true	✔	
+frontAgain('edit') // → false	false	✔	
+frontAgain('ed') // → true	true	✔	
+frontAgain('jj') // → true	true	✔	
+frontAgain('jjj') // → true	true	✔	
+frontAgain('jjjj') // → true	true	✔	
+frontAgain('jjjk') // → false	false	✔	
+frontAgain('x') // → false	false	✔	
+frontAgain('') // → false	false	✔	
+frontAgain('java') // → false	false	✔	
+frontAgain('javaja') // → true	true	✔
 
 
 function minCat(a, b){
