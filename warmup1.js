@@ -440,6 +440,51 @@ in3050(35, 36) // → true	true	✔
 in3050(35, 45) // → false	false	✔
 
 
+function max1020(a,b){
+  if (a >= 10 && a <= 20) {
+    if (b >= 10 && b <= 20) {
+      return a > b ? a : b;
+    }
+    return a;
+  }
+  if (b >= 10 && b <= 20) {
+    return b;
+  }
+  return 0;
+}
+max1020(11, 19) // → 19	19	✔	
+max1020(19, 11) // → 19	19	✔	
+max1020(11, 9) // → 11	11	✔	
+max1020(9, 21) // → 0	0	✔	
+max1020(10, 21) // → 10	10	✔	
+max1020(21, 10) // → 10	10	✔	
+max1020(9, 11) // → 11	11	✔	
+max1020(23, 10) // → 10	10	✔	
+max1020(20, 10) // → 20	20	✔	
+max1020(7, 20) // → 20	20	✔	
+max1020(17, 16) // → 17	17	✔
+
+
+function stringE(str){
+  let counter = 3;
+  for (let char of str) {
+    if (char === 'e') {
+      counter -= 1;
+    }
+    if (counter < 0) {
+      return false;
+    }
+  }
+  return counter === 3 ? false : true;
+}
+stringE('Hello') // → true	true	✔	
+stringE('Heelle') // → true	true	✔	
+stringE('Heelele') // → false	false	✔	
+stringE('HII') // → false	false	✔	
+stringE('e') // → true	true	✔	
+stringE('') // → false	false	✔
+
+
 function lastDigit(a,b){
   return a % 10 === b % 10;
 }
