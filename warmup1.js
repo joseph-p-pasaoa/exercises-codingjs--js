@@ -170,90 +170,90 @@ function frontBack(str){
   output.push(temp);
   return output.join('');
 }
-      frontBack('code') // → eodc	eodc	✔	
-      frontBack('a') // → a	a	✔	
-      frontBack('ab') // → ba	ba	✔	
-      frontBack('abc') // → cba	cba	✔	
-      frontBack('') // →		✔	
-      frontBack('Chocolate') // → ehocolatC	ehocolatC	✔	
-      frontBack('aavj') // → java	java	✔	
-      frontBack('hello') // → oellh	oellh	✔ 
+frontBack('code') // → eodc	eodc	✔	
+frontBack('a') // → a	a	✔	
+frontBack('ab') // → ba	ba	✔	
+frontBack('abc') // → cba	cba	✔	
+frontBack('') // →		✔	
+frontBack('Chocolate') // → ehocolatC	ehocolatC	✔	
+frontBack('aavj') // → java	java	✔	
+frontBack('hello') // → oellh	oellh	✔ 
 
 
 function front3(str){
   return str.slice(0,3) + str.slice(0,3) + str.slice(0,3);
 }
-      front3('Java') // → JavJavJav	JavJavJav	✔	
-      front3('Chocolate') // → ChoChoCho	ChoChoCho	✔	
-      front3('abc') // → abcabcabc	abcabcabc	✔	
-      front3('abcXYZ') // → abcabcabc	abcabcabc	✔	
-      front3('ab') // → ababab	ababab	✔	
-      front3('a') // → aaa	aaa	✔	
-      front3('') // →		✔
+front3('Java') // → JavJavJav	JavJavJav	✔	
+front3('Chocolate') // → ChoChoCho	ChoChoCho	✔	
+front3('abc') // → abcabcabc	abcabcabc	✔	
+front3('abcXYZ') // → abcabcabc	abcabcabc	✔	
+front3('ab') // → ababab	ababab	✔	
+front3('a') // → aaa	aaa	✔	
+front3('') // →		✔
 
 
 function backAround(str){
   return str[str.length -1] + str + str[str.length -1];
 }
-      backAround('cat') // → tcatt	tcatt	✔	
-      backAround('Hello') // → oHelloo	oHelloo	✔	
-      backAround('a') // → aaa	aaa	✔	
-      backAround('abc') // → cabcc	cabcc	✔	
-      backAround('read') // → dreadd	dreadd	✔	
-      backAround('boo') // → obooo	obooo	✔
+backAround('cat') // → tcatt	tcatt	✔	
+backAround('Hello') // → oHelloo	oHelloo	✔	
+backAround('a') // → aaa	aaa	✔	
+backAround('abc') // → cabcc	cabcc	✔	
+backAround('read') // → dreadd	dreadd	✔	
+backAround('boo') // → obooo	obooo	✔
 
 
 function or35(n){
   return !(n % 3) || !(n % 5);
 }
-      or35(3) // → true	true	✔	
-      or35(10) // → true	true	✔	
-      or35(8) // → false	false	✔	
-      or35(15) // → true	true	✔	
-      or35(5) // → true	true	✔	
-      or35(4) // → false	false	✔	
-      or35(9) // → true	true	✔	
-      or35(4) // → false	false	✔	
-      or35(7) // → false	false	✔	
-      or35(6) // → true	true	✔	
-      or35(17) // → false	false	✔	
-      or35(18) // → true	true	✔	
-      or35(29) // → false	false	✔	
-      or35(20) // → true	true	✔	
-      or35(21) // → true	true	✔	
-      or35(22) // → false	false	✔	
-      or35(45) // → true	true	✔	
-      or35(99) // → true	true	✔	
-      or35(100) // → true	true	✔	
-      or35(101) // → false	false	✔	
-      or35(121) // → false	false	✔	
-      or35(122) // → false	false	✔	
-      or35(123) // → true	true	✔
+or35(3) // → true	true	✔	
+or35(10) // → true	true	✔	
+or35(8) // → false	false	✔	
+or35(15) // → true	true	✔	
+or35(5) // → true	true	✔	
+or35(4) // → false	false	✔	
+or35(9) // → true	true	✔	
+or35(4) // → false	false	✔	
+or35(7) // → false	false	✔	
+or35(6) // → true	true	✔	
+or35(17) // → false	false	✔	
+or35(18) // → true	true	✔	
+or35(29) // → false	false	✔	
+or35(20) // → true	true	✔	
+or35(21) // → true	true	✔	
+or35(22) // → false	false	✔	
+or35(45) // → true	true	✔	
+or35(99) // → true	true	✔	
+or35(100) // → true	true	✔	
+or35(101) // → false	false	✔	
+or35(121) // → false	false	✔	
+or35(122) // → false	false	✔	
+or35(123) // → true	true	✔
 
 
 function front22(str){
   return str.slice(0,2) + str + str.slice(0,2);
 }
-      front22('kitten') // → kikittenki	kikittenki	✔	
-      front22('Ha') // → HaHaHa	HaHaHa	✔	
-      front22('abc') // → ababcab	ababcab	✔	
-      front22('ab') // → ababab	ababab	✔	
-      front22('a') // → aaa	aaa	✔	
-      front22('') // →		✔	
-      front22('Logic') // → LoLogicLo	LoLogicLo	✔
+front22('kitten') // → kikittenki	kikittenki	✔	
+front22('Ha') // → HaHaHa	HaHaHa	✔	
+front22('abc') // → ababcab	ababcab	✔	
+front22('ab') // → ababab	ababab	✔	
+front22('a') // → aaa	aaa	✔	
+front22('') // →		✔	
+front22('Logic') // → LoLogicLo	LoLogicLo	✔
 
 
 function startHi(str){
   return str.slice(0,2) === "hi";
 }
-      startHi('hi there') // → true	true	✔	
-      startHi('hi') // → true	true	✔	
-      startHi('hello hi') // → false	false	✔	
-      startHi('he') // → false	false	✔	
-      startHi('h') // → false	false	✔	
-      startHi('') // → false	false	✔	
-      startHi('ho hi') // → false	false	✔	
-      startHi('hi ho') // → true	true	✔
+startHi('hi there') // → true	true	✔	
+startHi('hi') // → true	true	✔	
+startHi('hello hi') // → false	false	✔	
+startHi('he') // → false	false	✔	
+startHi('h') // → false	false	✔	
+startHi('') // → false	false	✔	
+startHi('ho hi') // → false	false	✔	
+startHi('hi ho') // → true	true	✔
 
 
 function icyHot(temp1,temp2){
@@ -265,24 +265,24 @@ function icyHot(temp1,temp2){
   }
   return false;
 }
-      icyHot(120, -1) // → true	true	✔	
-      icyHot(-1, 120) // → true	true	✔	
-      icyHot(2, 120) // → false	false	✔	
-      icyHot(-1, 100) // → false	false	✔	
-      icyHot(-2, 120) // → true	true	✔	
-      icyHot(120, 120) // → false	false	✔
+icyHot(120, -1) // → true	true	✔	
+icyHot(-1, 120) // → true	true	✔	
+icyHot(2, 120) // → false	false	✔	
+icyHot(-1, 100) // → false	false	✔	
+icyHot(-2, 120) // → true	true	✔	
+icyHot(120, 120) // → false	false	✔
 
 
 function in1020(a,b){
   return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
 }
-      in1020(12, 99) // → true	true	✔	
-      in1020(21, 12) // → true	true	✔	
-      in1020(8, 99) // → false	false	✔	
-      in1020(99, 10) // → true	true	✔	
-      in1020(20, 20) // → true	true	✔	
-      in1020(21, 21) // → false	false	✔	
-      in1020(9, 9) // → false	false	✔
+in1020(12, 99) // → true	true	✔	
+in1020(21, 12) // → true	true	✔	
+in1020(8, 99) // → false	false	✔	
+in1020(99, 10) // → true	true	✔	
+in1020(20, 20) // → true	true	✔	
+in1020(21, 21) // → false	false	✔	
+in1020(9, 9) // → false	false	✔
 
 
 function hasTeen(a,b,c){
@@ -291,17 +291,17 @@ function hasTeen(a,b,c){
   }
   return c >= 13 && c <= 19;
 }
-      hasTeen(13, 20, 10) // → true	true	✔	
-      hasTeen(20, 19, 10) // → true	true	✔	
-      hasTeen(20, 10, 13) // → true	true	✔	
-      hasTeen(1, 20, 12) // → false	false	✔	
-      hasTeen(19, 20, 12) // → true	true	✔	
-      hasTeen(12, 20, 19) // → true	true	✔	
-      hasTeen(12, 9, 20) // → false	false	✔	
-      hasTeen(12, 18, 20) // → true	true	✔	
-      hasTeen(14, 2, 20) // → true	true	✔	
-      hasTeen(4, 2, 20) // → false	false	✔	
-      hasTeen(11, 22, 22) // → false	false	✔
+hasTeen(13, 20, 10) // → true	true	✔	
+hasTeen(20, 19, 10) // → true	true	✔	
+hasTeen(20, 10, 13) // → true	true	✔	
+hasTeen(1, 20, 12) // → false	false	✔	
+hasTeen(19, 20, 12) // → true	true	✔	
+hasTeen(12, 20, 19) // → true	true	✔	
+hasTeen(12, 9, 20) // → false	false	✔	
+hasTeen(12, 18, 20) // → true	true	✔	
+hasTeen(14, 2, 20) // → true	true	✔	
+hasTeen(4, 2, 20) // → false	false	✔	
+hasTeen(11, 22, 22) // → false	false	✔
 
 
 function loneTeen(a,b){
@@ -315,19 +315,19 @@ function loneTeen(a,b){
   }
   return false;
 }
-      loneTeen(13, 99) // → true	true	✔	
-      loneTeen(21, 19) // → true	true	✔	
-      loneTeen(13, 13) // → false	false	✔	
-      loneTeen(14, 20) // → true	true	✔	
-      loneTeen(20, 15) // → true	true	✔	
-      loneTeen(16, 17) // → false	false	✔	
-      loneTeen(16, 9) // → true	true	✔	
-      loneTeen(16, 18) // → false	false	✔	
-      loneTeen(13, 19) // → false	false	✔	
-      loneTeen(13, 20) // → true	true	✔	
-      loneTeen(6, 18) // → true	true	✔	
-      loneTeen(99, 13) // → true	true	✔	
-      loneTeen(99, 99) // → false	false	✔
+loneTeen(13, 99) // → true	true	✔	
+loneTeen(21, 19) // → true	true	✔	
+loneTeen(13, 13) // → false	false	✔	
+loneTeen(14, 20) // → true	true	✔	
+loneTeen(20, 15) // → true	true	✔	
+loneTeen(16, 17) // → false	false	✔	
+loneTeen(16, 9) // → true	true	✔	
+loneTeen(16, 18) // → false	false	✔	
+loneTeen(13, 19) // → false	false	✔	
+loneTeen(13, 20) // → true	true	✔	
+loneTeen(6, 18) // → true	true	✔	
+loneTeen(99, 13) // → true	true	✔	
+loneTeen(99, 99) // → false	false	✔
 
 
 function delDel(str){
@@ -336,43 +336,43 @@ function delDel(str){
   }
   return str;
 }
-      delDel('adelbc') // → abc	abc	✔	
-      delDel('adelHello') // → aHello	aHello	✔	
-      delDel('abcdel') // → abcdel	abcdel	✔	
-      delDel('add') // → add	add	✔	
-      delDel('ad') // → ad	ad	✔	
-      delDel('a') // → a	a	✔	
-      delDel('') // →		✔	
-      delDel('del') // → del	del	✔	
-      delDel('adel') // → a	a	✔	
-      delDel('aadelbb') // → aadelbb	aadelbb	✔
+delDel('adelbc') // → abc	abc	✔	
+delDel('adelHello') // → aHello	aHello	✔	
+delDel('abcdel') // → abcdel	abcdel	✔	
+delDel('add') // → add	add	✔	
+delDel('ad') // → ad	ad	✔	
+delDel('a') // → a	a	✔	
+delDel('') // →		✔	
+delDel('del') // → del	del	✔	
+delDel('adel') // → a	a	✔	
+delDel('aadelbb') // → aadelbb	aadelbb	✔
 
 
 function mixStart(str){
   return str.slice(1, 3) === "ix";
 }
-      mixStart('mix snacks') // → true	true	✔	
-      mixStart('pix snacks') // → true	true	✔	
-      mixStart('piz snacks') // → false	false	✔	
-      mixStart('nix') // → true	true	✔	
-      mixStart('ni') // → false	false	✔	
-      mixStart('n') // → false	false	✔
+mixStart('mix snacks') // → true	true	✔	
+mixStart('pix snacks') // → true	true	✔	
+mixStart('piz snacks') // → false	false	✔	
+mixStart('nix') // → true	true	✔	
+mixStart('ni') // → false	false	✔	
+mixStart('n') // → false	false	✔
 
 
 function startOz(str){
   return (str[0] === "o" ? "o" : "") + (str[1] === "z" ? "z" : "");
 }
-      startOz('ozymandias') // → oz	oz	✔	
-      startOz('bzoo') // → z	z	✔	
-      startOz('oxx') // → o	o	✔	
-      startOz('ounce') // → o	o	✔	
-      startOz('o') // → o	o	✔	
-      startOz('abc') // →		✔	
-      startOz('') // →		✔	
-      startOz('zoo') // →		✔	
-      startOz('aztec') // → z	z	✔	
-      startOz('zzzz') // → z	z	✔	
-      startOz('oznic') // → oz	oz	✔
+startOz('ozymandias') // → oz	oz	✔	
+startOz('bzoo') // → z	z	✔	
+startOz('oxx') // → o	o	✔	
+startOz('ounce') // → o	o	✔	
+startOz('o') // → o	o	✔	
+startOz('abc') // →		✔	
+startOz('') // →		✔	
+startOz('zoo') // →		✔	
+startOz('aztec') // → z	z	✔	
+startOz('zzzz') // → z	z	✔	
+startOz('oznic') // → oz	oz	✔
 
 
 function intMax(a,b,c){
@@ -381,17 +381,17 @@ function intMax(a,b,c){
   }
   return b > c ? b : c;
 }
-      intMax(1, 2, 3) // → 3	3	✔	
-      intMax(1, 3, 2) // → 3	3	✔	
-      intMax(3, 2, 1) // → 3	3	✔	
-      intMax(9, 3, 3) // → 9	9	✔	
-      intMax(3, 9, 3) // → 9	9	✔	
-      intMax(3, 3, 9) // → 9	9	✔	
-      intMax(8, 2, 3) // → 8	8	✔	
-      intMax(-3, -1, -2) // → -1	-1	✔	
-      intMax(6, 2, 5) // → 6	6	✔	
-      intMax(5, 6, 2) // → 6	6	✔	
-      intMax(5, 2, 6) // → 6	6	✔
+intMax(1, 2, 3) // → 3	3	✔	
+intMax(1, 3, 2) // → 3	3	✔	
+intMax(3, 2, 1) // → 3	3	✔	
+intMax(9, 3, 3) // → 9	9	✔	
+intMax(3, 9, 3) // → 9	9	✔	
+intMax(3, 3, 9) // → 9	9	✔	
+intMax(8, 2, 3) // → 8	8	✔	
+intMax(-3, -1, -2) // → -1	-1	✔	
+intMax(6, 2, 5) // → 6	6	✔	
+intMax(5, 6, 2) // → 6	6	✔	
+intMax(5, 2, 6) // → 6	6	✔
 
 
 function close10(a,b){
@@ -400,18 +400,18 @@ function close10(a,b){
   }
   return Math.abs(10 - a) < Math.abs(10 - b) ? a : b;
 }
-      close10(8, 13) // → 8	8	✔	
-      close10(13, 8) // → 8	8	✔	
-      close10(13, 7) // → 0	0	✔	
-      close10(7, 13) // → 0	0	✔	
-      close10(9, 13) // → 9	9	✔	
-      close10(13, 8) // → 8	8	✔	
-      close10(10, 12) // → 10	10	✔	
-      close10(11, 10) // → 10	10	✔	
-      close10(5, 21) // → 5	5	✔	
-      close10(0, 20) // → 0	0	✔	
-      close10(0, 20) // → 0	0	✔	
-      close10(10, 10) // → 0	0	✔
+close10(8, 13) // → 8	8	✔	
+close10(13, 8) // → 8	8	✔	
+close10(13, 7) // → 0	0	✔	
+close10(7, 13) // → 0	0	✔	
+close10(9, 13) // → 9	9	✔	
+close10(13, 8) // → 8	8	✔	
+close10(10, 12) // → 10	10	✔	
+close10(11, 10) // → 10	10	✔	
+close10(5, 21) // → 5	5	✔	
+close10(0, 20) // → 0	0	✔	
+close10(0, 20) // → 0	0	✔	
+close10(10, 10) // → 0	0	✔
 
 
 function in3050(a,b){
@@ -426,30 +426,30 @@ function in3050(a,b){
   }
   return false;
 }
-      in3050(30, 31) // → true	true	✔	
-      in3050(30, 41) // → false	false	✔	
-      in3050(40, 50) // → true	true	✔	
-      in3050(40, 51) // → false	false	✔	
-      in3050(39, 50) // → false	false	✔	
-      in3050(50, 39) // → false	false	✔	
-      in3050(40, 39) // → true	true	✔	
-      in3050(49, 48) // → true	true	✔	
-      in3050(50, 40) // → true	true	✔	
-      in3050(50, 51) // → false	false	✔	
-      in3050(35, 36) // → true	true	✔	
-      in3050(35, 45) // → false	false	✔
+in3050(30, 31) // → true	true	✔	
+in3050(30, 41) // → false	false	✔	
+in3050(40, 50) // → true	true	✔	
+in3050(40, 51) // → false	false	✔	
+in3050(39, 50) // → false	false	✔	
+in3050(50, 39) // → false	false	✔	
+in3050(40, 39) // → true	true	✔	
+in3050(49, 48) // → true	true	✔	
+in3050(50, 40) // → true	true	✔	
+in3050(50, 51) // → false	false	✔	
+in3050(35, 36) // → true	true	✔	
+in3050(35, 45) // → false	false	✔
 
 
 function lastDigit(a,b){
   return a % 10 === b % 10;
 }
-      lastDigit(7, 17) // → true	true	✔	
-      lastDigit(6, 17) // → false	false	✔	
-      lastDigit(3, 113) // → true	true	✔	
-      lastDigit(114, 113) // → false	false	✔	
-      lastDigit(114, 4) // → true	true	✔	
-      lastDigit(10, 0) // → true	true	✔	
-      lastDigit(11, 0) // → false	false	✔
+lastDigit(7, 17) // → true	true	✔	
+lastDigit(6, 17) // → false	false	✔	
+lastDigit(3, 113) // → true	true	✔	
+lastDigit(114, 113) // → false	false	✔	
+lastDigit(114, 4) // → true	true	✔	
+lastDigit(10, 0) // → true	true	✔	
+lastDigit(11, 0) // → false	false	✔
 
 
 function endUp(str){
