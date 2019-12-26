@@ -1,3 +1,11 @@
+// Joseph P. Pasaoa
+// JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+//
+
+
+
+// Warmup-1 //
+
 function sleepIn(weekday,vacation){
   return !weekday || vacation;
 }
@@ -444,4 +452,29 @@ function lastDigit(a,b){
       lastDigit(11, 0) // → false	false	✔
 
 
-      
+function endUp(str){
+  return str.slice(0, -3) + str.slice(-3).toUpperCase();
+}
+endUp('Hello') // → HeLLO	HeLLO	✔	
+endUp('hi there') // → hi thERE	hi thERE	✔	
+endUp('hi') // → HI	HI	✔	
+endUp('woo hoo') // → woo HOO	woo HOO	✔	
+endUp('xyz12') // → xyZ12	xyZ12	✔	
+endUp('x') // → X	X	✔	
+endUp('') →		✔
+
+
+function everyNth(str,n){
+  let output = "";
+  for (let i = 0; i < str.length; i += n) {
+    output += str[i];
+  }
+  return output;
+}
+everyNth('Miracle', 2) // → Mrce	Mrce	✔	
+everyNth('abcdefg', 2) // → aceg	aceg	✔	
+everyNth('abcdefg', 3) // → adg	adg	✔	
+everyNth('Chocolate', 3) // → Cca	Cca	✔	
+everyNth('Chocolates', 3) // → Ccas	Ccas	✔	
+everyNth('Chocolates', 4) // → Coe	Coe	✔	
+everyNth('Chocolates', 100) // → C	C	✔
