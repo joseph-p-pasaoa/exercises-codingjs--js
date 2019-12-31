@@ -75,3 +75,43 @@ rotateLeft3([1, 2, 1]) // → 2,1,1	2,1,1	✔
 rotateLeft3([0, 0, 1]) // → 0,1,0	0,1,0	✔
 
 
+function reverse3(nums){
+  return nums.reverse();
+}
+reverse3([1, 2, 3]) // → 3,2,1	3,2,1	✔	
+reverse3([5, 11, 9]) // → 9,11,5	9,11,5	✔	
+reverse3([7, 0, 0]) // → 0,0,7	0,0,7	✔	
+reverse3([2, 1, 2]) // → 2,1,2	2,1,2	✔	
+reverse3([1, 2, 1]) // → 1,2,1	1,2,1	✔	
+reverse3([2, 11, 3]) // → 3,11,2	3,11,2	✔	
+reverse3([0, 6, 5]) // → 5,6,0	5,6,0	✔	
+reverse3([7, 2, 3]) // → 3,2,7	3,2,7	✔
+
+
+function maxEnd3(nums){
+  const winner = nums[0] > nums[nums.length - 1] ? nums[0] : nums[nums.length - 1];
+  return [winner, winner, winner];
+}
+maxEnd3([1, 2, 3]) // → 3,3,3	3,3,3	✔	
+maxEnd3([11, 5, 9]) // → 11,11,11	11,11,11	✔	
+maxEnd3([2, 11, 3]) // → 3,3,3	3,3,3	✔	
+maxEnd3([11, 3, 3]) // → 11,11,11	11,11,11	✔	
+maxEnd3([3, 11, 11]) // → 11,11,11	11,11,11	✔	
+maxEnd3([2, 2, 2]) // → 2,2,2	2,2,2	✔	
+maxEnd3([2, 11, 2]) // → 2,2,2	2,2,2	✔	
+maxEnd3([0, 0, 1]) // → 1,1,1	1,1,1	✔
+
+
+function sum2(nums){
+  return (nums[0] || 0) + (nums[1] || 0);
+}
+sum2([1, 2, 3]) // → 3	3	✔	
+sum2([1, 1]) // → 2	2	✔	
+sum2([1, 1, 1, 1]) // → 2	2	✔	
+sum2([1, 2]) // → 3	3	✔	
+sum2([1]) // → 1	1	✔	
+sum2([]) // → 0	0	✔	
+sum2([4, 5, 6]) // → 9	9	✔	
+sum2([4]) // → 4	4	✔
+
+
