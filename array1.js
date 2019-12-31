@@ -115,3 +115,41 @@ sum2([4, 5, 6]) // → 9	9	✔
 sum2([4]) // → 4	4	✔
 
 
+function middleWay(a,b){
+  return [a[1], b[1]];
+}
+middleWay([1, 2, 3], [4, 5, 6]) // → 2,5	2,5	✔	
+middleWay([7, 7, 7], [3, 8, 0]) // → 7,8	7,8	✔	
+middleWay([5, 2, 9], [1, 4, 5]) // → 2,4	2,4	✔	
+middleWay([1, 9, 7], [4, 8, 8]) // → 9,8	9,8	✔	
+middleWay([1, 2, 3], [3, 1, 4]) // → 2,1	2,1	✔	
+middleWay([1, 2, 3], [4, 1, 1]) // → 2,1	2,1	✔
+
+
+function makeEnds(nums){
+  return [nums[0], nums[nums.length - 1]];
+}
+makeEnds([1, 2, 3]) // → 1,3	1,3	✔	
+makeEnds([1, 2, 3, 4]) // → 1,4	1,4	✔	
+makeEnds([7, 4, 6, 2]) // → 7,2	7,2	✔	
+makeEnds([1, 2, 2, 2, 2, 2, 2, 3]) // → 1,3	1,3	✔	
+makeEnds([7, 4]) // → 7,4	7,4	✔	
+makeEnds([7]) // → 7,7	7,7	✔	
+makeEnds([5, 2, 9]) // → 5,9	5,9	✔	
+makeEnds([2, 3, 4, 1]) // → 2,1	2,1	✔
+
+
+function has23(nums){
+  return nums.reduce((acc, curr) => acc || (curr === 2 || curr === 3), false);
+}
+has23([2, 5]) // → true	true	✔	
+has23([4, 3]) // → true	true	✔	
+has23([4, 5]) // → false	false	✔	
+has23([2, 2]) // → true	true	✔	
+has23([3, 2]) // → true	true	✔	
+has23([3, 3]) // → true	true	✔	
+has23([7, 7]) // → false	false	✔	
+has23([3, 9]) // → true	true	✔	
+has23([9, 5]) // → false	false	✔
+
+
