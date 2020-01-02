@@ -108,9 +108,6 @@ triangle(7) // → 28	28	✔
 
 function sumDigits1(n){
   let next = Math.floor(n / 10);
-  if (next < 0) {
-    return;
-  }
   if (next === 0) {
     return n;
   }
@@ -131,9 +128,6 @@ sumDigits1(235) // → 10	10	✔
 
 function count7(n){
   let next = Math.floor(n / 10);
-  if (next < 0) {
-    return;
-  }
   if (next === 0) {
     return n === 7 ? 1 : 0;
   }
@@ -156,9 +150,6 @@ count7(99799) // → 1	1	✔
 
 function count8(n){
   const next = Math.floor(n / 10);
-  if (next < 0) {
-    return;
-  }
   if (next === 0) {
     return n === 8 ? 1 : 0;
   }
