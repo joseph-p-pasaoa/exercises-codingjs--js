@@ -241,7 +241,7 @@ countHi('hiho not HOHIhi') // → 2	2	✔
 
 function changeXY(str){
   if (str.length < 1) {
-    return '';
+    return str;
   }
   if (str.length === 1) {
     return str === 'x' ? 'y' : str;
@@ -258,5 +258,29 @@ changeXY('') →		✔
 changeXY('xxx') // → yyy	yyy	✔	
 changeXY('yyhxyi') // → yyhyyi	yyhyyi	✔	
 changeXY('hihi') // → hihi	hihi	✔
+
+
+function changePi(str){
+  if (str.length < 2) {
+    return str;
+  }
+  if (str.length === 2) {
+    return (str === 'pi' ? '3.14' : str);
+  }
+  if (str.slice(0, 2) === 'pi') {
+    return '3.14' + changePi(str.slice(2));
+  }
+  return str[0] + changePi(str.slice(1));
+}
+changePi('xpix') // → x3.14x	x3.14x	✔	
+changePi('pipi') // → 3.143.14	3.143.14	✔	
+changePi('pip') // → 3.14p	3.14p	✔	
+changePi('pi') // → 3.14	3.14	✔	
+changePi('hip') // → hip	hip	✔	
+changePi('p') // → p	p	✔	
+changePi('x') // → x	x	✔	
+changePi('') // →		✔	
+changePi('pixx') // → 3.14xx	3.14xx	✔	
+changePi('xyzzy') // → xyzzy	xyzzy	✔
 
 
