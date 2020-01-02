@@ -200,3 +200,63 @@ powerN(10, 2) // → 100	100	✔
 powerN(10, 3) // → 1000	1000	✔
 
 
+function countX(str){
+  if (str.length < 1) {
+    return 0;
+  }
+  if (str.length === 1) {
+    return str[0] === 'x' ? 1 : 0;
+  }
+  return (str[0] === 'x' ? 1 : 0) + countX(str.slice(1));
+}
+countX('xxhixx') // → 4	4	✔	
+countX('xhixhix') // → 3	3	✔	
+countX('hi') // → 0	0	✔	
+countX('h') // → 0	0	✔	
+countX('x') // → 1	1	✔	
+countX('') // → 0	0	✔	
+countX('hihi') // → 0	0	✔	
+countX('hiAAhi12hi') // → 0	0	✔
+
+
+function countHi(str){
+  if (str.length < 2) {
+    return 0;
+  }
+  if (str.length === 2) {
+    return str === 'hi' ? 1 : 0;
+  }
+  return (str.slice(0, 2) === 'hi' ? 1 : 0) + countHi(str.slice(1));
+}
+countHi('abc hi ho') // → 1	1	✔	
+countHi('ABChi hi') // → 2	2	✔	
+countHi('hihi') // → 2	2	✔	
+countHi('hiHIhi') // → 2	2	✔	
+countHi('') // → 0	0	✔	
+countHi('h') // → 0	0	✔	
+countHi('hi') // → 1	1	✔	
+countHi('Hi is no HI on ahI') // → 0	0	✔	
+countHi('hiho not HOHIhi') // → 2	2	✔
+
+
+function changeXY(str){
+  if (str.length < 1) {
+    return '';
+  }
+  if (str.length === 1) {
+    return str === 'x' ? 'y' : str;
+  }
+  return (str[0] === 'x' ? 'y' : str[0]) + changeXY(str.slice(1));
+}
+changeXY('codex') // → codey	codey	✔	
+changeXY('xxhixx') // → yyhiyy	yyhiyy	✔	
+changeXY('xhixhix') // → yhiyhiy	yhiyhiy	✔	
+changeXY('hiy') // → hiy	hiy	✔	
+changeXY('h') // → h	h	✔	
+changeXY('x') // → y	y	✔	
+changeXY('') →		✔	
+changeXY('xxx') // → yyy	yyy	✔	
+changeXY('yyhxyi') // → yyhyyi	yyhyyi	✔	
+changeXY('hihi') // → hihi	hihi	✔
+
+
