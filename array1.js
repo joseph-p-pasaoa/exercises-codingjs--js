@@ -153,3 +153,57 @@ has23([3, 9]) // → true	true	✔
 has23([9, 5]) // → false	false	✔
 
 
+function no23(nums){
+  const x = nums[0];
+  const y = nums[1];
+  return x !== 2 && x !== 3 && y !== 2 && y !== 3; 
+}
+no23([4, 5]) // → true	true	✔	
+no23([4, 2]) // → false	false	✔	
+no23([3, 5]) // → false	false	✔	
+no23([1, 9]) // → true	true	✔	
+no23([2, 9]) // → false	false	✔	
+no23([1, 3]) // → false	false	✔	
+no23([1, 1]) // → true	true	✔	
+no23([2, 2]) // → false	false	✔	
+no23([3, 3]) // → false	false	✔	
+no23([7, 8]) // → true	true	✔	
+no23([8, 7]) // → true	true	✔
+
+
+function makeLast(nums){
+  const outputArr = [0];
+  for (let i = 1; i <= nums.length * 2 - 2; i++) {
+    outputArr.push(0);
+  }
+  outputArr.push(nums[nums.length - 1]);
+  return outputArr;
+}
+makeLast([4, 5, 6]) // → 0,0,0,0,0,6	0,0,0,0,0,6	✔	
+makeLast([1, 2]) // → 0,0,0,2	0,0,0,2	✔	
+makeLast([3]) // → 0,3	0,3	✔	
+makeLast([0]) // → 0,0	0,0	✔	
+makeLast([7, 7, 7]) // → 0,0,0,0,0,7	0,0,0,0,0,7	✔	
+makeLast([3, 1, 4]) // → 0,0,0,0,0,4	0,0,0,0,0,4	✔	
+makeLast([1, 2, 3, 4]) // → 0,0,0,0,0,0,0,4	0,0,0,0,0,0,0,4	✔	
+makeLast([1, 2, 3, 0]) // → 0,0,0,0,0,0,0,0	0,0,0,0,0,0,0,0	✔	
+makeLast([2, 4]) // → 0,0,0,4	0,0,0,4	✔
+
+
+function double23(nums){
+  if (nums.length === 2) {
+    return nums.every(num => num === 2) || nums.every(num => num === 3);
+  }
+  return false;
+}
+double23([2, 2]) // → true	true	✔	
+double23([3, 3]) // → true	true	✔	
+double23([2, 3]) // → false	false	✔	
+double23([3, 2]) // → false	false	✔	
+double23([4, 5]) // → false	false	✔	
+double23([2]) // → false	false	✔	
+double23([3]) // → false	false	✔	
+double23([]) // → false	false	✔	
+double23([3, 4]) // → false	false	✔
+
+
