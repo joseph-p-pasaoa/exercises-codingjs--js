@@ -241,3 +241,59 @@ start1([], []) // → 0	0	✔
 start1([1, 3], [1]) // → 2	2	✔
 
 
+function biggerTwo(a,b){
+  const balance = a[0] + a[1] - (b[0] + b[1]);
+  return balance < 0 ? b : a;
+}
+biggerTwo([1, 2], [3, 4]) // → 3,4	3,4	✔	
+biggerTwo([3, 4], [1, 2]) // → 3,4	3,4	✔	
+biggerTwo([1, 1], [1, 2]) // → 1,2	1,2	✔	
+biggerTwo([2, 1], [1, 1]) // → 2,1	2,1	✔	
+biggerTwo([2, 2], [1, 3]) // → 2,2	2,2	✔	
+biggerTwo([1, 3], [2, 2]) // → 1,3	1,3	✔	
+biggerTwo([6, 7], [3, 1]) // → 6,7	6,7	✔
+
+
+function makeMiddle(nums){
+  return [nums[nums.length / 2 - 1], nums[nums.length / 2]];
+}
+makeMiddle([1, 2, 3, 4]) // → 2,3	2,3	✔	
+makeMiddle([7, 1, 2, 3, 4, 9]) // → 2,3	2,3	✔	
+makeMiddle([1, 2]) // → 1,2	1,2	✔	
+makeMiddle([5, 2, 4, 7]) // → 2,4	2,4	✔	
+makeMiddle([9, 0, 4, 3, 9, 1]) // → 4,3	4,3	✔
+
+
+function plusTwo(a,b){
+  return [...a, ...b];
+}
+plusTwo([1, 2], [3, 4]) // → 1,2,3,4	1,2,3,4	✔	
+plusTwo([4, 4], [2, 2]) // → 4,4,2,2	4,4,2,2	✔	
+plusTwo([9, 2], [3, 4]) // → 9,2,3,4	9,2,3,4	✔
+
+
+function swapEnds(nums){
+  if (nums.length > 1) {
+    const [ toEnd, toStart ] = [ nums.shift(), nums.pop() ];
+    nums.unshift(toStart);
+    nums.push(toEnd);
+  }
+  return nums;
+}
+swapEnds([1, 2, 3, 4]) // → 4,2,3,1	4,2,3,1	✔	
+swapEnds([1, 2, 3]) // → 3,2,1	3,2,1	✔	
+swapEnds([8, 6, 7, 9, 5]) // → 5,6,7,9,8	5,6,7,9,8	✔	
+swapEnds([3, 1, 4, 1, 5, 9]) // → 9,1,4,1,5,3	9,1,4,1,5,3	✔	
+swapEnds([1, 2]) // → 2,1	2,1	✔	
+swapEnds([1]) // → 1	1	✔
+
+
+function midThree(nums){
+  const a = Math.floor(nums.length / 2 - 1);
+  return [ nums[a], nums[a + 1], nums[a + 2] ];
+}
+midThree([1, 2, 3, 4, 5]) // → 2,3,4	2,3,4	✔	
+midThree([8, 6, 7, 5, 3, 0, 9]) // → 7,5,3	7,5,3	✔	
+midThree([1, 2, 3]) // → 1,2,3	1,2,3	✔
+
+
