@@ -207,3 +207,19 @@ double23([]) // → false	false	✔
 double23([3, 4]) // → false	false	✔
 
 
+function fix23(nums){
+  return nums.map((num, i) => {
+    if (num === 3 && nums[i - 1] === 2) {
+      return 0;
+    }
+    return num;
+  });
+}
+fix23([1, 2, 3]) // → 1,2,0	1,2,0	✔	
+fix23([2, 3, 5]) // → 2,0,5	2,0,5	✔	
+fix23([1, 2, 1]) // → 1,2,1	1,2,1	✔	
+fix23([3, 2, 1]) // → 3,2,1	3,2,1	✔	
+fix23([2, 2, 3]) // → 2,2,0	2,2,0	✔	
+fix23([2, 3, 3]) // → 2,0,3	2,0,3	✔
+
+
