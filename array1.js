@@ -312,3 +312,35 @@ maxTriple([5, 1, 7, 3, 7, 8, 9]) // → 9	9	✔
 maxTriple([2, 2, 5, 1, 1]) // → 5	5	✔
 
 
+function unlucky1(nums){
+  for (let i = 0; i < nums.length; i++) {
+    const limit = {0: true, 1: true, [nums.length - 2]: true};
+    if (limit[i]) {
+      if (nums[i] === 1 && nums[i + 1] === 3) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+unlucky1([1, 3, 4, 5]) // → true	true	✔	
+unlucky1([2, 1, 3, 4, 5]) // → true	true	✔	
+unlucky1([1, 1, 1]) // → false	false	✔	
+unlucky1([1, 3, 1]) // → true	true	✔	
+unlucky1([1, 1, 3]) // → true	true	✔	
+unlucky1([1, 2, 3]) // → false	false	✔	
+unlucky1([3, 3, 3]) // → false	false	✔	
+unlucky1([1, 3]) // → true	true	✔	
+unlucky1([1, 4]) // → false	false	✔	
+unlucky1([1]) // → false	false	✔	
+unlucky1([]) // → false	false	✔	
+unlucky1([1, 1, 1, 3, 1]) // → false	false	✔	
+unlucky1([1, 1, 3, 1, 1]) // → true	true	✔	
+unlucky1([1, 1, 1, 1, 3]) // → true	true	✔	
+unlucky1([1, 4, 1, 5]) // → false	false	✔	
+unlucky1([1, 1, 2, 3]) // → false	false	✔	
+unlucky1([2, 3, 2, 1]) // → false	false	✔	
+unlucky1([2, 3, 1, 3]) // → true	true	✔	
+unlucky1([1, 2, 3, 4, 1, 3]) // → true	true	✔
+
+
