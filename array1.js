@@ -297,3 +297,18 @@ midThree([8, 6, 7, 5, 3, 0, 9]) // → 7,5,3	7,5,3	✔
 midThree([1, 2, 3]) // → 1,2,3	1,2,3	✔
 
 
+function maxTriple(nums){
+  return Math.max(nums[0], nums[nums.length - 1], nums[Math.floor(nums.length / 2)]); 
+}
+maxTriple([1, 2, 3]) // → 3	3	✔	
+maxTriple([1, 5, 3]) // → 5	5	✔	
+maxTriple([5, 2, 3]) // → 5	5	✔	
+maxTriple([1, 2, 3, 1, 1]) // → 3	3	✔	
+maxTriple([1, 7, 3, 1, 5]) // → 5	5	✔	
+maxTriple([5, 1, 3, 7, 1]) // → 5	5	✔	
+maxTriple([5, 1, 7, 3, 7, 8, 1]) // → 5	5	✔	
+maxTriple([5, 1, 7, 9, 7, 8, 1]) // → 9	9	✔	
+maxTriple([5, 1, 7, 3, 7, 8, 9]) // → 9	9	✔	
+maxTriple([2, 2, 5, 1, 1]) // → 5	5	✔
+
+
