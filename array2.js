@@ -224,3 +224,59 @@ sum28([1, 2, 2, 1, 2, 2]) // → true	true	✔
 sum28([5, 2, 2, 2, 4, 2]) // → true	true	✔
 
 
+function more14(nums){
+  let favor1s = 0;
+  for (let num of nums) {
+    if (num === 1) {
+      favor1s += 1;
+    }
+    if (num === 4) {
+      favor1s -= 1;
+    }
+  }
+  return favor1s > 0;
+}
+more14([1, 4, 1]) → true	true	✔	
+more14([1, 4, 1, 4]) → false	false	✔	
+more14([1, 1]) → true	true	✔	
+more14([1, 6, 6]) → true	true	✔	
+more14([1]) → true	true	✔	
+more14([1, 4]) → false	false	✔	
+more14([6, 1, 1]) → true	true	✔	
+more14([1, 6, 4]) → false	false	✔	
+more14([1, 1, 4, 4, 1]) → true	true	✔	
+more14([1, 1, 6, 4, 4, 1]) → true	true	✔	
+more14([]) → false	false	✔	
+more14([4, 1, 4, 6]) → false	false	✔	
+more14([4, 1, 4, 6, 1]) → false	false	✔	
+more14([1, 4, 1, 4, 1, 6]) → true	true	✔
+
+
+function prependSum(nums){
+  return [nums[0] + nums[1]].concat(nums.slice(2));
+}
+prependSum([1, 2, 4, 4]) → 3,4,4	3,4,4	✔	
+prependSum([3, 3, 0]) → 6,0	6,0	✔	
+prependSum([1, 1, 1, 1, 1]) → 2,1,1,1	2,1,1,1	✔	
+prependSum([5, 7]) → 12	12	✔	
+prependSum([0, 0, 0, 0]) → 0,0,0	0,0,0	✔	
+prependSum([12, 13, 19, 20]) → 25,19,20	25,19,20	✔	
+prependSum([-2, 2, -2, 2]) → 0,-2,2	0,-2,2	✔	
+prependSum([5, 4, 3, 2, 1, 0]) → 9,3,2,1,0	9,3,2,1,0	✔
+
+
+function fizzArray(n){
+  let myArray = [];
+  for (let i = 0; i < n; i++) {
+    myArray.push(i);
+  }
+  return myArray;
+}
+fizzArray(4) → 0,1,2,3	0,1,2,3	✔	
+fizzArray(1) → 0	0	✔	
+fizzArray(10) → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
+fizzArray(0) →		✔	
+fizzArray(2) → 0,1	0,1	✔	
+fizzArray(7) → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔
+
+
