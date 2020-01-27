@@ -280,3 +280,40 @@ fizzArray(2) → 0,1	0,1	✔
 fizzArray(7) → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔
 
 
+function only14(nums){
+  return nums.every(num => num === 1 || num === 4);
+}
+only14([1, 4, 1, 4]) → true	true	✔	
+only14([1, 4, 2, 4]) → false	false	✔	
+only14([1, 1]) → true	true	✔	
+only14([4, 1]) → true	true	✔	
+only14([2]) → false	false	✔	
+only14([]) → true	true	✔	
+only14([1, 4, 1, 3]) → false	false	✔	
+only14([3, 1, 3]) → false	false	✔	
+only14([1]) → true	true	✔	
+only14([4]) → true	true	✔	
+only14([3, 4]) → false	false	✔	
+only14([1, 3, 4]) → false	false	✔	
+only14([1, 1, 1]) → true	true	✔	
+only14([1, 1, 1, 5]) → false	false	✔	
+only14([4, 1, 4, 1]) → true	true	✔
+
+
+function fizzArray2(n){
+  let output = [];
+  for (let i = 0; i < n; i++) {
+    output.push(String(i));
+  }
+  return output;
+}
+fizzArray2(4) → 0,1,2,3	0,1,2,3	✔	
+fizzArray2(10) → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
+fizzArray2(2) → 0,1	0,1	✔	
+fizzArray2(1) → 0	0	✔	
+fizzArray2(0) →		✔	
+fizzArray2(7) → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔	
+fizzArray2(9) → 0,1,2,3,4,5,6,7,8	0,1,2,3,4,5,6,7,8	✔	
+fizzArray2(11) → 0,1,2,3,4,5,6,7,8,9,10	0,1,2,3,4,5,6,7,8,9,10	✔
+
+
