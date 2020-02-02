@@ -1,10 +1,18 @@
-// Joseph P. Pasaoa
-// JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+/* 
+Joseph P. Pasaoa
+JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+*/
+
+
+
+//
+// Warmup-1 //
 //
 
-
-
-// Warmup-1 //
+/* SLEEPIN
+The parameter weekday is true if it is a weekday, and the parameter
+vacation is true if we are on vacation. We sleep in if it is not a
+weekday or we're on vacation. Return true if we sleep in. */
 
 function sleepIn(weekday,vacation){
   return !weekday || vacation;
@@ -15,6 +23,12 @@ sleepIn(false, true); // → true	true	✔
 sleepIn(false, false); // → true	true	✔
 
 
+
+/* MONKEYTROUBLE
+We have two monkeys, a and b, and the parameters aSmile and bSmile 
+indicate if each is smiling. We are in trouble if they are both smiling 
+or if neither of them is smiling. Return true if we are in trouble. */
+
 function monkeyTrouble(aSmile,bSmile){
   return aSmile && bSmile || !aSmile && !bSmile;
 }
@@ -23,6 +37,11 @@ monkeyTrouble(false, false); // → true	true	✔
 monkeyTrouble(true, false); // → false	false	✔	
 monkeyTrouble(false, true); // → false	false	✔
 
+
+
+/* SUMDOUBLE
+Given two int values, return their sum. Unless the two values are the same, 
+then return double their sum. */
 
 function sumDouble(a,b){
   return (a === b ? a * 4 : a + b);
@@ -37,6 +56,10 @@ sumDouble(0, 0); // → 0	0	✔
 sumDouble(0, 1); // → 1	1	✔	
 sumDouble(3, 4); // → 7	7	✔
 
+
+
+/* DIFF21
+Given an int n, return the absolute difference between n and 21, except return double the absolute difference if n is over 21. */
 
 function diff21(n){
   let aDiff = Math.abs(21 - n);
@@ -59,6 +82,10 @@ diff21(-2); // → 23	23	✔
 diff21(50); // → 58	58	✔
 
 
+
+/* PARROTTROUBLE
+We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23. We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return true if we are in trouble. */
+
 function parrotTrouble(talking,hour){
   return talking && hour < 7 || talking && hour > 20;
 }
@@ -73,6 +100,10 @@ parrotTrouble(true, 20); // → false	false	✔
 parrotTrouble(false, 12); // → false	false	✔
 
 
+
+/* MAKES10
+Given 2 ints, a and b, return true if one if them is 10 or if their sum is 10. */
+
 function makes10(a,b){
   return a === 10 || b === 10 || a + b === 10;
 }
@@ -85,6 +116,7 @@ makes10(8, 2); // → true	true	✔
 makes10(8, 3); // → false	false	✔	
 makes10(10, 42); // → true	true	✔	
 makes10(12, -2); // → true	true	✔
+
 
 
 function nearHundred(n){
@@ -102,6 +134,7 @@ nearHundred(0); // → false	false	✔
 nearHundred(5); // → false	false	✔	
 nearHundred(191); // → true	true	✔	
 nearHundred(189); // → false	false	✔
+
 
 
 function posNeg(a,b,negative){
@@ -131,6 +164,7 @@ posNeg(-5, 6, true); // → false	false	✔
 posNeg(-5, -5, true); // → true	true	✔
 
 
+
 function notString(str){
   if (str.slice(0, 3) !== 'not') {
     return 'not ' + str;
@@ -144,6 +178,7 @@ notString('bad'); // → not bad	not bad	✔
 notString('not'); // → not	not	✔	
 notString('is not'); // → not is not	not is not	✔	
 notString('no'); // → not no	not no	✔
+
 
 
 function missingChar(str,n){
@@ -163,6 +198,7 @@ missingChar('code', 3); // → cod	cod	✔
 missingChar('chocolate', 8); // → chocolat	chocolat	✔
 
 
+
 function frontBack(str){
   let output = str.split('');
   let temp = output.shift();
@@ -180,6 +216,7 @@ frontBack('aavj') // → java	java	✔
 frontBack('hello') // → oellh	oellh	✔ 
 
 
+
 function front3(str){
   return str.slice(0,3) + str.slice(0,3) + str.slice(0,3);
 }
@@ -192,6 +229,7 @@ front3('a') // → aaa	aaa	✔
 front3('') // →		✔
 
 
+
 function backAround(str){
   return str[str.length -1] + str + str[str.length -1];
 }
@@ -201,6 +239,7 @@ backAround('a') // → aaa	aaa	✔
 backAround('abc') // → cabcc	cabcc	✔	
 backAround('read') // → dreadd	dreadd	✔	
 backAround('boo') // → obooo	obooo	✔
+
 
 
 function or35(n){
@@ -231,6 +270,7 @@ or35(122) // → false	false	✔
 or35(123) // → true	true	✔
 
 
+
 function front22(str){
   return str.slice(0,2) + str + str.slice(0,2);
 }
@@ -241,6 +281,7 @@ front22('ab') // → ababab	ababab	✔
 front22('a') // → aaa	aaa	✔	
 front22('') // →		✔	
 front22('Logic') // → LoLogicLo	LoLogicLo	✔
+
 
 
 function startHi(str){
@@ -254,6 +295,7 @@ startHi('h') // → false	false	✔
 startHi('') // → false	false	✔	
 startHi('ho hi') // → false	false	✔	
 startHi('hi ho') // → true	true	✔
+
 
 
 function icyHot(temp1,temp2){
@@ -273,6 +315,7 @@ icyHot(-2, 120) // → true	true	✔
 icyHot(120, 120) // → false	false	✔
 
 
+
 function in1020(a,b){
   return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
 }
@@ -283,6 +326,7 @@ in1020(99, 10) // → true	true	✔
 in1020(20, 20) // → true	true	✔	
 in1020(21, 21) // → false	false	✔	
 in1020(9, 9) // → false	false	✔
+
 
 
 function hasTeen(a,b,c){
@@ -302,6 +346,7 @@ hasTeen(12, 18, 20) // → true	true	✔
 hasTeen(14, 2, 20) // → true	true	✔	
 hasTeen(4, 2, 20) // → false	false	✔	
 hasTeen(11, 22, 22) // → false	false	✔
+
 
 
 function loneTeen(a,b){
@@ -330,6 +375,7 @@ loneTeen(99, 13) // → true	true	✔
 loneTeen(99, 99) // → false	false	✔
 
 
+
 function delDel(str){
   if (str.slice(1, 4) === "del") {
     return str[0] + str.slice(4);
@@ -348,6 +394,7 @@ delDel('adel') // → a	a	✔
 delDel('aadelbb') // → aadelbb	aadelbb	✔
 
 
+
 function mixStart(str){
   return str.slice(1, 3) === "ix";
 }
@@ -357,6 +404,7 @@ mixStart('piz snacks') // → false	false	✔
 mixStart('nix') // → true	true	✔	
 mixStart('ni') // → false	false	✔	
 mixStart('n') // → false	false	✔
+
 
 
 function startOz(str){
@@ -373,6 +421,7 @@ startOz('zoo') // →		✔
 startOz('aztec') // → z	z	✔	
 startOz('zzzz') // → z	z	✔	
 startOz('oznic') // → oz	oz	✔
+
 
 
 function intMax(a,b,c){
@@ -394,6 +443,7 @@ intMax(5, 6, 2) // → 6	6	✔
 intMax(5, 2, 6) // → 6	6	✔
 
 
+
 function close10(a,b){
   if ((a + b) / 2 === 10) {
     return 0;
@@ -412,6 +462,7 @@ close10(5, 21) // → 5	5	✔
 close10(0, 20) // → 0	0	✔	
 close10(0, 20) // → 0	0	✔	
 close10(10, 10) // → 0	0	✔
+
 
 
 function in3050(a,b){
@@ -440,6 +491,7 @@ in3050(35, 36) // → true	true	✔
 in3050(35, 45) // → false	false	✔
 
 
+
 function max1020(a,b){
   if (a >= 10 && a <= 20) {
     if (b >= 10 && b <= 20) {
@@ -465,6 +517,7 @@ max1020(7, 20) // → 20	20	✔
 max1020(17, 16) // → 17	17	✔
 
 
+
 function stringE(str){
   let counter = 3;
   for (let char of str) {
@@ -485,6 +538,7 @@ stringE('e') // → true	true	✔
 stringE('') // → false	false	✔
 
 
+
 function lastDigit(a,b){
   return a % 10 === b % 10;
 }
@@ -497,6 +551,7 @@ lastDigit(10, 0) // → true	true	✔
 lastDigit(11, 0) // → false	false	✔
 
 
+
 function endUp(str){
   return str.slice(0, -3) + str.slice(-3).toUpperCase();
 }
@@ -507,6 +562,7 @@ endUp('woo hoo') // → woo HOO	woo HOO	✔
 endUp('xyz12') // → xyZ12	xyZ12	✔	
 endUp('x') // → X	X	✔	
 endUp('') →		✔
+
 
 
 function everyNth(str,n){
