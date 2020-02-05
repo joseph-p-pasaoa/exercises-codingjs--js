@@ -119,6 +119,10 @@ makes10(12, -2); // → true	true	✔
 
 
 
+/* NEARHUNDRED
+Given an int n, return true if it is within 10 of 100 or 200. 
+Note: Math.abs(num) computes the absolute value of a number. */
+
 function nearHundred(n){
   let a = Math.abs(100 - n) <= 10;
   let b = Math.abs(200 - n) <= 10;
@@ -136,6 +140,11 @@ nearHundred(191); // → true	true	✔
 nearHundred(189); // → false	false	✔
 
 
+
+/* POSNEG
+Given 2 int values, return true if one is negative and one is positive. 
+Except if the parameter "negative" is true, then return true only if 
+both are negative. */
 
 function posNeg(a,b,negative){
   if (negative) {
@@ -165,6 +174,11 @@ posNeg(-5, -5, true); // → true	true	✔
 
 
 
+/* NOTSTRING
+Given a string, return a new string where "not " has been added to the 
+front. However, if the string already begins with "not", return the string 
+unchanged. */
+
 function notString(str){
   if (str.slice(0, 3) !== 'not') {
     return 'not ' + str;
@@ -181,9 +195,13 @@ notString('no'); // → not no	not no	✔
 
 
 
+/* MISSINGCHAR
+Given a non-empty string and an int n, return a new string where the char at
+index n has been removed. The value of n will be a valid index of a char in the
+original string (i.e. n will be in the range 0..str.length()-1 inclusive). */
+
 function missingChar(str,n){
-  let arr = str.split('');
-  let no = arr.splice(n, 1);
+  let arr = str.split('').splice(n, 1);
   return arr.join('');
 }
 missingChar('kitten', 1); // → ktten	ktten	✔	
@@ -198,6 +216,10 @@ missingChar('code', 3); // → cod	cod	✔
 missingChar('chocolate', 8); // → chocolat	chocolat	✔
 
 
+
+/* FRONTBACK
+Given a string, return a new string where the first and last chars have been
+exchanged. */
 
 function frontBack(str){
   let output = str.split('');
@@ -217,6 +239,11 @@ frontBack('hello') // → oellh	oellh	✔
 
 
 
+/* FRONT3
+Given a string, we'll say that the front is the first 3 chars of the string. If
+the string length is less than 3, the front is whatever is there. Return a new
+string which is 3 copies of the front. */
+
 function front3(str){
   return str.slice(0,3) + str.slice(0,3) + str.slice(0,3);
 }
@@ -230,6 +257,11 @@ front3('') // →		✔
 
 
 
+/* BACKAROUND
+Given a string, take the last char and return a new string with the last char
+added at the front and back, so 'cat' yields 'tcatt' The original string will
+be length 1 or more. */
+
 function backAround(str){
   return str[str.length -1] + str + str[str.length -1];
 }
@@ -241,6 +273,10 @@ backAround('read') // → dreadd	dreadd	✔
 backAround('boo') // → obooo	obooo	✔
 
 
+
+/* OR35
+Return true if the given non-negative number is a multiple of 3 or a multiple
+of 5. (Hint: Use the % 'mod' operator) */
 
 function or35(n){
   return !(n % 3) || !(n % 5);
@@ -270,6 +306,11 @@ or35(122) // → false	false	✔
 or35(123) // → true	true	✔
 
 
+
+/* FRONT22
+Given a string, take the first 2 chars and return the string with the 2 chars
+added at both the front and back, so 'kitten' yields 'kikittenki' chars are
+there. */
 
 function front22(str){
   return str.slice(0,2) + str + str.slice(0,2);
