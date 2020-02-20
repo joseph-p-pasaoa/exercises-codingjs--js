@@ -141,5 +141,79 @@ xyzThere('12xyz') // → true	true	✔
 xyzThere('1.xyz.xyz2.xyz') // → false	false	✔
 
 
+function bobThere(str){
+  for (let i = 0; i < str.length - 2; i++ ) {
+    if (str[i] === "b" && str[i + 2] === "b") {
+      return true;
+    }
+  }
+  return false;
+}
+bobThere('abcbob') // → true	true	✔	
+bobThere('b9b') // → true	true	✔	
+bobThere('bac') // → false	false	✔	
+bobThere('bbb') // → true	true	✔	
+bobThere('abcdefb') // → false	false	✔	
+bobThere('123abcbcdbabxyz') // → true	true	✔	
+bobThere('b12') // → false	false	✔	
+bobThere('b1b') // → true	true	✔	
+bobThere('b12b1b') // → true	true	✔	
+bobThere('bbc') // → false	false	✔	
+bobThere('bbb') // → true	true	✔	
+bobThere('bb') // → false	false	✔	
+bobThere('b') // → false	false	✔
+
+
+function xyBalance(str){
+  let output = true;
+  for (let char of str) {
+    if (char === "x") {
+      output = false;
+    } else if (char ==="y") {
+      output = true;
+    }
+  }
+  return output;
+}
+xyBalance('aaxbby') // → true	true	✔	
+xyBalance('aaxbb') // → false	false	✔	
+xyBalance('yaaxbb') // → false	false	✔	
+xyBalance('yaaxbby') // → true	true	✔	
+xyBalance('xaxxbby') // → true	true	✔	
+xyBalance('xaxxbbyx') // → false	false	✔	
+xyBalance('xxbxy') // → true	true	✔	
+xyBalance('xxbx') // → false	false	✔	
+xyBalance('bbb') // → true	true	✔	
+xyBalance('bxbb') // → false	false	✔	
+xyBalance('bxyb') // → true	true	✔	
+xyBalance('xy') // → true	true	✔	
+xyBalance('y') // → true	true	✔	
+xyBalance('x') // → false	false	✔	
+xyBalance('') // → true	true	✔	
+xyBalance('yxyxyxyx') // → false	false	✔	
+xyBalance('yxyxyxyxy') // → true	true	✔	
+xyBalance('12xabxxydxyxyzz') // → true	true	✔
+
+
+function mixString(a,b){
+  let output = "";
+  for (let i = 0; i < Math.max(a.length, b.length); i++) {
+    output += a.slice(i, i + 1) + b.slice(i, i + 1);
+  }
+  return output;
+}
+mixString('abc', 'xyz') // → axbycz	axbycz	✔	
+mixString('Hi', 'There') // → HTihere	HTihere	✔	
+mixString('xxxx', 'There') // → xTxhxexre	xTxhxexre	✔	
+mixString('xxx', 'X') // → xXxx	xXxx	✔	
+mixString('2/', '27 around') // → 22/7 around	22/7 around	✔	
+mixString('', 'Hello') // → Hello	Hello	✔	
+mixString('Abc', '') // → Abc	Abc	✔	
+mixString('', '') →		✔	
+mixString('a', 'b') // → ab	ab	✔	
+mixString('ax', 'b') // → abx	abx	✔	
+mixString('a', 'bx') // → abx	abx	✔	
+mixString('So', 'Long') // → SLoong	SLoong	✔	
+mixString('Long', 'So') // → LSoong	LSoong	✔
 
 
