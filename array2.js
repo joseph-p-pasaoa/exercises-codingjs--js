@@ -236,33 +236,33 @@ function more14(nums){
   }
   return favor1s > 0;
 }
-more14([1, 4, 1]) → true	true	✔	
-more14([1, 4, 1, 4]) → false	false	✔	
-more14([1, 1]) → true	true	✔	
-more14([1, 6, 6]) → true	true	✔	
-more14([1]) → true	true	✔	
-more14([1, 4]) → false	false	✔	
-more14([6, 1, 1]) → true	true	✔	
-more14([1, 6, 4]) → false	false	✔	
-more14([1, 1, 4, 4, 1]) → true	true	✔	
-more14([1, 1, 6, 4, 4, 1]) → true	true	✔	
-more14([]) → false	false	✔	
-more14([4, 1, 4, 6]) → false	false	✔	
-more14([4, 1, 4, 6, 1]) → false	false	✔	
-more14([1, 4, 1, 4, 1, 6]) → true	true	✔
+more14([1, 4, 1]) // → true	true	✔	
+more14([1, 4, 1, 4]) // → false	false	✔	
+more14([1, 1]) // → true	true	✔	
+more14([1, 6, 6]) // → true	true	✔	
+more14([1]) // → true	true	✔	
+more14([1, 4]) // → false	false	✔	
+more14([6, 1, 1]) // → true	true	✔	
+more14([1, 6, 4]) // → false	false	✔	
+more14([1, 1, 4, 4, 1]) // → true	true	✔	
+more14([1, 1, 6, 4, 4, 1]) // → true	true	✔	
+more14([]) // → false	false	✔	
+more14([4, 1, 4, 6]) // → false	false	✔	
+more14([4, 1, 4, 6, 1]) // → false	false	✔	
+more14([1, 4, 1, 4, 1, 6]) // → true	true	✔
 
 
 function prependSum(nums){
   return [nums[0] + nums[1]].concat(nums.slice(2));
 }
-prependSum([1, 2, 4, 4]) → 3,4,4	3,4,4	✔	
-prependSum([3, 3, 0]) → 6,0	6,0	✔	
-prependSum([1, 1, 1, 1, 1]) → 2,1,1,1	2,1,1,1	✔	
-prependSum([5, 7]) → 12	12	✔	
-prependSum([0, 0, 0, 0]) → 0,0,0	0,0,0	✔	
-prependSum([12, 13, 19, 20]) → 25,19,20	25,19,20	✔	
-prependSum([-2, 2, -2, 2]) → 0,-2,2	0,-2,2	✔	
-prependSum([5, 4, 3, 2, 1, 0]) → 9,3,2,1,0	9,3,2,1,0	✔
+prependSum([1, 2, 4, 4]) // → 3,4,4	3,4,4	✔	
+prependSum([3, 3, 0]) // → 6,0	6,0	✔	
+prependSum([1, 1, 1, 1, 1]) // → 2,1,1,1	2,1,1,1	✔	
+prependSum([5, 7]) // → 12	12	✔	
+prependSum([0, 0, 0, 0]) // → 0,0,0	0,0,0	✔	
+prependSum([12, 13, 19, 20]) // → 25,19,20	25,19,20	✔	
+prependSum([-2, 2, -2, 2]) // → 0,-2,2	0,-2,2	✔	
+prependSum([5, 4, 3, 2, 1, 0]) // → 9,3,2,1,0	9,3,2,1,0	✔
 
 
 function fizzArray(n){
@@ -272,32 +272,32 @@ function fizzArray(n){
   }
   return myArray;
 }
-fizzArray(4) → 0,1,2,3	0,1,2,3	✔	
-fizzArray(1) → 0	0	✔	
-fizzArray(10) → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
+fizzArray(4) // → 0,1,2,3	0,1,2,3	✔	
+fizzArray(1) // → 0	0	✔	
+fizzArray(10) // → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
 fizzArray(0) →		✔	
-fizzArray(2) → 0,1	0,1	✔	
-fizzArray(7) → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔
+fizzArray(2) // → 0,1	0,1	✔	
+fizzArray(7) // → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔
 
 
 function only14(nums){
   return nums.every(num => num === 1 || num === 4);
 }
-only14([1, 4, 1, 4]) → true	true	✔	
-only14([1, 4, 2, 4]) → false	false	✔	
-only14([1, 1]) → true	true	✔	
-only14([4, 1]) → true	true	✔	
-only14([2]) → false	false	✔	
-only14([]) → true	true	✔	
-only14([1, 4, 1, 3]) → false	false	✔	
-only14([3, 1, 3]) → false	false	✔	
-only14([1]) → true	true	✔	
-only14([4]) → true	true	✔	
-only14([3, 4]) → false	false	✔	
-only14([1, 3, 4]) → false	false	✔	
-only14([1, 1, 1]) → true	true	✔	
-only14([1, 1, 1, 5]) → false	false	✔	
-only14([4, 1, 4, 1]) → true	true	✔
+only14([1, 4, 1, 4]) // → true	true	✔	
+only14([1, 4, 2, 4]) // → false	false	✔	
+only14([1, 1]) // → true	true	✔	
+only14([4, 1]) // → true	true	✔	
+only14([2]) // → false	false	✔	
+only14([]) // → true	true	✔	
+only14([1, 4, 1, 3]) // → false	false	✔	
+only14([3, 1, 3]) // → false	false	✔	
+only14([1]) // → true	true	✔	
+only14([4]) // → true	true	✔	
+only14([3, 4]) // → false	false	✔	
+only14([1, 3, 4]) // → false	false	✔	
+only14([1, 1, 1]) // → true	true	✔	
+only14([1, 1, 1, 5]) // → false	false	✔	
+only14([4, 1, 4, 1]) // → true	true	✔
 
 
 function fizzArray2(n){
@@ -307,13 +307,78 @@ function fizzArray2(n){
   }
   return output;
 }
-fizzArray2(4) → 0,1,2,3	0,1,2,3	✔	
-fizzArray2(10) → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
-fizzArray2(2) → 0,1	0,1	✔	
-fizzArray2(1) → 0	0	✔	
+fizzArray2(4) // → 0,1,2,3	0,1,2,3	✔	
+fizzArray2(10) // → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
+fizzArray2(2) // → 0,1	0,1	✔	
+fizzArray2(1) // → 0	0	✔	
 fizzArray2(0) →		✔	
-fizzArray2(7) → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔	
-fizzArray2(9) → 0,1,2,3,4,5,6,7,8	0,1,2,3,4,5,6,7,8	✔	
-fizzArray2(11) → 0,1,2,3,4,5,6,7,8,9,10	0,1,2,3,4,5,6,7,8,9,10	✔
+fizzArray2(7) // → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔	
+fizzArray2(9) // → 0,1,2,3,4,5,6,7,8	0,1,2,3,4,5,6,7,8	✔	
+fizzArray2(11) // → 0,1,2,3,4,5,6,7,8,9,10	0,1,2,3,4,5,6,7,8,9,10	✔
+
+
+function no14(nums){
+  let seen = null;
+  for (let num of nums) {
+    if (num === 1 || num === 4) {
+      if (!seen) {
+        seen = num;
+      } else {
+        if (num !== seen) {
+          return false;
+        }
+      }
+    } 
+  }
+  return true;
+}
+no14([1, 2, 3]) // → true	true	✔	
+no14([1, 2, 3, 4]) // → false	false	✔	
+no14([2, 3, 4]) // → true	true	✔	
+no14([1, 1, 4, 4]) // → false	false	✔	
+no14([2, 2, 4, 4]) // → true	true	✔	
+no14([2, 3, 4, 1]) // → false	false	✔	
+no14([2, 1, 1]) // → true	true	✔	
+no14([1, 4]) // → false	false	✔	
+no14([2]) // → true	true	✔	
+no14([2, 1]) // → true	true	✔	
+no14([1]) // → true	true	✔	
+no14([4]) // → true	true	✔	
+no14([]) // → true	true	✔	
+no14([1, 1, 1, 1]) // → true	true	✔	
+no14([9, 4, 4, 1]) // → false	false	✔	
+no14([4, 2, 3, 1]) // → false	false	✔	
+no14([4, 2, 3, 5]) // → true	true	✔	
+no14([4, 4, 2]) // → true	true	✔	
+no14([1, 4, 4]) // → false	false	✔
+
+
+function either24(nums){
+  let seenDoubled = null;
+  for (let i = 0; i < nums.length - 1; i++) {
+    if ((nums[i] === 2 || nums[i] === 4) && nums[i] === nums[i + 1]) {
+      if (!seenDoubled) {
+        seenDoubled = nums[i];
+      } else if (seenDoubled !== nums[i]) {
+        return false;
+      }
+    }
+  }
+  return !!seenDoubled;
+}
+either24([1, 2, 2]) // → true	true	✔	
+either24([4, 4, 1]) // → true	true	✔	
+either24([4, 4, 1, 2, 2]) // → false	false	✔	
+either24([1, 2, 3, 4]) // → false	false	✔	
+either24([3, 5, 9]) // → false	false	✔	
+either24([1, 2, 3, 4, 4]) // → true	true	✔	
+either24([2, 2, 3, 4]) // → true	true	✔	
+either24([1, 2, 3, 2, 2, 4]) // → true	true	✔	
+either24([1, 2, 3, 2, 2, 4, 4]) // → false	false	✔	
+either24([1, 2]) // → false	false	✔	
+either24([2, 2]) // → true	true	✔	
+either24([4, 4]) // → true	true	✔	
+either24([2]) // → false	false	✔	
+either24([]) // → false	false	✔
 
 
