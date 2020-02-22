@@ -217,3 +217,38 @@ mixString('So', 'Long') // → SLoong	SLoong	✔
 mixString('Long', 'So') // → LSoong	LSoong	✔
 
 
+function repeatEnd(str,n){
+  let output = "";
+  for (let i = 0; i < n; i++) {
+    output += str.slice(-n);
+  }
+  return output;
+}
+repeatEnd('Hello', 3) // → llollollo	llollollo	✔	
+repeatEnd('Hello', 2) // → lolo	lolo	✔	
+repeatEnd('Hello', 1) // → o	o	✔	
+repeatEnd('Hello', 0) →		✔	
+repeatEnd('abc', 3) // → abcabcabc	abcabcabc	✔	
+repeatEnd('1234', 2) // → 3434	3434	✔	
+repeatEnd('1234', 3) // → 234234234	234234234	✔	
+repeatEnd('', 0) // →		✔
+
+
+function repeatFront(str,n){
+  let output = "";
+  for (let i = 0; i < n; i++) {
+    output += str.slice(0, n - i);
+  }
+  return output;
+}
+repeatFront('Chocolate', 4) // → ChocChoChC	ChocChoChC	✔	
+repeatFront('Chocolate', 3) // → ChoChC	ChoChC	✔	
+repeatFront('Ice Cream', 2) // → IcI	IcI	✔	
+repeatFront('Ice Cream', 1) // → I	I	✔	
+repeatFront('Ice Cream', 0) →		✔	
+repeatFront('xyz', 3) // → xyzxyx	xyzxyx	✔	
+repeatFront('', 0) →		✔	
+repeatFront('Java', 4) // → JavaJavJaJ	JavaJavJaJ	✔	
+repeatFront('Java', 1) // → J	J	✔
+
+
