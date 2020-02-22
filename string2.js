@@ -247,8 +247,84 @@ repeatFront('Ice Cream', 2) // → IcI	IcI	✔
 repeatFront('Ice Cream', 1) // → I	I	✔	
 repeatFront('Ice Cream', 0) →		✔	
 repeatFront('xyz', 3) // → xyzxyx	xyzxyx	✔	
-repeatFront('', 0) →		✔	
+repeatFront('', 0) // →		✔	
 repeatFront('Java', 4) // → JavaJavJaJ	JavaJavJaJ	✔	
 repeatFront('Java', 1) // → J	J	✔
+
+
+function repeatSeparator(word,sep,count){
+  let outputArr = [];
+  for (let i = 0; i < count; i++) {
+    outputArr.push(word);
+  }
+  return outputArr.join(sep);
+}
+repeatSeparator('Word', 'X', 3) // → WordXWordXWord	WordXWordXWord	✔	
+repeatSeparator('This', 'And', 2) // → ThisAndThis	ThisAndThis	✔	
+repeatSeparator('This', 'And', 1) // → This	This	✔	
+repeatSeparator('Hi', '-n-', 2) // → Hi-n-Hi	Hi-n-Hi	✔	
+repeatSeparator('AAA', '', 1) // → AAA	AAA	✔	
+repeatSeparator('AAA', '', 0) →		✔	
+repeatSeparator('A', 'B', 5) // → ABABABABA	ABABABABA	✔	
+repeatSeparator('abc', 'XX', 3) // → abcXXabcXXabc	abcXXabcXXabc	✔	
+repeatSeparator('abc', 'XX', 2) // → abcXXabc	abcXXabc	✔	
+repeatSeparator('abc', 'XX', 1) // → abc	abc	✔	
+repeatSeparator('XYZ', 'a', 2) // → XYZaXYZ	XYZaXYZ	✔
+
+
+function prefixAgain(str,n){
+  const snippet = str.slice(0, n);
+  const scope = str.slice(n);
+  return scope.includes(snippet);
+}
+prefixAgain('abXYabc', 1) // → true	true	✔	
+prefixAgain('abXYabc', 2) // → true	true	✔	
+prefixAgain('abXYabc', 3) // → false	false	✔	
+prefixAgain('xyzxyxyxy', 2) // → true	true	✔	
+prefixAgain('xyzxyxyxy', 3) // → false	false	✔	
+prefixAgain('Hi12345Hi6789Hi10', 1) // → true	true	✔	
+prefixAgain('Hi12345Hi6789Hi10', 2) // → true	true	✔	
+prefixAgain('Hi12345Hi6789Hi10', 3) // → true	true	✔	
+prefixAgain('Hi12345Hi6789Hi10', 4) // → false	false	✔	
+prefixAgain('a', 1) // → false	false	✔	
+prefixAgain('aa', 1) // → true	true	✔	
+prefixAgain('ab', 1) // → false	false	✔
+
+
+function xyzMiddle(str){
+  if (str.length % 2 === 1) {
+    const xIndex = Math.floor(str.length / 2) - 1;
+    return str.slice(xIndex, xIndex + 3) === "xyz";
+  } else {
+    const xIndex = str.length / 2 - 2;
+    for (let i = xIndex; i < xIndex + 2; i++) {
+      if (str.slice(i, i + 3) === "xyz") {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+xyzMiddle('AAxyzBB') // → true	true	✔	
+xyzMiddle('AxyzBB') // → true	true	✔	
+xyzMiddle('AxyzBBB') // → false	false	✔	
+xyzMiddle('AxyzBBBB') // → false	false	✔	
+xyzMiddle('AAAxyzB') // → false	false	✔	
+xyzMiddle('AAAxyzBB') // → true	true	✔	
+xyzMiddle('AAAAxyzBB') // → false	false	✔	
+xyzMiddle('AAAAAxyzBBB') // → false	false	✔	
+xyzMiddle('1x345xyz12x4') // → true	true	✔	
+xyzMiddle('xyzAxyzBBB') // → true	true	✔	
+xyzMiddle('xyzAxyzBxyz') // → true	true	✔	
+xyzMiddle('xyzxyzAxyzBxyzxyz') // → true	true	✔	
+xyzMiddle('xyzxyzxyzBxyzxyz') // → true	true	✔	
+xyzMiddle('xyzxyzAxyzxyzxyz') // → true	true	✔	
+xyzMiddle('xyzxyzAxyzxyzxy') // → false	false	✔	
+xyzMiddle('AxyzxyzBB') // → false	false	✔	
+xyzMiddle('') // → false	false	✔	
+xyzMiddle('x') // → false	false	✔	
+xyzMiddle('xy') // → false	false	✔	
+xyzMiddle('xyz') // → true	true	✔	
+xyzMiddle('xyzz') // → true	true	✔
 
 
