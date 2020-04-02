@@ -17,7 +17,7 @@ doubleChar('AAbb') // → AAAAbbbb	AAAAbbbb	✔
 doubleChar('Hi-There') // → HHii--TThheerree	HHii--TThheerree	✔	
 doubleChar('Word!') // → WWoorrdd!!	WWoorrdd!!	✔	
 doubleChar('!!') // → !!!!	!!!!	✔	
-doubleChar('') →		✔	
+doubleChar('') // →		✔	
 doubleChar('a') // → aa	aa	✔	
 doubleChar('.') // → ..	..	✔	
 doubleChar('aa') // → aaaa	aaaa	✔
@@ -209,7 +209,7 @@ mixString('xxx', 'X') // → xXxx	xXxx	✔
 mixString('2/', '27 around') // → 22/7 around	22/7 around	✔	
 mixString('', 'Hello') // → Hello	Hello	✔	
 mixString('Abc', '') // → Abc	Abc	✔	
-mixString('', '') →		✔	
+mixString('', '') // →		✔	
 mixString('a', 'b') // → ab	ab	✔	
 mixString('ax', 'b') // → abx	abx	✔	
 mixString('a', 'bx') // → abx	abx	✔	
@@ -227,7 +227,7 @@ function repeatEnd(str,n){
 repeatEnd('Hello', 3) // → llollollo	llollollo	✔	
 repeatEnd('Hello', 2) // → lolo	lolo	✔	
 repeatEnd('Hello', 1) // → o	o	✔	
-repeatEnd('Hello', 0) →		✔	
+repeatEnd('Hello', 0) // →		✔	
 repeatEnd('abc', 3) // → abcabcabc	abcabcabc	✔	
 repeatEnd('1234', 2) // → 3434	3434	✔	
 repeatEnd('1234', 3) // → 234234234	234234234	✔	
@@ -245,7 +245,7 @@ repeatFront('Chocolate', 4) // → ChocChoChC	ChocChoChC	✔
 repeatFront('Chocolate', 3) // → ChoChC	ChoChC	✔	
 repeatFront('Ice Cream', 2) // → IcI	IcI	✔	
 repeatFront('Ice Cream', 1) // → I	I	✔	
-repeatFront('Ice Cream', 0) →		✔	
+repeatFront('Ice Cream', 0) // →		✔	
 repeatFront('xyz', 3) // → xyzxyx	xyzxyx	✔	
 repeatFront('', 0) // →		✔	
 repeatFront('Java', 4) // → JavaJavJaJ	JavaJavJaJ	✔	
@@ -264,7 +264,7 @@ repeatSeparator('This', 'And', 2) // → ThisAndThis	ThisAndThis	✔
 repeatSeparator('This', 'And', 1) // → This	This	✔	
 repeatSeparator('Hi', '-n-', 2) // → Hi-n-Hi	Hi-n-Hi	✔	
 repeatSeparator('AAA', '', 1) // → AAA	AAA	✔	
-repeatSeparator('AAA', '', 0) →		✔	
+repeatSeparator('AAA', '', 0) // →		✔	
 repeatSeparator('A', 'B', 5) // → ABABABABA	ABABABABA	✔	
 repeatSeparator('abc', 'XX', 3) // → abcXXabcXXabc	abcXXabcXXabc	✔	
 repeatSeparator('abc', 'XX', 2) // → abcXXabc	abcXXabc	✔	
@@ -326,5 +326,42 @@ xyzMiddle('x') // → false	false	✔
 xyzMiddle('xy') // → false	false	✔	
 xyzMiddle('xyz') // → true	true	✔	
 xyzMiddle('xyzz') // → true	true	✔
+
+
+function getSandwich(str){
+  const bread = "bread"; // variable so bread can be changed
+  const breadStarts = [];
+  for (let i = 0; i < str.length - 4; i++) {
+    let canBeBread = true;
+    for (let b = 0; b < bread.length; b++) {
+      if (bread[b] !== str[i + b]) {
+        canBeBread = false;
+        break;
+      }
+    }
+    if (canBeBread === true) {
+      breadStarts.push(i);
+    }
+  }
+  if (breadStarts.length >= 2) {
+    const startOutput = breadStarts[0] + 5;
+    const endOutput = breadStarts[breadStarts.length - 1];
+    return str.slice(startOutput, endOutput);
+  } else {
+    return "";
+  }
+}
+getSandwich('breadjambread') // → jam	jam	✔	
+getSandwich('xxbreadjambreadyy') // → jam	jam	✔	
+getSandwich('xxbreadyy') // →		✔	
+getSandwich('xxbreadbreadjambreadyy') // → breadjam	breadjam	✔	
+getSandwich('breadAbread') // → A	A	✔	
+getSandwich('breadbread') // →		✔	
+getSandwich('abcbreaz') // →		✔	
+getSandwich('xyz') // →		✔	
+getSandwich('') // →		✔	
+getSandwich('breadbreaxbread') // → breax	breax	✔	
+getSandwich('breaxbreadybread') // → y	y	✔	
+getSandwich('breadbreadbreadbread') // → breadbread	breadbread	✔
 
 
