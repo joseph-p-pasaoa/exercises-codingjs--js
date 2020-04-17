@@ -16,11 +16,11 @@ function stringTimes(str,n){
 stringTimes('Hi', 2) // → HiHi	HiHi	✔	
 stringTimes('Hi', 3) // → HiHiHi	HiHiHi	✔	
 stringTimes('Hi', 1) // → Hi	Hi	✔	
-stringTimes('Hi', 0) →		✔	
+stringTimes('Hi', 0) // →		✔	
 stringTimes('Hi', 5) // → HiHiHiHiHi	HiHiHiHiHi	✔	
 stringTimes('Oh Boy!', 2) // → Oh Boy!Oh Boy!	Oh Boy!Oh Boy!	✔	
 stringTimes('x', 4) // → xxxx	xxxx	✔	
-stringTimes('', 4) →		✔	
+stringTimes('', 4) // →		✔	
 stringTimes('code', 2) // → codecode	codecode	✔	
 stringTimes('code', 3) // → codecodecode	codecodecode	✔
 
@@ -94,7 +94,7 @@ stringBits('Hello') // → Hlo	Hlo	✔
 stringBits('Hi') // → H	H	✔	
 stringBits('Heeololeo') // → Hello	Hello	✔	
 stringBits('HiHiHi') // → HHH	HHH	✔	
-stringBits('') →		✔	
+stringBits('') // →		✔	
 stringBits('Greetings') // → Getns	Getns	✔	
 stringBits('Chocolate') // → Cooae	Cooae	✔	
 stringBits('pi') // → p	p	✔	

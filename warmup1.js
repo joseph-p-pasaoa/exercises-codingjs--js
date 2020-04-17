@@ -602,7 +602,7 @@ endUp('hi') // → HI	HI	✔
 endUp('woo hoo') // → woo HOO	woo HOO	✔	
 endUp('xyz12') // → xyZ12	xyZ12	✔	
 endUp('x') // → X	X	✔	
-endUp('') →		✔
+endUp('') // →		✔
 
 
 
