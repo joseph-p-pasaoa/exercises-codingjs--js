@@ -331,7 +331,7 @@ xyzMiddle('xyzz') // → true	true	✔
 function getSandwich(str){
   const bread = "bread"; // variable so bread can be changed
   const breadStarts = [];
-  for (let i = 0; i < str.length - 4; i++) {
+  for (let i = 0; i < str.length - (bread.length - 1); i++) {
     let canBeBread = true;
     for (let b = 0; b < bread.length; b++) {
       if (bread[b] !== str[i + b]) {
@@ -363,5 +363,62 @@ getSandwich('') // →		✔
 getSandwich('breadbreaxbread') // → breax	breax	✔	
 getSandwich('breaxbreadybread') // → y	y	✔	
 getSandwich('breadbreadbreadbread') // → breadbread	breadbread	✔
+
+
+function sameStarChar(str){
+  for (let i = 1; i < str.length - 1; i++) {
+    if (str[i] === "*") {
+      if (str[i - 1] !== str[i + 1]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+sameStarChar('xy*yzz') // → true	true	✔	
+sameStarChar('xy*zzz') // → false	false	✔	
+sameStarChar('*xa*az') // → true	true	✔	
+sameStarChar('*xa*bz') // → false	false	✔	
+sameStarChar('*xa*a*') // → true	true	✔	
+sameStarChar('') // → true	true	✔	
+sameStarChar('*xa*a*a') // → true	true	✔	
+sameStarChar('*xa*a*b') // → false	false	✔	
+sameStarChar('*12*2*2') // → true	true	✔	
+sameStarChar('12*2*3*') // → false	false	✔	
+sameStarChar('abcDEF') // → true	true	✔	
+sameStarChar('XY*YYYY*Z*') // → false	false	✔	
+sameStarChar('XY*YYYY*Y*') // → true	true	✔	
+sameStarChar('12*2*3*') // → false	false	✔	
+sameStarChar('*') // → true	true	✔	
+sameStarChar('**') // → true	true	✔
+
+
+function oneTwo(str){
+  let output = "";
+  let currIndex = 0;
+  let remaining = str.length;
+  while (remaining - currIndex >= 3) {
+    output += str[currIndex + 1] + str[currIndex + 2];
+    output += str[currIndex];
+    currIndex += 3;
+  }
+  return output;
+}
+oneTwo('abc') // → bca	bca	✔	
+oneTwo('tca') // → cat	cat	✔	
+oneTwo('tcagdo') // → catdog	catdog	✔	
+oneTwo('chocolate') // → hocolctea	hocolctea	✔	
+oneTwo('1234567890') // → 231564897	231564897	✔	
+oneTwo('xabxabxabxabxabxabxab') // → abxabxabxabxabxabxabx	abxabxabxabxabxabxabx	✔	
+oneTwo('abcdefx') // → bcaefd	bcaefd	✔	
+oneTwo('abcdefxy') // → bcaefd	bcaefd	✔	
+oneTwo('abcdefxyz') // → bcaefdyzx	bcaefdyzx	✔	
+oneTwo('') // →		✔	
+oneTwo('x') // →		✔	
+oneTwo('xy') // →		✔	
+oneTwo('xyz') // → yzx	yzx	✔	
+oneTwo('abcdefghijklkmnopqrstuvwxyz1234567890') // → bcaefdhigkljmnkpqostrvwuyzx231564897	bcaefdhigkljmnkpqostrvwuyzx231564897	✔	
+oneTwo('abcdefghijklkmnopqrstuvwxyz123456789') // → bcaefdhigkljmnkpqostrvwuyzx231564897	bcaefdhigkljmnkpqostrvwuyzx231564897	✔	
+oneTwo('abcdefghijklkmnopqrstuvwxyz12345678') // → bcaefdhigkljmnkpqostrvwuyzx231564	bcaefdhigkljmnkpqostrvwuyzx231564	✔
 
 
