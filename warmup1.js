@@ -325,6 +325,10 @@ front22('Logic') // → LoLogicLo	LoLogicLo	✔
 
 
 
+/* STARTHI
+Given a string, return true if the string starts with 'hi'and false otherwise.
+*/
+
 function startHi(str){
   return str.slice(0,2) === "hi";
 }
@@ -338,6 +342,10 @@ startHi('ho hi') // → false	false	✔
 startHi('hi ho') // → true	true	✔
 
 
+
+/* ICYHOT
+Given two temperatures, return true if one is less than 0 and the other is greater than 100.
+*/
 
 function icyHot(temp1,temp2){
   if (temp1 < 0) {
