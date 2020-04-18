@@ -365,6 +365,10 @@ icyHot(120, 120) // → false	false	✔
 
 
 
+/* IN1020
+Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+*/
+
 function in1020(a,b){
   return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
 }
@@ -377,6 +381,10 @@ in1020(21, 21) // → false	false	✔
 in1020(9, 9) // → false	false	✔
 
 
+
+/* HASTEEN
+We'll say that a number is 'teen' if it is in the range 13..19 inclusive. Given 3 int values, return true if 1 or more of them are teen.
+*/
 
 function hasTeen(a,b,c){
   if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19)) {
