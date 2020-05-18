@@ -254,7 +254,7 @@ changeXY('xhixhix') // → yhiyhiy	yhiyhiy	✔
 changeXY('hiy') // → hiy	hiy	✔	
 changeXY('h') // → h	h	✔	
 changeXY('x') // → y	y	✔	
-changeXY('') →		✔	
+changeXY('') // →		✔	
 changeXY('xxx') // → yyy	yyy	✔	
 changeXY('yyhxyi') // → yyhyyi	yyhyyi	✔	
 changeXY('hihi') // → hihi	hihi	✔
