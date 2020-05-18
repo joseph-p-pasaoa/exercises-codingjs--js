@@ -284,3 +284,73 @@ changePi('pixx') // → 3.14xx	3.14xx	✔
 changePi('xyzzy') // → xyzzy	xyzzy	✔
 
 
+
+// Given a string, compute recursively a new string where all the 'x' chars have been removed.
+
+function noX(str){
+  const focus = str[0];
+  if (focus === undefined) {
+    return "";
+  }
+  if (focus === "x") {
+    return noX(str.slice(1));
+  }
+  return str[0] + noX(str.slice(1));
+}
+noX('xaxb') // → ab	ab	✔	
+noX('abc') // → abc	abc	✔	
+noX('xx') // →		✔	
+noX('') // →		✔	
+noX('axxbxx') // → ab	ab	✔	
+noX('Hellox') // → Hello	Hello	✔
+
+
+
+// Given an array of ints, compute recursively if the array contains a 6. We'll use the convention of considering 
+// only the part of the array that begins at the given index. In this way, a recursive call can pass index+1 
+// to move down the array. The initial call will pass in index as 0.
+function array6(nums,i){
+  const eval = nums[i];
+  if (i > nums.length) {
+    return false;
+  }
+  if (nums[i] === 6) {
+    return true;
+  }
+  return array6(nums, i + 1);
+}
+array6([1, 6, 4], 0) → true	true	✔	
+array6([1, 4], 0) → false	false	✔	
+array6([6], 0) → true	true	✔	
+array6([], 0) → false	false	✔	
+array6([6, 2, 2], 0) → true	true	✔	
+array6([2, 5], 0) → false	false	✔	
+array6([1, 9, 4, 6, 6], 0) → true	true	✔	
+array6([2, 5, 6], 0) → true	true	✔
+
+
+
+// Given an array of ints, compute recursively the number of times that the value 11 appears in the array. We'll 
+// use the convention of considering only the part of the array that begins at the given index. In this way, a recursive 
+// call can pass index+1 to move down the array. The initial call will pass in index as 0.
+function array11(nums,i){
+  if (i > nums.length) {
+    return 0;
+  }
+  if (nums[i] === 11) {
+    return 1 + array11(nums, i + 1);
+  }
+  return array11(nums, i + 1);
+}
+array11([1, 2, 11], 0) // → 1	1	✔	
+array11([11, 11], 0) // → 2	2	✔	
+array11([1, 2, 3, 4], 0) // → 0	0	✔	
+array11([1, 11, 3, 11, 11], 0) // → 3	3	✔	
+array11([11], 0) // → 1	1	✔	
+array11([1], 0) // → 0	0	✔	
+array11([], 0) // → 0	0	✔	
+array11([11, 2, 3, 4, 11, 5], 0) // → 2	2	✔	
+array11([11, 5, 11], 0) // → 2	2	✔
+
+
+
