@@ -382,3 +382,116 @@ either24([2]) // → false	false	✔
 either24([]) // → false	false	✔
 
 
+
+// Given arrays nums1 and nums2 of the same length, for every element in nums1, consider the corresponding 
+// element in nums2 (at the same index). Return the count of the number of times that the two elements differ 
+// by 2 or less, but are not equal.
+function matchUp(a,b){
+  if (a.length < 1) {
+    return 0;
+  }
+  const diff = Math.abs(a[0] - b[0]);
+  if (diff !== 0 && diff <= 2) {
+    return 1 + matchUp(a.slice(1), b.slice(1));
+  }
+  return matchUp(a.slice(1), b.slice(1));
+}
+matchUp([1, 2, 3], [2, 3, 10]) // → 2	2	✔	
+matchUp([1, 2, 3], [2, 3, 5]) // → 3	3	✔	
+matchUp([1, 2, 3], [2, 3, 3]) // → 2	2	✔	
+matchUp([5, 3], [5, 5]) // → 1	1	✔	
+matchUp([5, 3], [4, 4]) // → 2	2	✔	
+matchUp([5, 3], [3, 3]) // → 1	1	✔	
+matchUp([5, 3], [2, 2]) // → 1	1	✔	
+matchUp([5, 3], [1, 1]) // → 1	1	✔	
+matchUp([5, 3], [0, 0]) // → 0	0	✔	
+matchUp([4], [4]) // → 0	0	✔	
+matchUp([4], [5]) // → 1	1	✔
+
+
+
+// Given an array of ints, return true if the array contains two 7's next to each other, or there are two 7's 
+// separated by one element, such as with {7, 1, 7}
+function has77(nums){
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] === 7) {
+      if (nums[i + 1] === 7 || nums[i + 2] === 7) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+has77([1, 7, 7]) // → true	true	✔	
+has77([1, 7, 1, 7]) // → true	true	✔	
+has77([1, 7, 1, 1, 7]) // → false	false	✔	
+has77([7, 7, 1, 1, 7]) // → true	true	✔	
+has77([2, 7, 2, 2, 7, 2]) // → false	false	✔	
+has77([2, 7, 2, 2, 7, 7]) // → true	true	✔	
+has77([7, 2, 7, 2, 2, 7]) // → true	true	✔	
+has77([7, 2, 6, 2, 2, 7]) // → false	false	✔	
+has77([7, 7, 7]) // → true	true	✔	
+has77([7, 1, 7]) // → true	true	✔	
+has77([7, 1, 1]) // → false	false	✔	
+has77([1, 2]) // → false	false	✔	
+has77([1, 7]) // → false	false	✔	
+has77([7]) // → false	false	✔
+
+
+
+// Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
+function has12(nums){
+  let willFailOn2 = false;
+  for (let num of nums) {
+    if (num === 1) {
+      willFailOn2 = true;
+    } else if (willFailOn2 && num === 2) {
+      return true;
+    }
+  }
+  return false;
+}
+has12([1, 3, 2]) // → true	true	✔	
+has12([3, 1, 2]) // → true	true	✔	
+has12([3, 1, 4, 5, 2]) // → true	true	✔	
+has12([3, 1, 4, 5, 6]) // → false	false	✔	
+has12([3, 1, 4, 1, 6, 2]) // → true	true	✔	
+has12([2, 1, 4, 1, 6, 2]) // → true	true	✔	
+has12([2, 1, 4, 1, 6]) // → false	false	✔	
+has12([1]) // → false	false	✔	
+has12([2, 1, 3]) // → false	false	✔	
+has12([2, 1, 3, 2]) // → true	true	✔	
+has12([2]) // → false	false	✔	
+has12([3, 2]) // → false	false	✔	
+has12([3, 1, 3, 2]) // → true	true	✔	
+has12([3, 5, 9]) // → false	false	✔	
+has12([3, 5, 1]) // → false	false	✔	
+has12([3, 2, 1]) // → false	false	✔	
+has12([1, 2]) // → true	true	✔
+
+
+
+// Given an array of ints, return true if the array contains either 3 even or 3 odd values all next to each other.
+function modThree(nums){
+  // helper: gives value of +1 to even nums, -1 to odd nums
+  const addEvenMinusOdd = (num) => {
+    if (num % 2 === 0) {
+      return 1;
+    }
+    return -1;
+  };
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    const typeSum =
+      addEvenMinusOdd(nums[i]) +
+      addEvenMinusOdd(nums[i + 1]) +
+      addEvenMinusOdd(nums[i + 2]);
+    if (Math.abs(typeSum) === 3) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+
