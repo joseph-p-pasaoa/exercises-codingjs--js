@@ -319,14 +319,14 @@ function array6(nums,i){
   }
   return array6(nums, i + 1);
 }
-array6([1, 6, 4], 0) → true	true	✔	
-array6([1, 4], 0) → false	false	✔	
-array6([6], 0) → true	true	✔	
-array6([], 0) → false	false	✔	
-array6([6, 2, 2], 0) → true	true	✔	
-array6([2, 5], 0) → false	false	✔	
-array6([1, 9, 4, 6, 6], 0) → true	true	✔	
-array6([2, 5, 6], 0) → true	true	✔
+array6([1, 6, 4], 0) // → true	true	✔	
+array6([1, 4], 0) // → false	false	✔	
+array6([6], 0) // → true	true	✔	
+array6([], 0) // → false	false	✔	
+array6([6, 2, 2], 0) // → true	true	✔	
+array6([2, 5], 0) // → false	false	✔	
+array6([1, 9, 4, 6, 6], 0) // → true	true	✔	
+array6([2, 5, 6], 0) // → true	true	✔
 
 
 
@@ -351,6 +351,77 @@ array11([1], 0) // → 0	0	✔
 array11([], 0) // → 0	0	✔	
 array11([11, 2, 3, 4, 11, 5], 0) // → 2	2	✔	
 array11([11, 5, 11], 0) // → 2	2	✔
+
+
+
+// Given an array of ints, compute recursively if the array contains somewhere a value followed in the array by that 
+// value times 10. We'll use the convention of considering only the part of the array that begins at the given index. 
+// In this way, a recursive call can pass index+1 to move down the array. The initial call will pass in index as 0.
+function array220(nums,i){
+  if (i + 1 > nums.length) {
+    return false;
+  }
+  if (nums[i + 1] === nums[i] * 10) {
+    return true;
+  }
+  return array220(nums, i + 1);
+}
+array220([1, 2, 20], 0) // → true	true	✔	
+array220([3, 30], 0) // → true	true	✔	
+array220([3], 0) // → false	false	✔	
+array220([], 0) // → false	false	✔	
+array220([3, 3, 30, 4], 0) // → true	true	✔	
+array220([2, 19, 4], 0) // → false	false	✔	
+array220([20, 2, 21], 0) // → false	false	✔	
+array220([20, 2, 21, 210], 0) // → true	true	✔	
+array220([2, 200, 2000], 0) // → true	true	✔	
+array220([0, 0], 0) // → true	true	✔	
+array220([1, 2, 3, 4, 5, 6], 0) // → false	false	✔	
+array220([1, 2, 3, 4, 5, 50, 6], 0) // → true	true	✔	
+array220([1, 2, 3, 4, 5, 51, 6], 0) // → false	false	✔	
+array220([1, 2, 3, 4, 4, 50, 500, 6], 0) // → true	true	✔
+
+
+
+// Given a string, compute recursively a new string where all the adjacent chars are now separated by a "*".
+function allStar(str){
+  if (str.length < 2) {
+    return str;
+  }
+  return str[0] + "*" + allStar(str.slice(1));
+}
+allStar('hello') // → h*e*l*l*o	h*e*l*l*o	✔	
+allStar('abc') // → a*b*c	a*b*c	✔	
+allStar('ab') // → a*b	a*b	✔	
+allStar('a') // → a	a	✔	
+allStar('') // →		✔	
+allStar('3.14') // → 3*.*1*4	3*.*1*4	✔	
+allStar('Chocolate') // → C*h*o*c*o*l*a*t*e	C*h*o*c*o*l*a*t*e	✔	
+allStar('1234') // → 1*2*3*4	1*2*3*4	✔
+
+
+
+// Given a string, compute recursively a new string where identical chars that are adjacent in the 
+// original string are separated from each other by a "*"
+function pairStar(str){
+  if (str.length < 2) {
+    return str;
+  }
+  if (str[0] === str[1]) {
+    return str[0] + "*" + pairStar(str.slice(1));
+  }
+  return str[0] + pairStar(str.slice(1));
+}
+pairStar('hello') // → hel*lo	hel*lo	✔	
+pairStar('xxyy') // → x*xy*y	x*xy*y	✔	
+pairStar('aaaa') // → a*a*a*a	a*a*a*a	✔	
+pairStar('aaab') // → a*a*ab	a*a*ab	✔	
+pairStar('aa') // → a*a	a*a	✔	
+pairStar('a') // → a	a	✔	
+pairStar('') // →		✔	
+pairStar('noadjacent') // → noadjacent	noadjacent	✔	
+pairStar('abba') // → ab*ba	ab*ba	✔	
+pairStar('abbba') // → ab*b*ba	ab*b*ba	✔
 
 
 
