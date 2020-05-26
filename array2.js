@@ -275,7 +275,7 @@ function fizzArray(n){
 fizzArray(4) // → 0,1,2,3	0,1,2,3	✔	
 fizzArray(1) // → 0	0	✔	
 fizzArray(10) // → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
-fizzArray(0) →		✔	
+fizzArray(0) // →		✔	
 fizzArray(2) // → 0,1	0,1	✔	
 fizzArray(7) // → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔
 
@@ -311,7 +311,7 @@ fizzArray2(4) // → 0,1,2,3	0,1,2,3	✔
 fizzArray2(10) // → 0,1,2,3,4,5,6,7,8,9	0,1,2,3,4,5,6,7,8,9	✔	
 fizzArray2(2) // → 0,1	0,1	✔	
 fizzArray2(1) // → 0	0	✔	
-fizzArray2(0) →		✔	
+fizzArray2(0) // →		✔	
 fizzArray2(7) // → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔	
 fizzArray2(9) // → 0,1,2,3,4,5,6,7,8	0,1,2,3,4,5,6,7,8	✔	
 fizzArray2(11) // → 0,1,2,3,4,5,6,7,8,9,10	0,1,2,3,4,5,6,7,8,9,10	✔
@@ -492,6 +492,18 @@ function modThree(nums){
   }
   return false;
 }
+modThree([2, 1, 3, 5]) // → true	true	✔	
+modThree([2, 1, 2, 5]) // → false	false	✔	
+modThree([2, 4, 2, 5]) // → true	true	✔	
+modThree([1, 2, 1, 2, 1]) // → false	false	✔	
+modThree([9, 9, 9]) // → true	true	✔	
+modThree([1, 2, 1]) // → false	false	✔	
+modThree([1, 2]) // → false	false	✔	
+modThree([1]) // → false	false	✔	
+modThree([]) // → false	false	✔	
+modThree([9, 7, 2, 9]) // → false	false	✔	
+modThree([9, 7, 2, 9, 2, 2]) // → false	false	✔	
+modThree([9, 7, 2, 9, 2, 2, 6]) // → true	true	✔
 
 
 
