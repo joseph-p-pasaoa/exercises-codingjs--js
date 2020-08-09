@@ -422,3 +422,33 @@ oneTwo('abcdefghijklkmnopqrstuvwxyz123456789') // → bcaefdhigkljmnkpqostrvwuyz
 oneTwo('abcdefghijklkmnopqrstuvwxyz12345678') // → bcaefdhigkljmnkpqostrvwuyzx231564	bcaefdhigkljmnkpqostrvwuyzx231564	✔
 
 
+function zipZap(str){
+  if (str.length < 3) return str;
+
+  let output = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i >= str.length - 2) {
+      output += str[i];
+    } else if (str[i] === 'z' && str[i + 2] === 'p') {
+      output += 'zp';
+      i += 2;
+    } else {
+      output += str[i];
+    }
+  }
+  return output;
+}
+zipZap('zipXzap') // → zpXzp	zpXzp	✔	
+zipZap('zopzop') // → zpzp	zpzp	✔	
+zipZap('zzzopzop') // → zzzpzp	zzzpzp	✔	
+zipZap('zibzap') // → zibzp	zibzp	✔	
+zipZap('zip') // → zp	zp	✔	
+zipZap('zi') // → zi	zi	✔	
+zipZap('z') // → z	z	✔	
+zipZap('') // →		✔	
+zipZap('zzp') // → zp	zp	✔	
+zipZap('abcppp') // → abcppp	abcppp	✔	
+zipZap('azbcppp') // → azbcppp	azbcppp	✔	
+zipZap('azbcpzpp') // → azbcpzp	azbcpzp	✔
+
+
