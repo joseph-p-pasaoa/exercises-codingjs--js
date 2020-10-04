@@ -22,11 +22,12 @@ mapCount({'c': 'cat', 'd': 'dog'}) // → 2	2	✔
 
 
 function mapBully(someMap){
-  if (someMap.has('a')) {
-    someMap.set('b', someMap.get('a'));
-    someMap.set('a', '');
+  const newMap = new Map(someMap);
+  if (newMap.has('a')) {
+    newMap.set('b', newMap.get('a'));
+    newMap.set('a', '');
   }
-  return someMap;
+  return newMap;
 }
 
 mapBully({'a': 'candy', 'b': 'dirt'}) // → {'a': '', 'b': 'candy'}	{'a': '', 'b': 'candy'}	✔	
