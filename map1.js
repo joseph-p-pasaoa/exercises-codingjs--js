@@ -99,3 +99,66 @@ topping1({'bread': 'nutella'}) // → {'bread': 'butter'}	{'bread': 'butter'}	�
 
 
 
+function topping2(someMap){
+  const newMap = new Map(someMap);
+  if (newMap.has('ice cream')) {
+    newMap.set('yogurt', newMap.get('ice cream'));
+  }
+  if (newMap.has('spinach')) {
+    newMap.set('spinach', 'nuts');
+  }
+  return newMap;
+}
+
+topping2({'ice cream': 'cherry'}) // → {'ice cream': 'cherry', 'yogurt': 'cherry'}	{'ice cream': 'cherry', 'yogurt': 'cherry'}	✔	
+topping2({'spinach': 'dirt', 'ice cream': 'cherry'}) // → {'spinach': 'nuts', 'ice cream': 'cherry', 'yogurt': 'cherry'}	{'spinach': 'nuts', 'ice cream': 'cherry', 'yogurt': 'cherry'}	✔	
+topping2({'yogurt': 'salt'}) // → {'yogurt': 'salt'}	{'yogurt': 'salt'}	✔	
+topping2({'yogurt': 'salt', 'bread': 'butter'}) // → {'yogurt': 'salt', 'bread': 'butter'}	{'yogurt': 'salt', 'bread': 'butter'}	✔	
+topping2({}) // → {}	{}	✔	
+topping2({'ice cream': 'air', 'salad': 'oil'}) // → {'ice cream': 'air', 'salad': 'oil', 'yogurt': 'air'}	{'ice cream': 'air', 'salad': 'oil', 'yogurt': 'air'}	✔
+
+
+
+function topping3(someMap){
+  const newMap = new Map(someMap);
+  if (newMap.has('potato')) {
+    newMap.set('fries', newMap.get('potato'));
+  }
+  if (newMap.has('salad')) {
+    newMap.set('spinach', newMap.get('salad'));
+  }
+  return newMap;
+}
+
+topping3({'potato': 'ketchup'}) // → {'potato': 'ketchup', 'fries': 'ketchup'}	{'potato': 'ketchup', 'fries': 'ketchup'}	✔	
+topping3({'potato': 'butter'}) // → {'potato': 'butter', 'fries': 'butter'}	{'potato': 'butter', 'fries': 'butter'}	✔	
+topping3({'salad': 'oil', 'potato': 'ketchup'}) // → {'salad': 'oil', 'potato': 'ketchup', 'fries': 'ketchup', 'spinach': 'oil'}	{'salad': 'oil', 'potato': 'ketchup', 'fries': 'ketchup', 'spinach': 'oil'}	✔	
+topping3({'toast': 'butter', 'salad': 'oil', 'potato': 'ketchup'}) // → {'toast': 'butter', 'salad': 'oil', 'potato': 'ketchup', 'fries': 'ketchup', 'spinach': 'oil'}	{'toast': 'butter', 'salad': 'oil', 'potato': 'ketchup', 'fries': 'ketchup', 'spinach': 'oil'}	✔	
+topping3({}) // → {}	{}	✔	
+topping3({'salad': 'pepper', 'fries': 'salt'}) // → {'salad': 'pepper', 'fries': 'salt', 'spinach': 'pepper'}	{'salad': 'pepper', 'fries': 'salt', 'spinach': 'pepper'}	✔
+
+
+
+function mapAB2(someMap){
+  const newMap = new Map(someMap);
+  if (
+    newMap.has('a') &&
+    newMap.get('a') === newMap.get('b')
+    ) {
+    newMap.delete('a');
+    newMap.delete('b');
+  }
+  return newMap;
+}
+
+mapAB2({'a': 'aaa', 'b': 'aaa', 'c': 'cake'}) // → {'c': 'cake'}	{'c': 'cake'}	✔	
+mapAB2({'a': 'aaa', 'b': 'bbb'}) // → {'a': 'aaa', 'b': 'bbb'}	{'a': 'aaa', 'b': 'bbb'}	✔	
+mapAB2({'a': 'aaa', 'b': 'bbb', 'c': 'aaa'}) // → {'a': 'aaa', 'b': 'bbb', 'c': 'aaa'}	{'a': 'aaa', 'b': 'bbb', 'c': 'aaa'}	✔	
+mapAB2({'a': 'aaa'}) // → {'a': 'aaa'}	{'a': 'aaa'}	✔	
+mapAB2({'b': 'bbb'}) // → {'b': 'bbb'}	{'b': 'bbb'}	✔	
+mapAB2({'a': '', 'b': '', 'c': 'ccc'}) // → {'c': 'ccc'}	{'c': 'ccc'}	✔	
+mapAB2({}) // → {}	{}	✔	
+mapAB2({'a': 'a', 'b': 'b', 'z': 'zebra'}) // → {'a': 'a', 'b': 'b', 'z': 'zebra'}	{'a': 'a', 'b': 'b', 'z': 'zebra'}	✔
+
+
+
