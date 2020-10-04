@@ -19,3 +19,20 @@ mapCount({'ab': 'nope', 'b': 'bbb', 'c': 'ccc'}) // → 2	2	✔
 mapCount({'b': 'b', 'c': 'cake'}) // → 2	2	✔	
 mapCount({'a': 'a', 'c': 'cake'}) // → 2	2	✔	
 mapCount({'c': 'cat', 'd': 'dog'}) // → 2	2	✔
+
+
+
+function mapBully(someMap){
+  if (someMap.has('a')) {
+    someMap.set('b', someMap.get('a'));
+    someMap.set('a', '');
+  }
+  return someMap;
+}
+
+mapBully({'a': 'candy', 'b': 'dirt'}) // → {'a': '', 'b': 'candy'}	{'a': '', 'b': 'candy'}	✔	
+mapBully({'a': 'candy'}) // → {'a': '', 'b': 'candy'}	{'a': '', 'b': 'candy'}	✔	
+mapBully({'a': 'candy', 'b': 'carrot', 'c': 'meh'}) // → {'a': '', 'b': 'candy', 'c': 'meh'}	{'a': '', 'b': 'candy', 'c': 'meh'}	✔	
+mapBully({'b': 'carrot'}) // → {'b': 'carrot'}	{'b': 'carrot'}	✔	
+mapBully({'c': 'meh'}) // → {'c': 'meh'}	{'c': 'meh'}	✔	
+mapBully({'a': 'sparkle', 'c': 'meh'}) // → {'a': '', 'c': 'meh', 'b': 'sparkle'}	{'a': '', 'c': 'meh', 'b': 'sparkle'}	✔
