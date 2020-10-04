@@ -1,7 +1,8 @@
 function mapCount(someMap){
+  const wanted = {a: true, b: true, c: true};
   let involvedKeys = 0;
   for (let [key, value] of someMap) {
-    if (value.includes(key)) involvedKeys++;
+    if (wanted[key]) involvedKeys++;
   }
   return involvedKeys;
 }
