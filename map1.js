@@ -162,3 +162,36 @@ mapAB2({'a': 'a', 'b': 'b', 'z': 'zebra'}) // → {'a': 'a', 'b': 'b', 'z': 'zeb
 
 
 
+function mapAB3(someMap){
+  const newMap = new Map(someMap);
+  const [isA, isB] = [
+    newMap.has('a'),
+    newMap.has('b')
+  ];
+
+  if (
+    (isA && isB) || !(isA || isB)
+  ) return newMap;
+  
+  if (isA) {
+    newMap.set('b', newMap.get('a'));
+  } else {
+    newMap.set('a', newMap.get('b'));
+  }
+  
+  return newMap;
+}
+
+mapAB3({'a': 'aaa', 'c': 'cake'}) // → {'a': 'aaa', 'c': 'cake', 'b': 'aaa'}	{'a': 'aaa', 'c': 'cake', 'b': 'aaa'}	✔	
+mapAB3({'b': 'bbb', 'c': 'cake'}) // → {'b': 'bbb', 'c': 'cake', 'a': 'bbb'}	{'b': 'bbb', 'c': 'cake', 'a': 'bbb'}	✔	
+mapAB3({'a': 'aaa', 'b': 'bbb', 'c': 'cake'}) // → {'a': 'aaa', 'b': 'bbb', 'c': 'cake'}	{'a': 'aaa', 'b': 'bbb', 'c': 'cake'}	✔	
+mapAB3({'ccc': 'ccc'}) // → {'ccc': 'ccc'}	{'ccc': 'ccc'}	✔	
+mapAB3({'c': 'a', 'd': 'b'}) // → {'c': 'a', 'd': 'b'}	{'c': 'a', 'd': 'b'}	✔	
+mapAB3({}) // → {}	{}	✔	
+mapAB3({'a': ''}) // → {'a': '', 'b': ''}	{'a': '', 'b': ''}	✔	
+mapAB3({'b': ''}) // → {'b': '', 'a': ''}	{'b': '', 'a': ''}	✔	
+mapAB3({'a': '', 'b': ''}) // → {'a': '', 'b': ''}	{'a': '', 'b': ''}	✔	
+mapAB3({'aa': 'aa', 'a': 'apple', 'z': 'zzz'}) // → {'aa': 'aa', 'a': 'apple', 'z': 'zzz', 'b': 'apple'}	{'aa': 'aa', 'a': 'apple', 'z': 'zzz', 'b': 'apple'}	✔
+
+
+
