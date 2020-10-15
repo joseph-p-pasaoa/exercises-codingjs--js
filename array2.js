@@ -507,3 +507,94 @@ modThree([9, 7, 2, 9, 2, 2, 6]) // → true	true	✔
 
 
 
+function findTheMedian(nums){
+  const sorted = nums.sort((a, b) => a - b);
+  const length = nums.length;
+  const mid = Math.floor(length / 2);
+  if (length % 2 === 1) {
+    return nums[mid];
+  } else {
+    const [medianLeft, medianRight] = [
+      nums[mid - 1], nums[mid]
+    ];
+    return (medianLeft + medianRight) / 2;
+  }
+}
+
+findTheMedian([4,9,9,2,1,5]) // → 4.5	4.5	✔	
+findTheMedian([1, 5, 3, 1 , 5]) // → 3	3	✔	
+findTheMedian([10, 12, 15]) // → 12	12	✔	
+findTheMedian([5]) // → 5	5	✔	
+findTheMedian([11, 9, 0, 1]) // → 5	5	✔	
+findTheMedian([-1, 11, -2, 10, -3, 15]) // → 4.5	4.5	✔	
+findTheMedian([2, 10, 15, 13]) // → 11.5	11.5	✔	
+findTheMedian([2, 5, -12]) // → 2	2	✔
+
+
+
+function haveThree(nums){
+  let counter = 0;
+  let wasThreeLast = false;
+  for (let num of nums) {
+    if (num === 3) {
+      if (wasThreeLast === true) return false;
+
+      counter += 1;
+      wasThreeLast = true;
+    } else {
+      wasThreeLast = false;
+    }
+  }
+  return counter === 3;
+}
+
+haveThree([3, 1, 3, 1, 3]) // → true	true	✔	
+haveThree([3, 1, 3, 3]) // → false	false	✔	
+haveThree([3, 4, 3, 3, 4]) // → false	false	✔	
+haveThree([1, 3, 1, 3, 1, 2]) // → false	false	✔	
+haveThree([1, 3, 1, 3, 1, 3]) // → true	true	✔	
+haveThree([1, 3, 3, 1, 3]) // → false	false	✔	
+haveThree([1, 3, 1, 3, 1, 3, 4, 3]) // → false	false	✔	
+haveThree([3, 4, 3, 4, 3, 4, 4]) // → true	true	✔	
+haveThree([3, 3, 3]) // → false	false	✔	
+haveThree([1, 3]) // → false	false	✔	
+haveThree([3]) // → false	false	✔	
+haveThree([1]) // → false	false	✔
+
+
+
+function twoTwo(nums){
+  let isAlreadyTwoGroup = false;
+  let isConsecutiveTwos = false;
+  for (let num of nums) {
+    if (num === 2) {
+      if (isAlreadyTwoGroup) return false;
+
+      if (isConsecutiveTwos === false) {
+        isConsecutiveTwos = true;
+      }
+    } else if (isConsecutiveTwos) {
+      isAlreadyTwoGroup = true;
+      isConsecutiveTwos = false;
+    }
+  }
+  return true;
+}
+
+twoTwo([4, 2, 2, 3]) // → true	true	✔	
+twoTwo([2, 2, 4]) // → true	true	✔	
+twoTwo([2, 2, 4, 2]) // → false	false	✔	
+twoTwo([1, 3, 4]) // → true	true	✔	
+twoTwo([1, 2, 2, 3, 4]) // → true	true	✔	
+twoTwo([1, 2, 3, 4]) // → true	true	✔	
+twoTwo([2, 2]) // → true	true	✔	
+twoTwo([2, 2, 7]) // → true	true	✔	
+twoTwo([2, 2, 7, 2, 1]) // → false	false	✔	
+twoTwo([4, 2, 2, 2]) // → true	true	✔	
+twoTwo([2, 2, 2]) // → true	true	✔	
+twoTwo([1, 2]) // → true	true	✔	
+twoTwo([2]) // → true	true	✔	
+twoTwo([1]) // → true	true	✔	
+twoTwo([]) // → true	true	✔	
+twoTwo([5, 2, 2, 3]) // → true	true	✔	
+twoTwo([2, 2, 5, 2]) // → false	false	✔
