@@ -239,6 +239,40 @@ countHi('Hi is no HI on ahI') // → 0	0	✔
 countHi('hiho not HOHIhi') // → 2	2	✔
 
 
+function catDog(input){
+  function scan(str) {
+    if (str.length < 3) return 0;
+
+    const firstThree = str.slice(0, 3);
+
+    if (firstThree === 'cat') {
+      return -1 + scan(str.slice(3));
+    }
+    if (firstThree === 'dog') {
+      return 1 + scan(str.slice(3));
+    }
+    return scan(str.slice(1));
+  }
+  
+  const balance = scan(input);
+  return balance === 0;
+}
+
+catDog('catdog') // → true	true	✔	
+catDog('catcat') // → false	false	✔	
+catDog('1cat1cadodog') // → true	true	✔	
+catDog('catxxdogxxxdog') // → false	false	✔	
+catDog('catxdogxdogxcat') // → true	true	✔	
+catDog('catxdogxdogxca') // → false	false	✔	
+catDog('dogdogcat') // → false	false	✔	
+catDog('dogogcat') // → true	true	✔	
+catDog('dog') // → false	false	✔	
+catDog('cat') // → false	false	✔	
+catDog('ca') // → true	true	✔	
+catDog('c') // → true	true	✔	
+catDog('') // → true	true	✔
+
+
 function changeXY(str){
   if (str.length < 1) {
     return str;
