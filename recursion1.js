@@ -517,4 +517,102 @@ countPairs('aa') // → 0	0	✔
 countPairs('aaa') // → 1	1	✔
 
 
+function countAbc(str){
+  if (str.length < 3) return 0;
+  
+  const firstThree = str.slice(0, 3);
+  if (firstThree === 'abc') {
+    return 1 + countAbc(str.slice(3));
+  }
+  if (firstThree === 'aba') {
+    return 1 + countAbc(str.slice(2));
+  }
+  
+  return countAbc(str.slice(1));
+}
 
+countAbc('abc') // → 1	1	✔	
+countAbc('abcxxabc') // → 2	2	✔	
+countAbc('abaxxaba') // → 2	2	✔	
+countAbc('ababc') // → 2	2	✔	
+countAbc('abxbc') // → 0	0	✔	
+countAbc('aaabc') // → 1	1	✔	
+countAbc('hello') // → 0	0	✔	
+countAbc('') // → 0	0	✔	
+countAbc('ab') // → 0	0	✔	
+countAbc('aba') // → 1	1	✔	
+countAbc('aca') // → 0	0	✔	
+countAbc('aaa') // → 0	0	✔
+
+
+function count11(str){
+  if (str.length < 2) return 0;
+  
+  const firstTwo = str.slice(0, 2);
+  if (firstTwo === '11') {
+    return 1 + count11(str.slice(2));
+  }
+  
+  return count11(str.slice(1));
+}
+
+count11('11abc11') // → 2	2	✔	
+count11('abc11x11x11') // → 3	3	✔	
+count11('111') // → 1	1	✔	
+count11('1111') // → 2	2	✔	
+count11('1') // → 0	0	✔	
+count11('') // → 0	0	✔	
+count11('hi') // → 0	0	✔	
+count11('11x111x1111') // → 4	4	✔	
+count11('1x111') // → 1	1	✔	
+count11('1Hello1') // → 0	0	✔	
+count11('Hello') // → 0	0	✔
+
+
+function stringClean(str){
+  if (str.length < 2) return str;
+  
+  const [current, next] = [str[0], str[1]];
+  return current === next
+    ? stringClean(str.slice(1))
+    : current + stringClean(str.slice(1));
+}
+
+stringClean('yyzzza') // → yza	yza	✔	
+stringClean('abbbcdd') // → abcd	abcd	✔	
+stringClean('Hello') // → Helo	Helo	✔	
+stringClean('XXabcYY') // → XabcY	XabcY	✔	
+stringClean('112ab445') // → 12ab45	12ab45	✔	
+stringClean('Hello Bookkeeper') // → Helo Bokeper	Helo Bokeper	✔
+
+
+function countHi2(str){
+  if (str.length < 2) return 0;
+
+  if (str[0] === 'x' && str.slice(1, 3) === 'hi') {
+    return countHi2(str.slice(3));
+  }
+  
+  if (str.slice(0, 2) === 'hi') {
+    return 1 + countHi2(str.slice(2));
+  }
+  
+  return countHi2(str.slice(1));
+}
+
+countHi2('ahixhi') // → 1	1	✔	
+countHi2('ahibhi') // → 2	2	✔	
+countHi2('xhixhi') // → 0	0	✔	
+countHi2('hixhi') // → 1	1	✔	
+countHi2('hixhhi') // → 2	2	✔	
+countHi2('hihihi') // → 3	3	✔	
+countHi2('hihihix') // → 3	3	✔	
+countHi2('xhihihix') // → 2	2	✔	
+countHi2('xxhi') // → 0	0	✔	
+countHi2('hixxhi') // → 1	1	✔	
+countHi2('hi') // → 1	1	✔	
+countHi2('xxxx') // → 0	0	✔	
+countHi2('h') // → 0	0	✔	
+countHi2('x') // → 0	0	✔	
+countHi2('') // → 0	0	✔	
+countHi2('Hellohi') // → 1	1	✔
