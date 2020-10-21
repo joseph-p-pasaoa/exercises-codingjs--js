@@ -274,13 +274,15 @@ catDog('') // → true	true	✔
 
 
 function changeXY(str){
-  if (str.length < 1) {
-    return str;
+  if (str === '') return '';
+  
+  const char = str[0];
+  const next = str.slice(1);
+  if (char === 'x') {
+    return 'y' + changeXY(next);
+  } else {
+    return char + changeXY(next);
   }
-  if (str.length === 1) {
-    return str === 'x' ? 'y' : str;
-  }
-  return (str[0] === 'x' ? 'y' : str[0]) + changeXY(str.slice(1));
 }
 changeXY('codex') // → codey	codey	✔	
 changeXY('xxhixx') // → yyhiyy	yyhiyy	✔	
@@ -295,16 +297,14 @@ changeXY('hihi') // → hihi	hihi	✔
 
 
 function changePi(str){
-  if (str.length < 2) {
-    return str;
-  }
-  if (str.length === 2) {
-    return (str === 'pi' ? '3.14' : str);
-  }
-  if (str.slice(0, 2) === 'pi') {
+  if (str.length < 2) return str;
+  
+  const firstTwo = str.slice(0, 2);
+  if (firstTwo === 'pi') {
     return '3.14' + changePi(str.slice(2));
+  } else {
+    return str[0] + changePi(str.slice(1));
   }
-  return str[0] + changePi(str.slice(1));
 }
 changePi('xpix') // → x3.14x	x3.14x	✔	
 changePi('pipi') // → 3.143.14	3.143.14	✔	
@@ -322,14 +322,16 @@ changePi('xyzzy') // → xyzzy	xyzzy	✔
 // Given a string, compute recursively a new string where all the 'x' chars have been removed.
 
 function noX(str){
-  const focus = str[0];
-  if (focus === undefined) {
-    return "";
+  if (str === '') return '';
+  
+  const [char, next] = [
+    str[0],
+    str.slice(1)
+  ];
+  if (char === 'x') {
+    return noX(next);
   }
-  if (focus === "x") {
-    return noX(str.slice(1));
-  }
-  return str[0] + noX(str.slice(1));
+  return char + noX(next);
 }
 noX('xaxb') // → ab	ab	✔	
 noX('abc') // → abc	abc	✔	
@@ -456,6 +458,59 @@ pairStar('') // →		✔
 pairStar('noadjacent') // → noadjacent	noadjacent	✔	
 pairStar('abba') // → ab*ba	ab*ba	✔	
 pairStar('abbba') // → ab*b*ba	ab*b*ba	✔
+
+
+
+function endX(str){
+  if (str === '') return '';
+  
+  const char = str[0];
+  
+  if (char === 'x') {
+    return endX(str.slice(1)) + 'x';
+  } else {
+    return char + endX(str.slice(1));
+  }
+}
+
+endX('xxre') // → rexx	rexx	✔	
+endX('xxhixx') // → hixxxx	hixxxx	✔	
+endX('xhixhix') // → hihixxx	hihixxx	✔	
+endX('hiy') // → hiy	hiy	✔	
+endX('h') // → h	h	✔	
+endX('x') // → x	x	✔	
+endX('xx') // → xx	xx	✔	
+endX('') →		✔	
+endX('bxx') // → bxx	bxx	✔	
+endX('bxax') // → baxx	baxx	✔	
+endX('axaxax') // → aaaxxx	aaaxxx	✔	
+endX('xxhxi') // → hixxx	hixxx	✔
+
+
+
+function countPairs(str){
+  if (str.length < 3) return 0;
+  
+  const [first, third] = [str[0], str[2]];
+  
+  if (first === third) {
+    return 1 + countPairs(str.slice(1));
+  } else {
+    return countPairs(str.slice(1));
+  }
+}
+
+countPairs('axa') // → 1	1	✔	
+countPairs('axax') // → 2	2	✔	
+countPairs('axbx') // → 1	1	✔	
+countPairs('hi') // → 0	0	✔	
+countPairs('hihih') // → 3	3	✔	
+countPairs('ihihhh') // → 3	3	✔	
+countPairs('ihjxhh') // → 0	0	✔	
+countPairs('') // → 0	0	✔	
+countPairs('a') // → 0	0	✔	
+countPairs('aa') // → 0	0	✔	
+countPairs('aaa') // → 1	1	✔
 
 
 
