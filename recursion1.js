@@ -394,12 +394,16 @@ array11([11, 5, 11], 0) // → 2	2	✔
 // value times 10. We'll use the convention of considering only the part of the array that begins at the given index. 
 // In this way, a recursive call can pass index+1 to move down the array. The initial call will pass in index as 0.
 function array220(nums,i){
-  if (i + 1 > nums.length) {
+  if (i >= nums.length - 1) {
     return false;
   }
-  if (nums[i + 1] === nums[i] * 10) {
+
+  const current = nums[i];
+  const next = nums[i + 1];
+  if (next / 10 === current) {
     return true;
   }
+
   return array220(nums, i + 1);
 }
 array220([1, 2, 20], 0) // → true	true	✔	
@@ -421,10 +425,9 @@ array220([1, 2, 3, 4, 4, 50, 500, 6], 0) // → true	true	✔
 
 // Given a string, compute recursively a new string where all the adjacent chars are now separated by a "*".
 function allStar(str){
-  if (str.length < 2) {
-    return str;
-  }
-  return str[0] + "*" + allStar(str.slice(1));
+  if (str.length <= 1) return str;
+  
+  return str[0] + '*' + allStar(str.slice(1));
 }
 allStar('hello') // → h*e*l*l*o	h*e*l*l*o	✔	
 allStar('abc') // → a*b*c	a*b*c	✔	
@@ -440,13 +443,14 @@ allStar('1234') // → 1*2*3*4	1*2*3*4	✔
 // Given a string, compute recursively a new string where identical chars that are adjacent in the 
 // original string are separated from each other by a "*"
 function pairStar(str){
-  if (str.length < 2) {
-    return str;
+  if (str.length <= 1) return str;
+  
+  const [current, next] = [str[0], str[1]];
+  if (current === next) {
+    return current + '*' + pairStar(str.slice(1));
   }
-  if (str[0] === str[1]) {
-    return str[0] + "*" + pairStar(str.slice(1));
-  }
-  return str[0] + pairStar(str.slice(1));
+  
+  return current + pairStar(str.slice(1));
 }
 pairStar('hello') // → hel*lo	hel*lo	✔	
 pairStar('xxyy') // → x*xy*y	x*xy*y	✔	
@@ -480,7 +484,7 @@ endX('hiy') // → hiy	hiy	✔
 endX('h') // → h	h	✔	
 endX('x') // → x	x	✔	
 endX('xx') // → xx	xx	✔	
-endX('') →		✔	
+endX('') // →		✔	
 endX('bxx') // → bxx	bxx	✔	
 endX('bxax') // → baxx	baxx	✔	
 endX('axaxax') // → aaaxxx	aaaxxx	✔	
