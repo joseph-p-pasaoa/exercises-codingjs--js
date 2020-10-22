@@ -616,3 +616,136 @@ countHi2('h') // → 0	0	✔
 countHi2('x') // → 0	0	✔	
 countHi2('') // → 0	0	✔	
 countHi2('Hellohi') // → 1	1	✔
+
+
+function starBit(str){
+  if (str.length <= 2) return str;
+
+  const mode = str.slice(-2);
+  const firstTwo = str.slice(0, 2);
+
+  if (mode === '**') {
+    if (firstTwo === ' -') {
+      return str.slice(1, -1); // FINAL RETURN
+    } else {
+      return starBit(str.slice(1)); // REMOVES POST-PHRASE CHARACTERS
+    }
+
+  } else if (mode === '--') { // ADDING TO RETURN
+    if (str[0] === '*') {
+      return starBit(str.slice(1, -2) + '**');
+    } else {
+      return starBit(str.slice(1, -2) + str[0] + '--');
+    }
+
+  } else {
+    if (str[0] === '-') {
+      return starBit(str.slice(1) + ' ---');
+    } else {
+      return starBit(str.slice(1)); // REMOVE PRE-PHRASE CHARACTERS
+    }
+  }
+}
+
+starBit('xyz,-abc*123') // → -abc*	-abc*	✔	
+starBit('x,-hello*') // → -hello*	-hello*	✔	
+starBit(',-xy*1') // → -xy*	-xy*	✔	
+starBit('not really ,-possible*') // → -possible*	-possible*	✔	
+starBit(',-abc*') // → -abc*	-abc*	✔	
+starBit(',-abc*xyz') // → -abc*	-abc*	✔	
+starBit(',-abc*x') // → -abc*	-abc*	✔	
+starBit(',-x*') // → -x*	-x*	✔	
+starBit(',-)*') // → -)*	-)*	✔	
+starBit('res ,-ipsa* loquitor') // → -ipsa*	-ipsa*	✔	
+starBit('hello,-not really*there') // → -not really*	-not really*	✔	
+starBit('ab,-ab*ab') // → -ab*	-ab*	✔
+
+
+function nestParen(str){
+  const [first, last] = [
+    str[0],
+    str[str.length - 1]
+  ];
+
+  if (str.length <= 0) return true;
+  
+  if (first === '(' && last === ')') {
+    return nestParen(str.slice(1, -1));
+  }
+  
+  return false;
+}
+
+nestParen('(())') // → true	true	✔	
+nestParen('((()))') // → true	true	✔	
+nestParen('(((x))') // → false	false	✔	
+nestParen('((())') // → false	false	✔	
+nestParen('((()()') // → false	false	✔	
+nestParen('()') // → true	true	✔	
+nestParen('') // → true	true	✔	
+nestParen('(yy)') // → false	false	✔	
+nestParen('(())') // → true	true	✔	
+nestParen('(((y))') // → false	false	✔	
+nestParen('((y)))') // → false	false	✔	
+nestParen('((()))') // → true	true	✔	
+nestParen('(())))') // → false	false	✔	
+nestParen('((yy())))') // → false	false	✔	
+nestParen('(((())))') // → true	true	✔
+
+
+function strCount(str,sub){
+  const subLen = sub.length;
+  
+  if (str.length < subLen) return 0;
+  
+  const frag = str.slice(0, subLen);
+  if (frag === sub) {
+    return 1 + strCount(str.slice(subLen), sub);
+  }
+  
+  return strCount(str.slice(1), sub);
+}
+
+strCount('catcowcat', 'cat') // → 2	2	✔	
+strCount('catcowcat', 'cow') // → 1	1	✔	
+strCount('catcowcat', 'dog') // → 0	0	✔	
+strCount('cacatcowcat', 'cat') // → 2	2	✔	
+strCount('xyx', 'x') // → 2	2	✔	
+strCount('iiiijj', 'i') // → 4	4	✔	
+strCount('iiiijj', 'ii') // → 2	2	✔	
+strCount('iiiijj', 'iii') // → 1	1	✔	
+strCount('iiiijj', 'j') // → 2	2	✔	
+strCount('iiiijj', 'jj') // → 1	1	✔	
+strCount('aaabababab', 'ab') // → 4	4	✔	
+strCount('aaabababab', 'aa') // → 1	1	✔	
+strCount('aaabababab', 'a') // → 6	6	✔	
+strCount('aaabababab', 'b') // → 4	4	✔
+
+
+function strCopies(str,sub,n){
+  if (n <= 0) return true;
+  if (str.length <= 0) return false;
+  
+  const frag = str.slice(0, sub.length);
+  return frag === sub
+    ? strCopies(str.slice(1), sub, n - 1)
+    : strCopies(str.slice(1), sub, n);
+}
+
+strCopies('catcowcat', 'cat', 2) // → true	true	✔	
+strCopies('catcowcat', 'cow', 2) // → false	false	✔	
+strCopies('catcowcat', 'cow', 1) // → true	true	✔	
+strCopies('iiijjj', 'i', 3) // → true	true	✔	
+strCopies('iiijjj', 'i', 4) // → false	false	✔	
+strCopies('iiijjj', 'ii', 2) // → true	true	✔	
+strCopies('iiijjj', 'ii', 3) // → false	false	✔	
+strCopies('iiijjj', 'x', 3) // → false	false	✔	
+strCopies('iiijjj', 'x', 0) // → true	true	✔	
+strCopies('iiiiij', 'iii', 3) // → true	true	✔	
+strCopies('iiiiij', 'iii', 4) // → false	false	✔	
+strCopies('ijiiiiij', 'iiii', 2) // → true	true	✔	
+strCopies('ijiiiiij', 'iiii', 3) // → false	false	✔	
+strCopies('dogcatdogcat', 'dog', 2) // → true	true	✔
+
+
+
