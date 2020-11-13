@@ -310,6 +310,38 @@ altPairs('') // →		✔
 altPairs('ThisThatTheOther') // → ThThThth	ThThThth	✔
 
 
+/* STRINGYAK
+Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed,
+but the "a" can be any char. The "yak" strings will not overlap.
+*/
+
+function stringYak(str){
+  let output = '';
+  for (let i = 0; i < str.length; i++) {
+    const curr = str[i];
+    if (curr === 'y' && str[i + 2] === 'k') {
+      i += 2;
+      continue;
+    }
+    output += curr;
+  }
+
+  return output;
+}
+stringYak('yakpak') // → pak	pak	✔	
+stringYak('pakyak') // → pak	pak	✔	
+stringYak('yak123ya') // → 123ya	123ya	✔	
+stringYak('yak') // →		✔	
+stringYak('yakxxxyak') // → xxx	xxx	✔	
+stringYak('xxcaazz', 'hiyakHi') // → xxcaazz	xxcaazz	✔	
+stringYak('xxxyakyyyakzzz') // → xxxyyzzz	xxxyyzzz	✔
+
+
+/* ARRAY667
+Given an array of ints, return the number of times that two 6's are next to each other in the array.
+Also count instances where the second "6" is actually a 7.
+*/
+
 function array667(nums){
   let counter = 0;
   for (let i = 0; i < nums.length; i++) {
