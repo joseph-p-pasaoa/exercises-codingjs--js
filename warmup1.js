@@ -468,7 +468,9 @@ loneTeen(99, 99) // → false	false	✔
 
 
 
-/*
+/* DELDEL
+Given a string, if the string "del" appears starting at index 1, return a string where that "del"
+has been deleted. Otherwise, return the string unchanged.
 */
 
 function delDel(str){
@@ -490,7 +492,8 @@ delDel('aadelbb') // → aadelbb	aadelbb	✔
 
 
 
-/*
+/* MIXSTART
+Return true if the given string begins with 'mix', except the 'm' can be anything, so 'pix', '9ix' .. all count.
 */
 
 function mixStart(str){
@@ -505,7 +508,9 @@ mixStart('n') // → false	false	✔
 
 
 
-/*
+/* STARTOZ
+Given a string, return a string made of the first 2 chars (if present), however include first char only if it is 'o'
+and include the second only if it is 'z', so 'ozymandias' yields 'oz'.
 */
 
 function startOz(str){
@@ -525,7 +530,8 @@ startOz('oznic') // → oz	oz	✔
 
 
 
-/*
+/* INTMAX
+Given three int values, a b c, return the largest.
 */
 
 function intMax(a,b,c){
@@ -548,7 +554,9 @@ intMax(5, 2, 6) // → 6	6	✔
 
 
 
-/*
+/* CLOSE10
+Given 2 int values, return whichever value is nearest to the value 10, or return 0 in the event of a tie.
+Note that Math.abs(n) returns the absolute value of a number.
 */
 
 function close10(a,b){
@@ -572,7 +580,9 @@ close10(10, 10) // → 0	0	✔
 
 
 
-/*
+/* IN3050
+Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are
+both in the range 40..50 inclusive.
 */
 
 function in3050(a,b){
@@ -602,7 +612,9 @@ in3050(35, 45) // → false	false	✔
 
 
 
-/*
+/* MAX1020
+Given 2 positive int values, return the larger value that is in the range 10..20 inclusive,
+or return 0 if neither is in that range.
 */
 
 function max1020(a,b){
@@ -631,7 +643,8 @@ max1020(17, 16) // → 17	17	✔
 
 
 
-/*
+/* STRINGE
+Return true if the given string contains between 1 and 3 'e' chars.
 */
 
 function stringE(str){
@@ -655,7 +668,9 @@ stringE('') // → false	false	✔
 
 
 
-/*
+/* LASTDIGIT
+Given two non-negative int values, return true if they have the same last digit, such as with 27
+and 57. Note that the % 'mod' operator computes remainders, so 17 % 10 is 7.
 */
 
 function lastDigit(a,b){
@@ -671,7 +686,10 @@ lastDigit(11, 0) // → false	false	✔
 
 
 
-/*
+/* ENDUP
+Given a string, return a new string where the last 3 chars are now in upper case. If the string
+has less than 3 chars, uppercase whatever is there. Note that str.toUpperCase() returns the
+uppercase version of a string.
 */
 
 function endUp(str){
@@ -687,7 +705,9 @@ endUp('') // →		✔
 
 
 
-/*
+/* EVERYNTH
+Given a non-empty string and an int N, return the string made starting with char 0, and
+then every Nth char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more.
 */
 
 function everyNth(str,n){
