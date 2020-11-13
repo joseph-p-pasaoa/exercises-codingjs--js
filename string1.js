@@ -1,10 +1,13 @@
 // Joseph P. Pasaoa
 // JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+// STRING-1
 //
 
 
 
-// STRING-1 //
+/* HELLONAME
+Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
+*/
 
 function helloName(name){
   return `Hello ${name}!`;
@@ -21,6 +24,11 @@ helloName('xyz!'); // → Hello xyz!!	Hello xyz!!	✔
 helloName('Hello!'); // → Hello Hello!! Hello Hello!! ✔
 
 
+/* MAKEABBA
+Given two strings, a and b, return the result of putting them together in the order abba,
+e.g. "Hi" and "Bye" returns "HiByeByeHi".
+*/
+
 function makeAbba(a, b){
   return a + b + b + a;
 }
@@ -33,6 +41,12 @@ makeAbba('x', ''); // → xx	xx	✔
 makeAbba('ba', 'Ya'); // → baYaYaba	baYaYaba	✔
 makeAbba('Ya', 'Ya'); // → YaYaYaYa YaYaYaYa  ✔
 
+
+/* MAKETAGS
+The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this
+example, the "i" tag makes <i> and </i> which surround the word "Yay". Given tag and word strings,
+create the HTML string with tags around the word, e.g. "<i>Yay</i>".
+*/
 
 function makeTags(tag, word){
   return `<${tag}>${word}</${tag}>`;
@@ -47,6 +61,12 @@ makeTags('i', 'i'); // → i	i	✔
 makeTags('i', ''); // → ✔
 
 
+/* MAKEOUTWORD
+Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in
+the middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String
+starting at index i and going up to but not including index j.
+*/
+
 function makeOutWord(out, word){
   let workArr = out.split('');
   workArr.splice(2, 0, word);
@@ -59,6 +79,11 @@ makeOutWord('HHoo', 'Hello'); // → HHHellooo	HHHellooo	✔
 makeOutWord('abyz', 'YAY'); // → abYAYyz  abYAYyz ✔
 
 
+/* EXTRAEND
+Given a string, return a new string made of 3 copies of the last 2 chars of the original
+string. The string length will be at least 2.
+*/
+
 function extraEnd(str){
   let newStr = str.slice(-2);
   return newStr + newStr + newStr;
@@ -69,6 +94,12 @@ extraEnd('Hi'); // → HiHiHi	HiHiHi	✔
 extraEnd('Candy'); // → dydydy	dydydy	✔
 extraEnd('Code'); // → dedede  dedede  ✔
 
+
+/* FIRSTTWO
+Given a string, return the string made of its first two chars, so the String "Hello" yields "He".
+If the string is shorter than length 2, return whatever there is, so "X" yields "X", and the empty
+string "" yields the empty string "". Note that str.length() returns the length of a string.
+*/
 
 function firstTwo(str){
   if (str.length < 2) {
@@ -86,6 +117,10 @@ firstTwo('hi'); // → hi	hi	✔
 firstTwo('hiya'); // → hi	hi	✔
 
 
+/* FIRSTHALF
+Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".
+*/
+
 function firstHalf(str){
   return str.slice(0, str.length / 2);
 }
@@ -97,6 +132,11 @@ firstHalf(''); // →		✔
 firstHalf('0123456789'); // → 0123456789	01234	✔
 firstHalf('kitten'); // → kitten	kit ✔
 
+
+/* WITHOUTEND
+Given a string, return a version without the first and last char, so "Hello" yields "ell".
+The string length will be at least 2.
+*/
 
 function withoutEnd(str){
   return str.slice(1, str.length - 1);
@@ -110,6 +150,12 @@ withoutEnd('Chocolate!'); // → hocolate	hocolate	✔
 withoutEnd('kitten'); // → itte	itte	✔
 withoutEnd('woohoo'); // → ooho	ooho	✔
 
+
+/* COMBOSTRING
+Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string
+on the outside and the longer string on the inside. The strings will not be the same length, but
+they may be empty (length 0).
+*/
 
 function comboString(a, b){
   if (a.length < b.length) {
@@ -131,6 +177,10 @@ comboString('a', 'bb'); // → abba	abba	✔
 comboString('xyz', 'ab'); // → abxyzab	abxyzab	✔
 
 
+/* NONSTART
+Given 2 strings, return their concatenation, except omit the first char of each. The strings will be at least length 1.
+*/
+
 function nonStart(a, b){
   return a.slice(1) + b.slice(1);
 }
@@ -145,6 +195,11 @@ nonStart('kit', 'kat'); // → itat	itat	✔
 nonStart('mart', 'dart'); // → artart	artart	✔
 
 
+/* LEFT2
+Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end.
+The string length will be at least 2.
+*/
+
 function left2(str){
   return str.slice(2) + str.slice(0, 2);
 }
@@ -158,6 +213,11 @@ left2('Chocolate'); // → ocolateCh	ocolateCh	✔
 left2('bricks'); // → icksbr	icksbr	✔
 
 
+/* RIGHT2
+Given a string, return a "rotated right 2" version where the last 2 chars are moved to the start.
+The string length will be at least 2.
+*/
+
 function right2(str){
   return str.slice(-2) + str.slice(0, -2);
 }
@@ -168,6 +228,11 @@ right2('code'); // → deco	deco	✔
 right2('cat'); // → atc	atc	✔
 right2('12345'); // → 45123	45123	✔
 
+
+/* THEEND
+Given a string, return a string length 1 from its front, unless front is false, in which case return
+a string length 1 from its back. The string will be non-empty.
+*/
 
 function theEnd(str, front){
   if (front) {
@@ -187,6 +252,10 @@ theEnd('1234', true); // → 1	1	✔
 theEnd('code', false); // → e	e	✔
 
 
+/* WITHOUTEND2
+Given a string, return a version without both the first and last char of the string. The string may be any length, including 0.
+*/
+
 function withoutEnd2(str){
   return str.slice(1, -1);
 }
@@ -199,6 +268,11 @@ withoutEnd2('coldy'); // → old	old	✔
 withoutEnd2('java code'); // → ava cod	ava cod	✔
 
 
+/* MIDDLETWO
+Given a string of even length, return a string made of the middle two chars, so the string "string"
+yields "ri". The string length will be at least 2.
+*/
+
 function middleTwo(str){
   return str.slice(str.length / 2 - 1, str.length / 2 + 1);
 }
@@ -208,6 +282,10 @@ middleTwo('Practice'); // →	ct	✔
 middleTwo('ab'); // →	ab	✔
 middleTwo('123456789'); // → 45	✔
 
+
+/* ENDSLY
+Given a string, return true if it ends in "ly".
+*/
 
 function endsLy(str){
   return str.slice(-2) === 'ly';
@@ -222,6 +300,11 @@ endsLy('falsely'); // → true	true	✔
 endsLy('evenly'); // → true	true	✔
 
 
+/* NTWICE
+Given a string and an int n, return a string made of the first and last n chars from the string.
+The string length will be at least n.
+*/
+
 function nTwice(str,n){
   return n === 0 ? "" : str.slice(0, n) + str.slice(-n);
 }
@@ -233,6 +316,12 @@ nTwice('Hello', 4) // → Hellello	Hellello	✔
 nTwice('Code', 4) // → CodeCode	CodeCode	✔
 nTwice('Code', 2) // → Code	Code	✔
 
+
+/* TWOCHAR
+Given a string and an index, return a string length 2 starting at the given index. If the index is
+too big or too small to define a string length 2, use the first 2 chars. The string length will be
+at least 2.
+*/
 
 function twoChar(str,index){
   if (index < 0 || index >= str.length - 1) {
@@ -257,6 +346,11 @@ twoChar('Hello', -1) // → He	He	✔
 twoChar('yay', 0) // → ya	ya	✔
 
 
+/* MIDDLETHREE
+Given a string of odd length, return the string length 3 from its middle, so "Candy" yields "and".
+The string length will be at least 3.
+*/
+
 function middleThree(str){
   const start = Math.floor(str.length / 2) - 1;
   return str.slice(start, start + 3);
@@ -269,6 +363,11 @@ middleThree('java yet java') // → yet	yet	✔
 middleThree('Chocolate') // → col	col	✔
 middleThree('XabcxyzabcX') // → xyz	xyz	✔
 
+
+/* HASBAD
+Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx"
+or "xbadxx" but not "xxbadxx". The string may be any length, including 0.
+*/
 
 function hasBad(str){
   return str.slice(0, 4).includes('bad');
@@ -285,6 +384,11 @@ hasBad('') // → false	false	✔
 hasBad('badyy') // → true	true	✔
 
 
+/* ATFIRST
+Given a string, return a string length 2 made of its first 2 chars. If the string length is less than 2, use
+'@' for the missing chars.
+*/
+
 function atFirst(str){
   if (str.length < 2) {
     return str[0] ? str + '@' : '@@';
@@ -300,6 +404,11 @@ atFirst('java') // → ja	ja	✔
 atFirst('j') // → j@	j@	✔
 
 
+/* LASTCHARS
+Given 2 strings, a and b, return a new string made of the first char of a and the last char of b, so "yo"
+and "java" yields "ya". If either string is length 0, use '@' for its missing char.
+*/
+
 function lastChars(a,b){
   return (a[0] || '@') + (b[b.length - 1] || '@');
 }
@@ -313,6 +422,11 @@ lastChars('k', 'zip') // → kp	kp	✔
 lastChars('kitten', '') // → k@	k@	✔
 lastChars('kitten', 'zip') // → kp	kp	✔
 
+
+/* CONCAT
+Given two strings, append them together (known as "concatenation") and return the result. However, if the
+concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat".
+*/
 
 function conCat(a,b){
   if (a.slice(-1) === b[0]) {
@@ -328,6 +442,10 @@ conCat('pig', 'g') // → pig	pig	✔
 conCat('pig', 'doggy') // → pigdoggy	pigdoggy	✔
 
 
+/* LASTTWO
+Given a string of any length, return a new string where the last 2 chars, if present, are swapped, so "coding" yields "codign".
+*/
+
 function lastTwo(str){
   if (str.length < 2) {
     return str;
@@ -340,6 +458,10 @@ lastTwo('ab') // → ba	ba	✔
 lastTwo('a') // → a	a	✔
 lastTwo('') // →		✔
 
+
+/* SEECOLOR
+Given a string, if the string begins with "red" or "blue" return that color string, otherwise return the empty string.
+*/
 
 function seeColor(str){
   if (str.slice(0, 3) === 'red') {
@@ -363,6 +485,10 @@ seeColor('') // →		✔
 seeColor('xyzred') // →		✔
 
 
+/* FRONTAGAIN
+Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with "edited".
+*/
+
 function frontAgain(str){
   if (str.length < 2) {
     return false;
@@ -381,6 +507,12 @@ frontAgain('') // → false	false	✔
 frontAgain('java') // → false	false	✔
 frontAgain('javaja') // → true	true	✔
 
+
+/* MINCAT
+Given two strings, append them together (known as "concatenation") and return the result. However,
+if the strings are different lengths, omit chars from the longer string so it is the same length as
+the shorter string. So "Hello" and "Hi" yield "loHi". The strings may be any length.
+*/
 
 function minCat(a, b){
   if (a.length === 0 || b.length === 0) {
@@ -402,6 +534,11 @@ minCat('x', 'abc'); // → xc	xc	✔
 minCat('abc', ''); // →  ✔
 
 
+/* EXTRAFRONT
+Given a string, return a new string made of 3 copies of the first 2 chars of the original string.
+The string may be any length. If there are fewer than 2 chars, use whatever is there.
+*/
+
 function extraFront(str){
   return str.slice(0,2) + str.slice(0,2) + str.slice(0,2);
 }
@@ -412,6 +549,12 @@ extraFront('') // →		✔
 extraFront('Candy') // → CaCaCa	CaCaCa	✔
 extraFront('Code') // → CoCoCo	CoCoCo	✔
 
+
+/* WITHOUT2
+Given a string, if a length 2 substring appears at both its beginning and end, return a string without
+the substring at the beginning, so "HelloHe" yields "lloHe". The substring may overlap with itself, so
+"Hi" yields "". Otherwise, return the original string unchanged.
+*/
 
 function without2(str){
   if (str.length !== 1 && str.slice(0,2) === str.slice(-2)) {
@@ -429,6 +572,11 @@ without2('x') // → x	x	✔
 without2('') // →		✔
 without2('Fruits') // → Fruits	Fruits	✔
 
+
+/* DEFRONT
+Given a string, return a version without the first 2 chars. Except keep the first char if it is 'a'
+and keep the second char if it is 'b'. The string may be any length. Harder than it looks.
+*/
 
 function deFront(str){
   let output = '';
@@ -461,6 +609,13 @@ deFront('xz') // →		✔
 deFront('zzz') // → z	z	✔
 
 
+/* STARTWORD
+Given a string and a second "word" string, we'll say that the word matches the string if it appears at
+the front of the string, except its first char does not need to match exactly. On a match, return the
+front of the string, or otherwise return the empty string. So, so with the string "hippo" the word "hi"
+returns "hi" and "xip" returns "hip". The word will be at least length 1.
+*/
+
 function startWord(str,word){
   if (word.length === 1 || word.slice(1) === str.slice(1, word.length)) {
     return str.slice(0, word.length);
@@ -483,6 +638,11 @@ startWord('hippo', 'hip') // → hip	hip	✔
 startWord('kitten', 'cit') // → kit	kit	✔
 startWord('kit', 'cit') // → kit	kit	✔
 
+
+/* WITHOUTX
+Given a string, if the first or last chars are 'x', return the string without those 'x' chars, and
+otherwise return the string unchanged.
+*/
 
 function withoutX(str) {
   let output = str.split('');
@@ -507,6 +667,11 @@ withoutX('') // →		✔
 withoutX('Hello') // → Hello	Hello	✔
 withoutX('Hexllo') // → Hexllo	Hexllo	✔
 
+
+/* WITHOUTX2
+Given a string, if one or both of the first 2 chars is 'x', return the string without those 'x' chars,
+and otherwise return the string unchanged. This is a little harder than it looks.
+*/
 
 function withoutX2(str){
   let output = '';
