@@ -30,7 +30,7 @@ indicate if each is smiling. We are in trouble if they are both smiling
 or if neither of them is smiling. Return true if we are in trouble. */
 
 function monkeyTrouble(aSmile,bSmile){
-  return aSmile && bSmile || !aSmile && !bSmile;
+  return aSmile === bSmile;
 }
 monkeyTrouble(true, true); // → true	true	✔	
 monkeyTrouble(false, false); // → true	true	✔	
@@ -44,7 +44,10 @@ Given two int values, return their sum. Unless the two values are the same,
 then return double their sum. */
 
 function sumDouble(a,b){
-  return (a === b ? a * 4 : a + b);
+  return (a === b
+    ? a * 4
+    : a + b
+  );
 }
 
 sumDouble(1, 2); // → 3	3	✔	
@@ -84,10 +87,14 @@ diff21(50); // → 58	58	✔
 
 
 /* PARROTTROUBLE
-We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23. We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return true if we are in trouble. */
+We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23.
+We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return true if we are in trouble. */
 
 function parrotTrouble(talking,hour){
-  return talking && hour < 7 || talking && hour > 20;
+  if (talking) {
+    return hour < 7 || 20 < hour;
+  }
+  return false;
 }
 parrotTrouble(true, 6); // → true	true	✔	
 parrotTrouble(true, 7); // → false	false	✔	
