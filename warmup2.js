@@ -1,10 +1,13 @@
 // Joseph P. Pasaoa
 // JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+// WARMUP-2
 //
 
 
 
-// Warmup-2 //
+/* STRINGTIMES
+Given a string and a non-negative int n, return a larger string that is n copies of the original string.
+*/
 
 function stringTimes(str,n){
   let outputStr = "";
@@ -25,6 +28,11 @@ stringTimes('code', 2) // → codecode	codecode	✔
 stringTimes('code', 3) // → codecodecode	codecodecode	✔
 
 
+/* FRONTTIMES
+Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars,
+or whatever is there if the string is less than length 3. Return n copies of the front.
+*/
+
 function frontTimes(str,n){
   let output = "";
   for (let i = n; i > 0; i--) {
@@ -40,6 +48,10 @@ frontTimes('A', 4) // → AAAA	AAAA	✔
 frontTimes('',4) // →		✔	
 frontTimes('Abc', 0) // →		✔
 
+
+/* COUNTXX
+Count the number of 'xx' in the given string. We'll say that overlapping is allowed, so 'xxx' contains 2 'xx'.
+*/
 
 function countXX(str){
   let counter = 0;
@@ -61,6 +73,10 @@ countXX('Kittens') // → 0	0	✔
 countXX('Kittensxxx') // → 2	2	✔
 
 
+/* DOUBLEX
+Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
+*/
+
 function doubleX(str){
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "x") {
@@ -80,6 +96,10 @@ doubleX('x') // → false	false	✔
 doubleX('xx') // → true	true	✔	
 doubleX('xaxx') // → false	false	✔
 
+
+/* STRINGBITS
+Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
+*/
 
 function stringBits(str){
   let outputStr = "";
@@ -102,6 +122,10 @@ stringBits('Hello Kitten') // → HloKte	HloKte	✔
 stringBits('hxaxpxpxy') // → happy	happy	✔
 
 
+/* STRINGSPLOSION
+Given a non-empty string like "Code" return a string like "CCoCodCodE".
+*/
+
 function stringSplosion(str){
   let outputStr = "";
   for (let i = 0; i < str.length; i++) {
@@ -113,6 +137,12 @@ function stringSplosion(str){
 }
 stringSplosion("Code") // → CCoCodCode	✔	
 
+
+/* LAST2
+Given a string, return the count of the number of times that a substring length 2 appears in the
+string and also as the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end
+substring).
+*/
 
 function last2(str){
   const last2 = str.slice(-2);
@@ -138,6 +168,10 @@ last2('h') // → 0	0	✔
 last2('') // → 0	0	✔
 
 
+/* ARRAYCOUNT9
+Given an array of ints, return the number of 9's in the array.
+*/
+
 function arrayCount9(nums){
   let counter = 0;
   for (let num of nums) {
@@ -155,6 +189,10 @@ arrayCount9([]) // → 0	0	✔
 arrayCount9([4,2,4,3,1]) // → 0	0	✔	
 arrayCount9([9,2,4,3,1]) // → 1	1	✔
 
+
+/* ARRAYFRONT9
+Given an array of ints, return true if one of the first 4 elements in the array is a 9. The array length may be less than 4.
+*/
 
 function arrayFront9(nums){
   for (let i = 0; i < 4; i++) {
@@ -180,6 +218,10 @@ arrayFront9([]) // → false	false	✔
 arrayFront9([3,9,2,3,3]) // → true	true	✔
 
 
+/* ARRAY123
+Given an array of ints, return true if the sequence of numbers 1, 2, 3 appears in the array somewhere.
+*/
+
 function array123(nums){
   for (let i = 0; i < nums.length - 2; i++) {
     if (nums[i] === 1) {
@@ -196,6 +238,12 @@ array123([-1, -1, 0, 1, 2, 3, 4, 5, 0, 1, 2]); // → true	true	✔
 array123([-1, -2, -3, 1, 2, 0, 0, 1, 2, 3, 0, -1]); // → true	true	✔	
 array123([0, 0, -1, 1, 2, 0, 3, 1, 2, 0, 1, -1, -2]); // → false	false	✔	
 
+
+/* STRINGMATCH
+Given 2 strings, a and b, return the number of the positions where they contain the same length 2 substring.
+So "xxcaazz" and "xxbaaz" yields 3, since the "xx" "xx", "aa", and "az" substrings appear in the same place
+in both strings.
+*/
 
 function stringMatch(a,b){
   let counter = 0;
@@ -220,6 +268,10 @@ stringMatch('aaxxaaxx', 'iaxxai') // → 3	3	✔
 stringMatch('iaxxai', 'aaxxaaxx') // → 3	3	✔
 
 
+/* STRINGX
+Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end should not be removed.
+*/
+
 function stringX(str){
   const arrayed = str.split('');
   return arrayed.filter((char, i) => {
@@ -234,6 +286,10 @@ stringX('Hello') // → Hello	Hello	✔
 stringX('xx') // → xx	xx	✔	
 stringX('') // →		✔
 
+
+/* ALTPAIRS
+Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
+*/
 
 function altPairs(str){
   let outputStr = "";
@@ -280,6 +336,11 @@ array667([1,2,3,5,6]) // → 0	0	✔
 array667([1,2,3,6,6]) // → 1	1	✔
 
 
+/* NOTRIPLES
+Given an array of ints, we'll say that a triple is a value appearing 3 times in a row in the array.
+Return true if the array does not contain any triples.
+*/
+
 function noTriples(nums){
   for (let i = 0; i < nums.length - 2; i++) {
     if (nums[i] === nums[i + 1] && nums[i] === nums[i + 2]) {
@@ -298,6 +359,12 @@ noTriples([1]) // → true	true	✔
 noTriples([1]) // → true	true	✔	
 noTriples([]) // → true	true	✔
 
+
+/* HAS271
+Given an array of ints, return true if it contains a 2, 7, 1 pattern -- a value, followed by the
+value plus 5, followed by the value minus 1. Additionally the 271 counts even if the "1" differs
+by 2 or less from the correct value.
+*/
 
 function has271(nums){
   for (let i = 0; i < nums.length - 2; i++) {
