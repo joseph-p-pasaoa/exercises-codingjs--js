@@ -229,10 +229,15 @@ Given a string, return a new string where the first and last chars have been
 exchanged. */
 
 function frontBack(str){
-  let output = str.split('');
-  let temp = output.shift();
-  output.unshift(output.pop());
-  output.push(temp);
+  const output = str.split('');
+  [
+    output[0],
+    output[output.length - 1]
+  ] = [
+    output[output.length - 1],
+    output[0]
+  ];
+
   return output.join('');
 }
 frontBack('code') // → eodc	eodc	✔	
@@ -252,7 +257,9 @@ the string length is less than 3, the front is whatever is there. Return a new
 string which is 3 copies of the front. */
 
 function front3(str){
-  return str.slice(0,3) + str.slice(0,3) + str.slice(0,3);
+  const firstThree = str.slice(0, 3);
+
+  return firstThree + firstThree + firstThree;
 }
 front3('Java') // → JavJavJav	JavJavJav	✔	
 front3('Chocolate') // → ChoChoCho	ChoChoCho	✔	
