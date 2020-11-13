@@ -277,7 +277,9 @@ added at the front and back, so 'cat' yields 'tcatt' The original string will
 be length 1 or more. */
 
 function backAround(str){
-  return str[str.length -1] + str + str[str.length -1];
+  const lastChar = str[str.length - 1];
+
+  return lastChar + str + lastChar;
 }
 backAround('cat') // → tcatt	tcatt	✔	
 backAround('Hello') // → oHelloo	oHelloo	✔	
@@ -293,7 +295,7 @@ Return true if the given non-negative number is a multiple of 3 or a multiple
 of 5. (Hint: Use the % 'mod' operator) */
 
 function or35(n){
-  return !(n % 3) || !(n % 5);
+  return n % 3 === 0 || n % 5 === 0;
 }
 or35(3) // → true	true	✔	
 or35(10) // → true	true	✔	
@@ -327,7 +329,9 @@ added at both the front and back, so 'kitten' yields 'kikittenki' chars are
 there. */
 
 function front22(str){
-  return str.slice(0,2) + str + str.slice(0,2);
+  const firstTwo = str.slice(0, 2);
+
+  return firstTwo + str + firstTwo;
 }
 front22('kitten') // → kikittenki	kikittenki	✔	
 front22('Ha') // → HaHaHa	HaHaHa	✔	
@@ -344,7 +348,7 @@ Given a string, return true if the string starts with 'hi'and false otherwise.
 */
 
 function startHi(str){
-  return str.slice(0,2) === "hi";
+  return str.slice(0, 2) === "hi";
 }
 startHi('hi there') // → true	true	✔	
 startHi('hi') // → true	true	✔	
@@ -401,10 +405,10 @@ We'll say that a number is 'teen' if it is in the range 13..19 inclusive. Given 
 */
 
 function hasTeen(a,b,c){
-  if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19)) {
-    return true;
-  }
-  return c >= 13 && c <= 19;
+  return
+    (a >= 13 && a <= 19) ||
+    (b >= 13 && b <= 19) ||
+    (c >= 13 && c <= 19);
 }
 hasTeen(13, 20, 10) // → true	true	✔	
 hasTeen(20, 19, 10) // → true	true	✔	
