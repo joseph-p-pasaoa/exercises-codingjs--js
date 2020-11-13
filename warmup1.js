@@ -535,10 +535,7 @@ Given three int values, a b c, return the largest.
 */
 
 function intMax(a,b,c){
-  if (a > b) {
-    return a > c ? a : c;
-  }
-  return b > c ? b : c;
+  return Math.max(a, b, c);
 }
 intMax(1, 2, 3) // → 3	3	✔	
 intMax(1, 3, 2) // → 3	3	✔	
@@ -589,11 +586,11 @@ function in3050(a,b){
   if (a === 40) {
     return b >= 30 && b <= 50;
   }
-  if (a < 40 && a >= 30) {
-    return b >= 30 && b <= 40;
+  if (30 <= a && a < 40) {
+    return 30 <= b && b <= 40;
   }
-  if (a > 40 && a <= 50) {
-    return b >= 40 && b <= 50;
+  if (40 < a && a <= 50) {
+    return 40 <= b && b <= 50;
   }
   return false;
 }
@@ -618,13 +615,15 @@ or return 0 if neither is in that range.
 */
 
 function max1020(a,b){
-  if (a >= 10 && a <= 20) {
-    if (b >= 10 && b <= 20) {
+  if (10 <= a && a <= 20) {
+
+    if (10 <= b && b <= 20) {
       return a > b ? a : b;
     }
     return a;
+
   }
-  if (b >= 10 && b <= 20) {
+  if (10 <= b && b <= 20) {
     return b;
   }
   return 0;
@@ -653,10 +652,12 @@ function stringE(str){
     if (char === 'e') {
       counter -= 1;
     }
+
     if (counter < 0) {
       return false;
     }
   }
+
   return counter === 3 ? false : true;
 }
 stringE('Hello') // → true	true	✔	
