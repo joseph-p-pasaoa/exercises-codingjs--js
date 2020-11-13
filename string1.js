@@ -235,10 +235,9 @@ a string length 1 from its back. The string will be non-empty.
 */
 
 function theEnd(str, front){
-  if (front) {
-    return str[0];
-  }
-  return str.slice(-1);
+  return front
+    ? str[0]
+    : str.slice(-1);
 }
 theEnd('Hello', true); // → H	H	✔
 theEnd('Hello', false); // → o	o	✔
@@ -306,7 +305,9 @@ The string length will be at least n.
 */
 
 function nTwice(str,n){
-  return n === 0 ? "" : str.slice(0, n) + str.slice(-n);
+  return n === 0
+    ? ""
+    : str.slice(0, n) + str.slice(-n);
 }
 nTwice('hello', 2) // → helo	helo	✔
 nTwice('Chocolate', 3) // → Choate	Choate	✔
@@ -324,7 +325,7 @@ at least 2.
 */
 
 function twoChar(str,index){
-  if (index < 0 || index >= str.length - 1) {
+  if (index < 0 || str.length - 1 <= index) {
     return str.slice(0, 2);
   }
   return str.slice(index, index + 2);
@@ -540,7 +541,9 @@ The string may be any length. If there are fewer than 2 chars, use whatever is t
 */
 
 function extraFront(str){
-  return str.slice(0,2) + str.slice(0,2) + str.slice(0,2);
+  const firstTwo = str.slice(0, 2);
+
+  return firstTwo + firstTwo + firstTwo;
 }
 extraFront('Hello') // → HeHeHe	HeHeHe	✔
 extraFront('ab') // → ababab	ababab	✔
@@ -557,7 +560,7 @@ the substring at the beginning, so "HelloHe" yields "lloHe". The substring may o
 */
 
 function without2(str){
-  if (str.length !== 1 && str.slice(0,2) === str.slice(-2)) {
+  if (str.length !== 1 && str.slice(0, 2) === str.slice(-2)) {
     return str.slice(2);
   }
   return str;
@@ -586,6 +589,7 @@ function deFront(str){
   if (str[1] === 'b') {
     output += 'b';
   }
+
   return output += str.slice(2);
 }
 deFront('Hello') // → llo	llo	✔
@@ -677,9 +681,10 @@ function withoutX2(str){
   let output = '';
   for (let i = 0; i < str.length; i++) {
     if (i >= 2 || str[i] !== 'x') {
-output += str[i];
+      output += str[i];
     }
   }
+
   return output;
 }
 withoutX2('xHi') // → Hi	Hi	✔
