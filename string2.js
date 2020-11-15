@@ -544,3 +544,139 @@ zipZap('azbcppp') // → azbcppp	azbcppp	✔
 zipZap('azbcpzpp') // → azbcpzp	azbcpzp	✔
 
 
+/* STAROUT
+Return a version of the given string, where for every star (*) in the string the star and the chars immediately
+to its left and right are gone. So "ab*cd" yields "ad" and "ab**cd" also yields "ad".
+*/
+
+function starOut(str){
+  if (str.length <= 1) {
+    return str[0] && str[0] !== '*'
+      ? str
+      : '';
+  }
+
+  let output = '';
+  let isCurrPrinting = true;
+  for (let i = 1; i < str.length; i++) {
+    const [prev, curr, ahead] = [
+      str[i - 1],
+      str[i],
+      str[i + 1]
+    ];
+
+    if (i === 1) {
+      if (prev !== '*' && curr !== '*') {
+        output += prev;
+      }
+    }
+
+    if (prev === '*' || curr === '*' || ahead && ahead === '*') {
+      isCurrPrinting = false;
+    } else {
+      isCurrPrinting = true;
+    }
+
+    if (isCurrPrinting) {
+      output += curr;
+    }
+  }
+
+  return output;
+}
+starOut('ab*cd') // → ad	ad	✔	
+starOut('ab**cd') // → ad	ad	✔	
+starOut('sm*eilly') // → silly	silly	✔	
+starOut('sm*eil*ly') // → siy	siy	✔	
+starOut('sm**eil*ly') // → siy	siy	✔	
+starOut('sm***eil*ly') // → siy	siy	✔	
+starOut('stringy*') // → string	string	✔	
+starOut('*stringy') // → tringy	tringy	✔	
+starOut('*str*in*gy') // → ty	ty	✔	
+starOut('abc') // → abc	abc	✔	
+starOut('a*bc') // → c	c	✔	
+starOut('ab') // → ab	ab	✔	
+starOut('a*b') // →		✔	
+starOut('a') // → a	a	✔	
+starOut('a*') // →		✔	
+starOut('*a') // →		✔	
+starOut('*') // →		✔	
+starOut('') // →		✔
+
+
+/* PLUSOUT
+Given a string and a non-empty word string, return a version of the original String where all chars
+have been replaced by pluses ("+"), except for appearances of the word string which are preserved
+unchanged.
+*/
+
+function plusOut(str,word){
+  let output = '';
+
+  let charsToPrint = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    const possibleWord = str.slice(i, i + word.length);
+    if (possibleWord === word) {
+      charsToPrint = word.length;
+    }
+
+    if (charsToPrint > 0) {
+      output += char;
+      charsToPrint--;
+    } else {
+      output += '+';
+    }
+  }
+
+  return output;
+}
+plusOut('12xy34', 'xy') // → ++xy++	++xy++	✔	
+plusOut('12xy34', '1') // → 1+++++	1+++++	✔	
+plusOut('12xy34xyabcxy', 'xy') // → ++xy++xy+++xy	++xy++xy+++xy	✔	
+plusOut('abXYabcXYZ', 'ab') // → ab++ab++++	ab++ab++++	✔	
+plusOut('abXYabcXYZ', 'abc') // → ++++abc+++	++++abc+++	✔	
+plusOut('abXYabcXYZ', 'XY') // → ++XY+++XY+	++XY+++XY+	✔	
+plusOut('abXYxyzXYZ', 'XYZ') // → +++++++XYZ	+++++++XYZ	✔	
+plusOut('--++ab', '++') // → ++++++	++++++	✔	
+plusOut('aaxxxxbb', 'xx') // → ++xxxx++	++xxxx++	✔	
+plusOut('123123', '3') // → ++3++3	++3++3	✔
+
+
+/* WORDENDS
+Given a string and a non-empty word string, return a string made of each char just before and just after
+every appearance of the word in the string. Ignore cases where there is no char before or after the word,
+and a char may be included twice if it is between two words.
+*/
+
+function wordEnds(str,word){
+  let output = '';
+
+  for (let i = 0; i < str.length; i++) {
+    const [prev, next] = [
+      str[i - 1],
+      str[i + word.length]
+    ];
+    const possibleWord = str.slice(i, i + word.length);
+
+    if (possibleWord === word) {
+      output += prev || '';
+      output += next || '';
+    }
+  }
+
+  return output;
+}
+wordEnds('abcXY123XYijk', 'XY') // → c13i	c13i	✔	
+wordEnds('XY123XY', 'XY') // → 13	13	✔	
+wordEnds('XY1XY', 'XY') // → 11	11	✔	
+wordEnds('XYXY', 'XY') // → XY	XY	✔	
+wordEnds('XY', 'XY') // →		✔	
+wordEnds('Hi', 'XY') // →		✔	
+wordEnds('', 'XY') // →		✔	
+wordEnds('abc1xyz1i1j', '1') // → cxziij	cxziij	✔	
+wordEnds('abc1xyz1', '1') // → cxz	cxz	✔	
+wordEnds('abc1xyz11', '1') // → cxz11	cxz11	✔	
+wordEnds('abc1xyz1abc', 'abc') // → 11	11	✔	
+wordEnds('abc1xyz1abc', 'b') // → acac	acac	✔	
+wordEnds('abc1abc1abc', 'abc') // → 1111	1111	✔
