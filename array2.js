@@ -429,6 +429,36 @@ We'll say that a value is "everywhere" in an array if for every pair of adjacent
 at least one of the pair is that value. Return true if the given value is everywhere in the array.
 */
 
+function isEverywhere(nums,val){
+  let valGap = 0;
+  for (let num of nums) {
+    if (num === val) {
+      valGap = 0;
+    } else {
+      valGap += 1;
+      if (valGap > 1) return false;
+    }
+  }
+
+  return true;
+}
+isEverywhere([1, 2, 1, 3], 1) // → true	true	✔	
+isEverywhere([1, 2, 1, 3], 2) // → false	false	✔	
+isEverywhere([1, 2, 1, 3, 4], 1) // → false	false	✔	
+isEverywhere([2, 1, 2, 1], 1) // → true	true	✔	
+isEverywhere([2, 1, 2, 1], 2) // → true	true	✔	
+isEverywhere([2, 1, 2, 3, 1], 2) // → false	false	✔	
+isEverywhere([3, 1], 3) // → true	true	✔	
+isEverywhere([3, 1], 2) // → false	false	✔	
+isEverywhere([3], 1) // → true	true	✔	
+isEverywhere([], 1) // → true	true	✔	
+isEverywhere([1, 2, 1, 2, 3, 2, 5], 2) // → true	true	✔	
+isEverywhere([1, 2, 1, 1, 1, 2], 2) // → false	false	✔	
+isEverywhere([2, 1, 2, 1, 1, 2], 2) // → false	false	✔	
+isEverywhere([2, 1, 2, 2, 2, 1, 1, 2], 2) // → false	false	✔	
+isEverywhere([2, 1, 2, 2, 2, 1, 2, 1], 2) // → true	true	✔	
+isEverywhere([2, 1, 2, 1, 2], 2) // → true	true	✔
+
 
 /* EITHER24
 Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both.
