@@ -1,10 +1,13 @@
 // Joseph P. Pasaoa
 // JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+// ARRAY-2
 //
 
 
 
-// Array-2 //
+/* FINDLOWESTINDEX
+Return the index of the minimum value in an array. The input array will have at least one element in it.
+*/
 
 function findLowestIndex(nums){
   let min = Infinity;
@@ -27,6 +30,10 @@ findLowestIndex([2]) // → 0	0	✔
 findLowestIndex([2, 5, -12]) // → 2	2	✔
 
 
+/* COUNTEVENS
+Return the number of even ints in the given array. Note: the % "mod" operator computes the remainder, e.g. 5 % 2 is 1.
+*/
+
 function countEvens(nums){
   let counter = 0;
   for (let num of nums) {
@@ -45,6 +52,11 @@ countEvens([2, 11, 9, 0]) // → 2	2	✔
 countEvens([2]) // → 1	1	✔	
 countEvens([2, 5, 12]) // → 2	2	✔
 
+
+/* BIGDIFF
+Given an array length 1 or more of ints, return the difference between the largest and smallest values in the
+array. Note: the built-in Math.min(v1, v2) and Math.max(v1, v2) methods return the smaller or larger of two values.
+*/
 
 function bigDiff(nums){
   const workArr = [nums[0]];
@@ -70,6 +82,13 @@ bigDiff([5, 1, 6, 1, 9, 9]) // → 8	8	✔
 bigDiff([7, 6, 8, 5]) // → 3	3	✔	
 bigDiff([7, 7, 6, 8, 5, 5, 6]) // → 3	3	✔
 
+
+/* CENTEREDAVERAGE
+Return the "centered" average of an array of ints, which we'll say is the mean average of the values,
+except ignoring the largest and smallest values in the array. If there are multiple copies of the
+smallest value, ignore just one copy, and likewise for the largest value. Use int division to produce
+the final average. You may assume that the array is length 3 or more.
+*/
 
 function centeredAverage(nums){
   let sum = nums[0] + nums[1];
@@ -100,6 +119,11 @@ centeredAverage([4, 4, 4, 1, 5]) // → 4	4	✔
 centeredAverage([6, 4, 8, 12, 3]) // → 6	6	✔
 
 
+/* SUM13
+Return the sum of the numbers in the array, returning 0 for an empty array. Except the number 13 is very
+unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
+*/
+
 function sum13(nums){
   let sum = 0;
   for (let i = 0; i < nums.length; i++) {
@@ -126,6 +150,11 @@ sum13([5, 13, 2]) // → 5	5	✔
 sum13([0]) // → 0	0	✔	
 sum13([13, 0]) // → 0	0	✔
 
+
+/* SUM67
+Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and
+extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
+*/
 
 function sum67(nums){
   let amAdding = true;
@@ -161,6 +190,10 @@ sum67([11, 6, 7, 11]) // → 22	22	✔
 sum67([2, 2, 6, 7, 7]) // → 11	11	✔
 
 
+/* HAS22
+Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
+*/
+
 function has22(nums){
   for (let [i, num] of nums.entries()) {
     if (num === 2 && nums[i + 1] === 2) {
@@ -185,6 +218,10 @@ has22([3, 3, 2, 2]) // → true	true	✔
 has22([5, 2, 5, 2]) // → false	false	✔
 
 
+/* LUCKY13
+Given an array of ints, return true if the array contains no 1's and no 3's.
+*/
+
 function lucky13(nums){
   return nums.every(num => num !== 1 && num !== 3);
 }
@@ -201,6 +238,10 @@ lucky13([2]) // → true	true	✔
 lucky13([3]) // → false	false	✔	
 lucky13([]) // → true	true	✔
 
+
+/* SUM28
+Given an array of ints, return true if the sum of all the 2's in the array is exactly 8.
+*/
 
 function sum28(nums){
   return !nums.reduce((strikes, curr) => {
@@ -223,6 +264,10 @@ sum28([2, 2, 2, 2, 2]) // → false	false	✔
 sum28([1, 2, 2, 1, 2, 2]) // → true	true	✔	
 sum28([5, 2, 2, 2, 4, 2]) // → true	true	✔
 
+
+/* MORE14
+Given an array of ints, return true if the number of 1's is greater than the number of 4's
+*/
 
 function more14(nums){
   let favor1s = 0;
@@ -252,6 +297,11 @@ more14([4, 1, 4, 6, 1]) // → false	false	✔
 more14([1, 4, 1, 4, 1, 6]) // → true	true	✔
 
 
+/* PREPENDSUM
+Return a modified version of the input array (nums), where the first two items have been removed and one
+item – the sum of those two items - is added to the start of the array.
+*/
+
 function prependSum(nums){
   return [nums[0] + nums[1]].concat(nums.slice(2));
 }
@@ -264,6 +314,13 @@ prependSum([12, 13, 19, 20]) // → 25,19,20	25,19,20	✔
 prependSum([-2, 2, -2, 2]) // → 0,-2,2	0,-2,2	✔	
 prependSum([5, 4, 3, 2, 1, 0]) // → 9,3,2,1,0	9,3,2,1,0	✔
 
+
+/* FIZZARRAY
+Given a number n, create and return a new array of length n, containing the numbers 0, 1, 2, ... n-1.
+The given n may be 0, in which case just return a length 0 array. You do not need a separate if-statement
+for the length-0 case; the for-loop should naturally execute 0 times in that case, so it just works. The
+syntax to make a new array is let myArray = [];
+*/
 
 function fizzArray(n){
   let myArray = [];
@@ -279,6 +336,10 @@ fizzArray(0) // →		✔
 fizzArray(2) // → 0,1	0,1	✔	
 fizzArray(7) // → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔
 
+
+/* ONLY14
+Given an array of ints, return true if every element is a 1 or a 4.
+*/
 
 function only14(nums){
   return nums.every(num => num === 1 || num === 4);
@@ -300,6 +361,12 @@ only14([1, 1, 1, 5]) // → false	false	✔
 only14([4, 1, 4, 1]) // → true	true	✔
 
 
+/* FIZZARRAY2
+Given a number n, create and return a new string array of length n, containing the strings "0", "1",
+"2" .. through n-1. N may be 0, in which case just return a length 0 array. Note: String(xxx) will make
+the String form of most types.
+*/
+
 function fizzArray2(n){
   let output = [];
   for (let i = 0; i < n; i++) {
@@ -316,6 +383,10 @@ fizzArray2(7) // → 0,1,2,3,4,5,6	0,1,2,3,4,5,6	✔
 fizzArray2(9) // → 0,1,2,3,4,5,6,7,8	0,1,2,3,4,5,6,7,8	✔	
 fizzArray2(11) // → 0,1,2,3,4,5,6,7,8,9,10	0,1,2,3,4,5,6,7,8,9,10	✔
 
+
+/* NO14
+Given an array of ints, return true if it contains no 1's or it contains no 4's.
+*/
 
 function no14(nums){
   let seen = null;
@@ -353,6 +424,16 @@ no14([4, 4, 2]) // → true	true	✔
 no14([1, 4, 4]) // → false	false	✔
 
 
+/* ISEVERYWHERE
+We'll say that a value is "everywhere" in an array if for every pair of adjacent elements in the array,
+at least one of the pair is that value. Return true if the given value is everywhere in the array.
+*/
+
+
+/* EITHER24
+Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both.
+*/
+
 function either24(nums){
   let seenDoubled = null;
   for (let i = 0; i < nums.length - 1; i++) {
@@ -382,10 +463,12 @@ either24([2]) // → false	false	✔
 either24([]) // → false	false	✔
 
 
+/* MATCHUP
+Given arrays nums1 and nums2 of the same length, for every element in nums1, consider the corresponding 
+element in nums2 (at the same index). Return the count of the number of times that the two elements differ 
+by 2 or less, but are not equal.
+*/
 
-// Given arrays nums1 and nums2 of the same length, for every element in nums1, consider the corresponding 
-// element in nums2 (at the same index). Return the count of the number of times that the two elements differ 
-// by 2 or less, but are not equal.
 function matchUp(a,b){
   if (a.length < 1) {
     return 0;
@@ -409,9 +492,11 @@ matchUp([4], [4]) // → 0	0	✔
 matchUp([4], [5]) // → 1	1	✔
 
 
+/* HAS77
+Given an array of ints, return true if the array contains two 7's next to each other, or there are two 7's 
+separated by one element, such as with {7, 1, 7}
+*/
 
-// Given an array of ints, return true if the array contains two 7's next to each other, or there are two 7's 
-// separated by one element, such as with {7, 1, 7}
 function has77(nums){
   for (let i = 0; i < nums.length - 1; i++) {
     if (nums[i] === 7) {
@@ -438,8 +523,10 @@ has77([1, 7]) // → false	false	✔
 has77([7]) // → false	false	✔
 
 
+/* HAS12
+Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
+*/
 
-// Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
 function has12(nums){
   let willFailOn2 = false;
   for (let num of nums) {
@@ -470,8 +557,10 @@ has12([3, 2, 1]) // → false	false	✔
 has12([1, 2]) // → true	true	✔
 
 
+/* MODTHREE
+Given an array of ints, return true if the array contains either 3 even or 3 odd values all next to each other.
+*/
 
-// Given an array of ints, return true if the array contains either 3 even or 3 odd values all next to each other.
 function modThree(nums){
   // helper: gives value of +1 to even nums, -1 to odd nums
   const addEvenMinusOdd = (num) => {
@@ -507,6 +596,13 @@ modThree([9, 7, 2, 9, 2, 2, 6]) // → true	true	✔
 
 
 
+/* FINDTHEMEDIAN
+Write a method that returns the median value of an array. The input array will never be empty. If the
+array is odd in length, the median is the value in the centre of the array. If the array is even, the
+median should be the average of the two middle values. Hint: You will need to ensure the input array
+is sorted - there is a sort() array method you can use for this step.
+*/
+
 function findTheMedian(nums){
   const sorted = nums.sort((a, b) => a - b);
   const length = nums.length;
@@ -531,6 +627,10 @@ findTheMedian([2, 10, 15, 13]) // → 11.5	11.5	✔
 findTheMedian([2, 5, -12]) // → 2	2	✔
 
 
+
+/* HAVETHREE
+Given an array of ints, return true if the value 3 appears in the array exactly 3 times, and no 3's are next to each other.
+*/
 
 function haveThree(nums){
   let counter = 0;
@@ -562,6 +662,10 @@ haveThree([3]) // → false	false	✔
 haveThree([1]) // → false	false	✔
 
 
+
+/* TWOTWO
+Given an array of ints, return true if every 2 that appears in the array is next to another 2.
+*/
 
 function twoTwo(nums){
   let isAlreadyTwoGroup = false;
