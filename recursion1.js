@@ -579,7 +579,9 @@ endX('xxhxi') // → hixxx	hixxx	✔
 
 
 /* COUNTPAIRS
-
+We'll say that a "pair" in a string is two instances of a char separated by a char. So "AxA" the A's
+make a pair. Pair's can overlap, so "AxAxA" contains 3 pairs -- 2 for A and 1 for x. Recursively compute
+the number of pairs in the given string.
 */
 
 function countPairs(str){
@@ -607,7 +609,7 @@ countPairs('aaa') // → 1	1	✔
 
 
 /* COUNTABC
-
+Count recursively the total number of "abc" and "aba" substrings that appear in the given string.
 */
 
 function countAbc(str){
@@ -638,7 +640,7 @@ countAbc('aaa') // → 0	0	✔
 
 
 /* COUNT11
-
+Given a string, compute recursively (no loops) the number of "11" substrings in the string. The "11" substrings should not overlap.
 */
 
 function count11(str){
@@ -665,7 +667,8 @@ count11('Hello') // → 0	0	✔
 
 
 /* STRINGCLEAN
-
+Given a string, return recursively a "cleaned" string where adjacent chars that are the same have been
+reduced to a single char. So "yyzzza" yields "yza".
 */
 
 function stringClean(str){
@@ -685,7 +688,8 @@ stringClean('Hello Bookkeeper') // → Helo Bokeper	Helo Bokeper	✔
 
 
 /* COUNTHI2
-
+Given a string, compute recursively the number of times lowercase "hi" appears in the string, however do
+not count "hi" that have an 'x' immedately before them.
 */
 
 function countHi2(str){
@@ -720,7 +724,9 @@ countHi2('Hellohi') // → 1	1	✔
 
 
 /* STARBIT
-
+This question is modified from parenBit on CodingBat to starBit. Given a string that contains a dash and 
+a star, compute recursively a new string made of only of the dash and star and their contents, so
+"xyz-abc*123" yields "-abc*".
 */
 
 function starBit(str){
@@ -766,7 +772,8 @@ starBit('ab,-ab*ab') // → -ab*	-ab*	✔
 
 
 /* NESTPAREN
-
+Given a string, return true if it is a nesting of zero or more pairs of parenthesis, like "(())" or
+"((()))". Suggestion: check the first and last chars, and then recur on what's inside them.
 */
 
 function nestParen(str){
@@ -801,7 +808,8 @@ nestParen('(((())))') // → true	true	✔
 
 
 /* STRCOUNT
-
+Given a string and a non-empty substring sub, compute recursively the number of times that sub
+appears in the string, without the sub strings overlapping.
 */
 
 function strCount(str,sub){
@@ -833,7 +841,8 @@ strCount('aaabababab', 'b') // → 4	4	✔
 
 
 /* STRCOPIES
-
+Given a string and a non-empty substring sub, compute recursively if at least n copies of sub appear
+in the string somewhere, possibly with overlapping. N will be non-negative.
 */
 
 function strCopies(str,sub,n){
@@ -860,3 +869,12 @@ strCopies('ijiiiiij', 'iiii', 2) // → true	true	✔
 strCopies('ijiiiiij', 'iiii', 3) // → false	false	✔	
 strCopies('dogcatdogcat', 'dog', 2) // → true	true	✔
 
+
+/* STRDIST
+Given a string and a non-empty substring sub, compute recursively the largest substring which starts and
+ends with sub and return its length.
+*/
+
+function strDist(str,sub){
+
+}
