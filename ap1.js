@@ -157,6 +157,31 @@ Given a positive int n, return true if it contains a 1 digit. Note: use % to get
 to discard the rightmost digit.
 */
 
+function hasOne(n){
+  let x = n;
+
+  while (x >= 10) {
+    const onesDigit = x % 10;
+    if (onesDigit === 1) {
+      return true;
+    } else {
+      x = Math.floor(x / 10);
+    }
+  }
+  return x === 1;
+}
+hasOne(10) // → true	true	✔	
+hasOne(22) // → false	false	✔	
+hasOne(220) // → false	false	✔	
+hasOne(212) // → true	true	✔	
+hasOne(1) // → true	true	✔	
+hasOne(9) // → false	false	✔	
+hasOne(211112) // → true	true	✔	
+hasOne(121121) // → true	true	✔	
+hasOne(222222) // → false	false	✔	
+hasOne(56156) // → true	true	✔	
+hasOne(56556) // → false	false	✔
+
 
 /* DIVIDESSELF
 We'll say that a positive int divides itself if every digit in the number divides into the number evenly. So
