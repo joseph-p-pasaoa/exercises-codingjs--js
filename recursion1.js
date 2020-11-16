@@ -1,10 +1,13 @@
 // Joseph P. Pasaoa
 // JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+// RECURSION-1
 //
 
 
 
-// RECURSION-1 //
+/* FACTORIAL
+Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1. Compute the result recursively (without loops).
+*/
 
 function factorial(n){
   if (n < 0) {
@@ -26,6 +29,11 @@ factorial(8) // → 40320	40320	✔
 factorial(12) // → 479001600	479001600	✔
 
 
+/* BUNNYEARS
+We have a number of bunnies and each bunny has two big floppy ears. We want to compute the total number of ears
+across all the bunnies recursively (without loops or multiplication).
+*/
+
 function bunnyEars(bunnies){
   if (bunnies < 0) {
     return;
@@ -46,6 +54,14 @@ bunnyEars(50) // → 100	100	✔
 bunnyEars(234) // → 468	468	✔
 
 
+/* FIBONACCI
+The fibonacci sequence is a famous bit of mathematics, and it happens to have a recursive definition. The
+first two values in the sequence are 0 and 1 (essentially 2 base cases). Each subsequent value is the sum
+of the previous two values, so the whole sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21 and so on. Define a
+recursive fibonacci(n) method that returns the nth fibonacci number, with n=0 representing the start of
+the sequence.
+*/
+
 function fibonacci(n){
   if (n < 0) {
     return;
@@ -64,6 +80,12 @@ fibonacci(5) // → 5	5	✔
 fibonacci(6) // → 8	8	✔	
 fibonacci(7) // → 13	13	✔
 
+
+/* BUNNYEARS2
+We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears.
+The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot. Recursively return
+the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
+*/
 
 function bunnyEars2(bunnies){
   if (bunnies < 0) {
@@ -87,6 +109,12 @@ bunnyEars2(6) // → 15	15	✔
 bunnyEars2(10) // → 25	25	✔
 
 
+/* TRIANGLE
+We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks, the next row
+has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks in
+such a triangle with the given number of rows.
+*/
+
 function triangle(rows){
   if (rows < 0) {
     return;
@@ -105,6 +133,12 @@ triangle(5) // → 15	15	✔
 triangle(6) // → 21	21	✔	
 triangle(7) // → 28	28	✔
 
+
+/* SUMDIGITS1
+Given a non-negative int n, return the sum of its digits recursively (no loops). Note that mod (%) by 10
+yields the rightmost digit (126 % 10 is 6), while flooring division (Math.floor(n/10)) by 10 removes the
+rightmost digit [Math.floor(126 / 10) is 12].
+*/
 
 function sumDigits1(n){
   let next = Math.floor(n / 10);
@@ -125,6 +159,12 @@ sumDigits1(11111) // → 5	5	✔
 sumDigits1(10110) // → 3	3	✔	
 sumDigits1(235) // → 10	10	✔
 
+
+/* COUNT7
+Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717 yields 2.
+(no loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while flooring division
+(Math.floor(n/10)) by 10 removes the rightmost digit [Math.floor(126 / 10) is 12].
+*/
 
 function count7(n){
   let next = Math.floor(n / 10);
@@ -147,6 +187,13 @@ count7(777576197) // → 5	5	✔
 count7(99999) // → 0	0	✔	
 count7(99799) // → 1	1	✔
 
+
+/* COUNT8
+Given a non-negative int n, compute recursively (no loops) the count of the occurrences of 8 as a digit,
+except that an 8 with another 8 immediately to its left counts double, so 8818 yields 4. Note that mod (%)
+by 10 yields the rightmost digit (126 % 10 is 6), while flooring division (Math.floor(n/10)) by 10 removes
+the rightmost digit [Math.floor(126 / 10) is 12].
+*/
 
 function count8(n){
   const next = Math.floor(n / 10);
@@ -178,6 +225,11 @@ count8(9898) // → 2	2	✔
 count8(78) // → 1	1	✔
 
 
+/* POWERN
+Given base and n that are both 1 or more, compute recursively (no loops) the value of base to the n power,
+so powerN(3, 2) is 9 (3 squared).
+*/
+
 function powerN(base,n){
   if (n < 1) {
     return;
@@ -200,6 +252,10 @@ powerN(10, 2) // → 100	100	✔
 powerN(10, 3) // → 1000	1000	✔
 
 
+/* COUNTX
+Given a string, compute recursively (no loops) the number of lowercase 'x' chars in the string.
+*/
+
 function countX(str){
   if (str.length < 1) {
     return 0;
@@ -218,6 +274,10 @@ countX('') // → 0	0	✔
 countX('hihi') // → 0	0	✔	
 countX('hiAAhi12hi') // → 0	0	✔
 
+
+/* COUNTHI (BUGGED PLACEMENT ONSITE, BUT TACKLED RECURSIVELY ANYWAY)
+Return the number of times that the string "hi" appears anywhere in the given string.
+*/
 
 function countHi(str){
   if (str.length < 2) {
@@ -239,6 +299,10 @@ countHi('Hi is no HI on ahI') // → 0	0	✔
 countHi('hiho not HOHIhi') // → 2	2	✔
 
 
+/* CATDOG (BUGGED PLACEMENT ONSITE, BUT TACKLED RECURSIVELY ANYWAY)
+Return true if the string "cat" and "dog" appear the same number of times in the given string.
+*/
+
 function catDog(input){
   function scan(str) {
     if (str.length < 3) return 0;
@@ -253,11 +317,10 @@ function catDog(input){
     }
     return scan(str.slice(1));
   }
-  
+
   const balance = scan(input);
   return balance === 0;
 }
-
 catDog('catdog') // → true	true	✔	
 catDog('catcat') // → false	false	✔	
 catDog('1cat1cadodog') // → true	true	✔	
@@ -272,6 +335,10 @@ catDog('ca') // → true	true	✔
 catDog('c') // → true	true	✔	
 catDog('') // → true	true	✔
 
+
+/* CHANGEXY
+Given a string, compute recursively (no loops) a new string where all the lowercase 'x' chars have been changed to 'y' chars.
+*/
 
 function changeXY(str){
   if (str === '') return '';
@@ -296,6 +363,10 @@ changeXY('yyhxyi') // → yyhyyi	yyhyyi	✔
 changeXY('hihi') // → hihi	hihi	✔
 
 
+/* CHANGEPI
+Given a string, compute recursively (no loops) a new string where all appearances of "pi" have been replaced by "3.14".
+*/
+
 function changePi(str){
   if (str.length < 2) return str;
   
@@ -318,8 +389,9 @@ changePi('pixx') // → 3.14xx	3.14xx	✔
 changePi('xyzzy') // → xyzzy	xyzzy	✔
 
 
-
-// Given a string, compute recursively a new string where all the 'x' chars have been removed.
+/* NOX
+Given a string, compute recursively a new string where all the 'x' chars have been removed.
+*/
 
 function noX(str){
   if (str === '') return '';
@@ -341,10 +413,12 @@ noX('axxbxx') // → ab	ab	✔
 noX('Hellox') // → Hello	Hello	✔
 
 
+/* ARRAY6
+Given an array of ints, compute recursively if the array contains a 6. We'll use the convention of considering 
+only the part of the array that begins at the given index. In this way, a recursive call can pass index+1 
+to move down the array. The initial call will pass in index as 0.
+*/
 
-// Given an array of ints, compute recursively if the array contains a 6. We'll use the convention of considering 
-// only the part of the array that begins at the given index. In this way, a recursive call can pass index+1 
-// to move down the array. The initial call will pass in index as 0.
 function array6(nums,i){
   const eval = nums[i];
   if (i > nums.length) {
@@ -366,9 +440,12 @@ array6([2, 5, 6], 0) // → true	true	✔
 
 
 
-// Given an array of ints, compute recursively the number of times that the value 11 appears in the array. We'll 
-// use the convention of considering only the part of the array that begins at the given index. In this way, a recursive 
-// call can pass index+1 to move down the array. The initial call will pass in index as 0.
+/* ARRAY11
+Given an array of ints, compute recursively the number of times that the value 11 appears in the array. We'll 
+use the convention of considering only the part of the array that begins at the given index. In this way, a recursive 
+call can pass index+1 to move down the array. The initial call will pass in index as 0.
+*/
+
 function array11(nums,i){
   if (i > nums.length) {
     return 0;
@@ -389,10 +466,12 @@ array11([11, 2, 3, 4, 11, 5], 0) // → 2	2	✔
 array11([11, 5, 11], 0) // → 2	2	✔
 
 
+/* ARRAY220
+Given an array of ints, compute recursively if the array contains somewhere a value followed in the array by that 
+value times 10. We'll use the convention of considering only the part of the array that begins at the given index. 
+In this way, a recursive call can pass index+1 to move down the array. The initial call will pass in index as 0.
+*/
 
-// Given an array of ints, compute recursively if the array contains somewhere a value followed in the array by that 
-// value times 10. We'll use the convention of considering only the part of the array that begins at the given index. 
-// In this way, a recursive call can pass index+1 to move down the array. The initial call will pass in index as 0.
 function array220(nums,i){
   if (i >= nums.length - 1) {
     return false;
@@ -422,8 +501,10 @@ array220([1, 2, 3, 4, 5, 51, 6], 0) // → false	false	✔
 array220([1, 2, 3, 4, 4, 50, 500, 6], 0) // → true	true	✔
 
 
+/* ALLSTAR
+Given a string, compute recursively a new string where all the adjacent chars are now separated by a "*".
+*/
 
-// Given a string, compute recursively a new string where all the adjacent chars are now separated by a "*".
 function allStar(str){
   if (str.length <= 1) return str;
   
@@ -439,9 +520,11 @@ allStar('Chocolate') // → C*h*o*c*o*l*a*t*e	C*h*o*c*o*l*a*t*e	✔
 allStar('1234') // → 1*2*3*4	1*2*3*4	✔
 
 
+/* PAIRSTAR
+Given a string, compute recursively a new string where identical chars that are adjacent in the 
+original string are separated from each other by a "*".
+*/
 
-// Given a string, compute recursively a new string where identical chars that are adjacent in the 
-// original string are separated from each other by a "*"
 function pairStar(str){
   if (str.length <= 1) return str;
   
@@ -465,6 +548,10 @@ pairStar('abbba') // → ab*b*ba	ab*b*ba	✔
 
 
 
+/* ENDX
+Given a string, compute recursively a new string where all the lowercase 'x' chars have been moved to the end of the string.
+*/
+
 function endX(str){
   if (str === '') return '';
   
@@ -476,7 +563,6 @@ function endX(str){
     return char + endX(str.slice(1));
   }
 }
-
 endX('xxre') // → rexx	rexx	✔	
 endX('xxhixx') // → hixxxx	hixxxx	✔	
 endX('xhixhix') // → hihixxx	hihixxx	✔	
@@ -492,6 +578,10 @@ endX('xxhxi') // → hixxx	hixxx	✔
 
 
 
+/* COUNTPAIRS
+
+*/
+
 function countPairs(str){
   if (str.length < 3) return 0;
   
@@ -503,7 +593,6 @@ function countPairs(str){
     return countPairs(str.slice(1));
   }
 }
-
 countPairs('axa') // → 1	1	✔	
 countPairs('axax') // → 2	2	✔	
 countPairs('axbx') // → 1	1	✔	
@@ -516,6 +605,10 @@ countPairs('a') // → 0	0	✔
 countPairs('aa') // → 0	0	✔	
 countPairs('aaa') // → 1	1	✔
 
+
+/* COUNTABC
+
+*/
 
 function countAbc(str){
   if (str.length < 3) return 0;
@@ -530,7 +623,6 @@ function countAbc(str){
   
   return countAbc(str.slice(1));
 }
-
 countAbc('abc') // → 1	1	✔	
 countAbc('abcxxabc') // → 2	2	✔	
 countAbc('abaxxaba') // → 2	2	✔	
@@ -545,6 +637,10 @@ countAbc('aca') // → 0	0	✔
 countAbc('aaa') // → 0	0	✔
 
 
+/* COUNT11
+
+*/
+
 function count11(str){
   if (str.length < 2) return 0;
   
@@ -555,7 +651,6 @@ function count11(str){
   
   return count11(str.slice(1));
 }
-
 count11('11abc11') // → 2	2	✔	
 count11('abc11x11x11') // → 3	3	✔	
 count11('111') // → 1	1	✔	
@@ -569,6 +664,10 @@ count11('1Hello1') // → 0	0	✔
 count11('Hello') // → 0	0	✔
 
 
+/* STRINGCLEAN
+
+*/
+
 function stringClean(str){
   if (str.length < 2) return str;
   
@@ -577,7 +676,6 @@ function stringClean(str){
     ? stringClean(str.slice(1))
     : current + stringClean(str.slice(1));
 }
-
 stringClean('yyzzza') // → yza	yza	✔	
 stringClean('abbbcdd') // → abcd	abcd	✔	
 stringClean('Hello') // → Helo	Helo	✔	
@@ -586,20 +684,23 @@ stringClean('112ab445') // → 12ab45	12ab45	✔
 stringClean('Hello Bookkeeper') // → Helo Bokeper	Helo Bokeper	✔
 
 
+/* COUNTHI2
+
+*/
+
 function countHi2(str){
   if (str.length < 2) return 0;
 
   if (str[0] === 'x' && str.slice(1, 3) === 'hi') {
     return countHi2(str.slice(3));
   }
-  
+
   if (str.slice(0, 2) === 'hi') {
     return 1 + countHi2(str.slice(2));
   }
-  
+
   return countHi2(str.slice(1));
 }
-
 countHi2('ahixhi') // → 1	1	✔	
 countHi2('ahibhi') // → 2	2	✔	
 countHi2('xhixhi') // → 0	0	✔	
@@ -617,6 +718,10 @@ countHi2('x') // → 0	0	✔
 countHi2('') // → 0	0	✔	
 countHi2('Hellohi') // → 1	1	✔
 
+
+/* STARBIT
+
+*/
 
 function starBit(str){
   if (str.length <= 2) return str;
@@ -646,7 +751,6 @@ function starBit(str){
     }
   }
 }
-
 starBit('xyz,-abc*123') // → -abc*	-abc*	✔	
 starBit('x,-hello*') // → -hello*	-hello*	✔	
 starBit(',-xy*1') // → -xy*	-xy*	✔	
@@ -661,6 +765,10 @@ starBit('hello,-not really*there') // → -not really*	-not really*	✔
 starBit('ab,-ab*ab') // → -ab*	-ab*	✔
 
 
+/* NESTPAREN
+
+*/
+
 function nestParen(str){
   const [first, last] = [
     str[0],
@@ -668,14 +776,13 @@ function nestParen(str){
   ];
 
   if (str.length <= 0) return true;
-  
+
   if (first === '(' && last === ')') {
     return nestParen(str.slice(1, -1));
   }
-  
+
   return false;
 }
-
 nestParen('(())') // → true	true	✔	
 nestParen('((()))') // → true	true	✔	
 nestParen('(((x))') // → false	false	✔	
@@ -693,19 +800,22 @@ nestParen('((yy())))') // → false	false	✔
 nestParen('(((())))') // → true	true	✔
 
 
+/* STRCOUNT
+
+*/
+
 function strCount(str,sub){
   const subLen = sub.length;
-  
+
   if (str.length < subLen) return 0;
-  
+
   const frag = str.slice(0, subLen);
   if (frag === sub) {
     return 1 + strCount(str.slice(subLen), sub);
   }
-  
+
   return strCount(str.slice(1), sub);
 }
-
 strCount('catcowcat', 'cat') // → 2	2	✔	
 strCount('catcowcat', 'cow') // → 1	1	✔	
 strCount('catcowcat', 'dog') // → 0	0	✔	
@@ -722,16 +832,19 @@ strCount('aaabababab', 'a') // → 6	6	✔
 strCount('aaabababab', 'b') // → 4	4	✔
 
 
+/* STRCOPIES
+
+*/
+
 function strCopies(str,sub,n){
   if (n <= 0) return true;
   if (str.length <= 0) return false;
-  
+
   const frag = str.slice(0, sub.length);
   return frag === sub
     ? strCopies(str.slice(1), sub, n - 1)
     : strCopies(str.slice(1), sub, n);
 }
-
 strCopies('catcowcat', 'cat', 2) // → true	true	✔	
 strCopies('catcowcat', 'cow', 2) // → false	false	✔	
 strCopies('catcowcat', 'cow', 1) // → true	true	✔	
@@ -746,6 +859,4 @@ strCopies('iiiiij', 'iii', 4) // → false	false	✔
 strCopies('ijiiiiij', 'iiii', 2) // → true	true	✔	
 strCopies('ijiiiiij', 'iiii', 3) // → false	false	✔	
 strCopies('dogcatdogcat', 'dog', 2) // → true	true	✔
-
-
 
