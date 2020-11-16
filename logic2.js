@@ -155,9 +155,37 @@ repetition, write a separate helper "public int round10(int num) {" and call it 
 entirely below and at the same indent level as roundSum().
 */
 
-function roundSum(){
+function roundSum(a,b,c){
+  const round10 = (num) => {
+    const ones = num % 10;
+    return ones < 5
+      ? num - ones
+      : num + (10 - ones);
+  }
 
+  return [a, b, c].reduce((sum, curr) => {
+    return sum + round10(curr);
+  }, 0);
 }
+roundSum(16, 17, 18) // → 60	60	✔	
+roundSum(12, 13, 14) // → 30	30	✔	
+roundSum(6, 4, 4) // → 10	10	✔	
+roundSum(4, 6, 5) // → 20	20	✔	
+roundSum(4, 4, 6) // → 10	10	✔	
+roundSum(9, 4, 4) // → 10	10	✔	
+roundSum(0, 0, 1) // → 0	0	✔	
+roundSum(0, 9, 0) // → 10	10	✔	
+roundSum(10, 10, 19) // → 40	40	✔	
+roundSum(20, 30, 40) // → 90	90	✔	
+roundSum(45, 21, 30) // → 100	100	✔	
+roundSum(23, 11, 26) // → 60	60	✔	
+roundSum(23, 24, 25) // → 70	70	✔	
+roundSum(25, 24, 25) // → 80	80	✔	
+roundSum(23, 24, 29) // → 70	70	✔	
+roundSum(11, 24, 36) // → 70	70	✔	
+roundSum(24, 36, 32) // → 90	90	✔	
+roundSum(14, 12, 26) // → 50	50	✔	
+roundSum(12, 10, 24) // → 40	40	✔
 
 
 /* CLOSEFAR
@@ -166,9 +194,30 @@ other is "far", differing from both other values by 2 or more. Note: Math.abs(nu
 value of a number.
 */
 
-function closeFar(){
+function closeFar(a,b,c){
+  const [distAB, distAC, distBC] = [
+    Math.abs(a - b),
+    Math.abs(a - c),
+    Math.abs(b - c)
+  ];
 
+  const isClose = Math.min(distAB, distAC) <= 1;
+  const isFar = Math.max(distAB, distAC) >= 2 && distBC >= 2;
+
+  return isClose && isFar;
 }
+closeFar(1, 2, 10) // → true	true	✔	
+closeFar(1, 2, 3) // → false	false	✔	
+closeFar(4, 1, 3) // → true	true	✔	
+closeFar(4, 5, 3) // → false	false	✔	
+closeFar(4, 3, 5) // → false	false	✔	
+closeFar(-1, 10, 0) // → true	true	✔	
+closeFar(0, -1, 10) // → true	true	✔	
+closeFar(10, 10, 8) // → true	true	✔	
+closeFar(10, 8, 9) // → false	false	✔	
+closeFar(8, 9, 10) // → false	false	✔	
+closeFar(8, 9, 7) // → false	false	✔	
+closeFar(8, 6, 9) // → true	true	✔
 
 
 /* BLACKJACK
