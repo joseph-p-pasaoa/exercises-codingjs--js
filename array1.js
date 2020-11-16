@@ -416,6 +416,29 @@ maxTriple([5, 1, 7, 3, 7, 8, 9]) // → 9	9	✔
 maxTriple([2, 2, 5, 1, 1]) // → 5	5	✔
 
 
+/* FRONTPIECE
+Given an int array of any length, return a new array of its first 2 elements. If the array is smaller than
+length 2, use whatever elements are present.
+*/
+
+function frontPiece(nums){
+  return nums.slice(0, 2);
+}
+frontPiece([1, 2, 3]) // → 1,2	1,2	✔	
+frontPiece([1, 2]) // → 1,2	1,2	✔	
+frontPiece([1]) // → 1	1	✔	
+frontPiece([]) // →		✔	
+frontPiece([6, 5, 0]) // → 6,5	6,5	✔	
+frontPiece([6, 5]) // → 6,5	6,5	✔	
+frontPiece([3, 1, 4, 1, 5]) // → 3,1	3,1	✔	
+frontPiece([6]) // → 6	6	✔
+
+
+/* UNLUCKY1
+We'll say that a 1 immediately followed by a 3 in an array is an "unlucky" 1. Return true if the given array
+contains an unlucky 1 in the first 2 or last 2 positions in the array.
+*/
+
 function unlucky1(nums){
   for (let i = 0; i < nums.length; i++) {
     const limit = {0: true, 1: true, [nums.length - 2]: true};
