@@ -1,9 +1,15 @@
 // Joseph P. Pasaoa
 // JS Practice. Exercises found at https://codingjs.wmcicompsci.ca/
+// MAP-2
 //
 
 
-// MAP-2 //
+
+/* WORD0
+Given an array of strings, return a Map containing a key for every different string in the array, always with
+the value 0. For example the string "hello" makes the pair "hello":0. We'll do more complicated counting later,
+but for this problem the value is simply 0.
+*/
 
 function word0(keyArray){
   let exists = new Map();
@@ -18,6 +24,11 @@ word0(["c", "b", "a"]) // → {'c': 0, 'b': 0, 'a': 0}	{'c': 0, 'b': 0, 'a': 0}	
 word0(["c", "c", "c", "c"]) // → {'c': 0}	{'c': 0}	✔	
 word0([]) // → {}	{}	✔
 
+
+/* WORDLEN
+Given an array of strings, return a Map containing a key for every different string in the array,
+and the value is that string's length.
+*/
 
 function wordLen(wordArray){
   const lengths = new Map();
@@ -35,6 +46,11 @@ wordLen(["are", "codes", "and", "cods"]) // → {'are': 3, 'codes': 5, 'and': 3,
 wordLen(["apple", "banana", "tea", "coffee"]) // → {'apple': 5, 'banana': 6, 'tea': 3, 'coffee': 6}	{'apple': 5, 'banana': 6, 'tea': 3, 'coffee': 6}	✔
 
 
+/* PAIRS
+Given an array of non-empty strings, create and return a Map as follows: for each string add its first
+character as a key with its last character as the value.
+*/
+
 function pairs(wordArray){
   const extremes = new Map();
   for (let word of wordArray) {
@@ -50,6 +66,11 @@ pairs(["a", "b"]) // → {'a': 'a', 'b': 'b'}	{'a': 'a', 'b': 'b'}	✔
 pairs(["are", "codes", "and", "cods"]) // → {'a': 'd', 'c': 's'}	{'a': 'd', 'c': 's'}	✔	
 pairs(["apple", "banana", "tea", "coffee"]) // → {'a': 'e', 'b': 'a', 't': 'a', 'c': 'e'}	{'a': 'e', 'b': 'a', 't': 'a', 'c': 'e'}	✔	
 
+
+/* WORDCOUNT
+The classic word-count algorithm: given an array of strings, return a Map with a key for each different string,
+with the value the number of times that string appears in the array.
+*/
 
 function wordCount(wordArray){
   const instances = new Map();
@@ -74,6 +95,11 @@ wordCount(["apple", "banana", "apple", "apple", "tea", "coffee", "banana"]) // �
 wordCount(["sask", "sask", "man", "ab", "sask", "man", "sask", "sask"]) // → {'sask': 5, 'man': 2, 'ab': 1}	{'sask': 5, 'man': 2, 'ab': 1}	✔
 
 
+/* FIRSTCHAR
+Given an array of non-empty strings, return a Map with a key for every different first character seen, with the
+value of all the strings starting with that character appended together in the order they appear in the array.
+*/
+
 function firstChar(wordArray){
   const startWith = new Map();
   for (let word of wordArray) {
@@ -91,6 +117,12 @@ firstChar([]) // → {}	{}	✔
 firstChar(["apple", "bells", "salt", "aardvark", "bells", "sun", "zen", "bells"]) // → {'a': 'appleaardvark', 'b': 'bellsbellsbells', 's': 'saltsun', 'z': 'zen'}	{'a': 'appleaardvark', 'b': 'bellsbellsbells', 's': 'saltsun', 'z': 'zen'}	✔	
 firstChar(["apple", "banana", "ant", "asp", "candy", "coffee", "boat"]) // → {'a': 'appleantasp', 'b': 'bananaboat', 'c': 'candycoffee'}	{'a': 'appleantasp', 'b': 'bananaboat', 'c': 'candycoffee'}	✔
 
+
+/* WORDAPPEND
+Loop over the given array of strings to build a result string like this: when a string appears the 2nd, 4th,
+6th, etc. time in the array, append the string to the result. Return the empty string if no string appears a
+2nd time.
+*/
 
 function wordAppend(wordArray){
   let dupesObj = {};
@@ -118,6 +150,11 @@ wordAppend(["a", "b", "c"]); // →		✔
 wordAppend(["this", "or", "that", "and", "this", "and", "that"]); // → thisandthat	thisandthat	✔	
 wordAppend(["xx", "xx", "yy", "xx", "zz", "yy", "zz", "xx"]); // → xxyyzzxx	xxyyzzxx	✔
 
+
+/* WORDMULTIPLE
+Given an array of strings, return a Map where each different string is a key and its value is true if that
+string appears 2 or more times in the array.
+*/
 
 function wordMultiple(wordArray){
   const atLeastTwice = new Map();
