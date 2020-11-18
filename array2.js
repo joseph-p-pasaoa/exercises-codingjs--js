@@ -732,3 +732,144 @@ twoTwo([1]) // → true	true	✔
 twoTwo([]) // → true	true	✔	
 twoTwo([5, 2, 2, 3]) // → true	true	✔	
 twoTwo([2, 2, 5, 2]) // → false	false	✔
+
+
+/* TRIPLEUP
+Return true if the array contains, somewhere, three increasing adjacent numbers like .... 4, 5, 6, ... or 23, 24, 25.
+*/
+
+function tripleUp(nums){
+  if (nums.length <= 0) return false;
+  
+  for (let i = 0; i < nums.length; i++) {
+    const [first, second, third] = [
+      nums[i],
+      nums[i + 1],
+      nums[i + 2]
+    ];
+    if (second === undefined || third === undefined) {
+      return false;
+    }
+
+    if (second + 1 !== third) {
+      i++;
+      continue;
+    } else if (first + 1 === second) {
+      return true;
+    }
+  }
+}
+tripleUp([1, 4, 5, 6, 2]) // → true	true	✔	
+tripleUp([1, 2, 3]) // → true	true	✔	
+tripleUp([1, 2, 4]) // → false	false	✔	
+tripleUp([1, 2, 4, 5, 7, 6, 5, 6, 7, 6]) // → true	true	✔	
+tripleUp([1, 2, 4, 5, 7, 6, 5, 7, 7, 6]) // → false	false	✔	
+tripleUp([1, 2]) // → false	false	✔	
+tripleUp([1]) // → false	false	✔	
+tripleUp([]) // → false	false	✔	
+tripleUp([10, 9, 8, -100, -99, -98, 100]) // → true	true	✔	
+tripleUp([10, 9, 8, -100, -99, 99, 100]) // → false	false	✔	
+tripleUp([-100, -99, -99, 100, 101, 102]) // → true	true	✔	
+tripleUp([2, 3, 5, 6, 8, 9, 2, 3]) // → false	false	✔
+
+
+/* FIZZARRAY3
+Given start and end numbers, return a new array containing the sequence of integers from start up to but not
+including end, so start=5 and end=10 yields {5, 6, 7, 8, 9}. The end number will be greater or equal to the
+start number. Note that a length-0 array is valid.
+*/
+
+function fizzArray3(start,end){
+  const output = [];
+  for (let i = start; i < end; i++) {
+    output.push(i);
+  }
+
+  return output;
+}
+fizzArray3(5, 10) // → 5,6,7,8,9	5,6,7,8,9	✔	
+fizzArray3(11, 18) // → 11,12,13,14,15,16,17	11,12,13,14,15,16,17	✔	
+fizzArray3(1, 3) // → 1,2	1,2	✔	
+fizzArray3(1, 2) // → 1	1	✔	
+fizzArray3(1, 1) // →		✔	
+fizzArray3(1000, 1005) // → 1000,1001,1002,1003,1004	1000,1001,1002,1003,1004	✔
+
+
+/* SHIFTLEFT
+Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}. You may modify
+and return the given array, or return a new array.
+*/
+
+function shiftLeft(nums){
+  const toShift = 1 % nums.length;
+  return nums.slice(toShift).concat(
+    nums.slice(0, toShift)
+  );
+}
+shiftLeft([6, 2, 5, 3]) // → 2,5,3,6	2,5,3,6	✔	
+shiftLeft([1, 2]) // → 2,1	2,1	✔	
+shiftLeft([1]) // → 1	1	✔	
+shiftLeft([]) // →		✔	
+shiftLeft([1, 1, 2, 2, 4]) // → 1,2,2,4,1	1,2,2,4,1	✔	
+shiftLeft([1, 1, 1]) // → 1,1,1	1,1,1	✔	
+shiftLeft([1, 2, 3]) // → 2,3,1	2,3,1	✔
+
+
+/* TENRUN
+For each multiple of 10 in the given array, change all the values following it to be that multiple
+of 10, until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.
+*/
+
+function tenRun(nums){
+  let overwrite = -1;
+  return nums.map(num => {
+    if (num % 10 === 0) {
+      overwrite = num;
+    }
+
+    return overwrite === -1
+      ? num
+      : overwrite;
+  });
+}
+tenRun([2, 10, 3, 4, 20, 5]) // → 2,10,10,10,20,20	2,10,10,10,20,20	✔	
+tenRun([10, 1, 20, 2]) // → 10,10,20,20	10,10,20,20	✔	
+tenRun([10, 1, 9, 20]) // → 10,10,10,20	10,10,10,20	✔	
+tenRun([1, 2, 50, 1]) // → 1,2,50,50	1,2,50,50	✔	
+tenRun([1, 20, 50, 1]) // → 1,20,50,50	1,20,50,50	✔	
+tenRun([10, 10]) // → 10,10	10,10	✔	
+tenRun([10, 2]) // → 10,10	10,10	✔	
+tenRun([0, 2]) // → 0,0	0,0	✔	
+tenRun([1, 2]) // → 1,2	1,2	✔	
+tenRun([1]) // → 1	1	✔	
+tenRun([]) // →		✔
+
+
+/* PRE4
+Given a non-empty array of ints, return a new array containing the elements from the original array that
+come before the first 4 in the original array. The original array will contain at least one 4. Note that
+it is valid in java to create an array of length 0.
+*/
+
+function pre4(nums){
+  const output = [];
+  for (let num of nums) {
+    if (num === 4) break;
+
+    output.push(num);
+  }
+
+  return output;
+}
+pre4([1, 2, 4, 1]) // → 1,2	1,2	✔	
+pre4([3, 1, 4]) // → 3,1	3,1	✔	
+pre4([1, 4, 4]) // → 1	1	✔	
+pre4([1, 4, 4, 2]) // → 1	1	✔	
+pre4([1, 3, 4, 2, 4]) // → 1,3	1,3	✔	
+pre4([4, 4]) // →		✔	
+pre4([3, 3, 4]) // → 3,3	3,3	✔	
+pre4([1, 2, 1, 4]) // → 1,2,1	1,2,1	✔	
+pre4([2, 1, 4, 2]) // → 2,1	2,1	✔	
+pre4([2, 1, 2, 1, 4, 2]) // → 2,1,2,1	2,1,2,1	✔
+
+
