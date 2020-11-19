@@ -873,3 +873,102 @@ pre4([2, 1, 4, 2]) // → 2,1	2,1	✔
 pre4([2, 1, 2, 1, 4, 2]) // → 2,1,2,1	2,1,2,1	✔
 
 
+/* POST4
+Given a non-empty array of ints, return a new array containing the elements from the original array that
+come after the last 4 in the original array. The original array will contain at least one 4. Note that
+it is valid in java to create an array of length 0.
+*/
+
+function post4(nums){
+  let last4Index = 0;
+  for (let i = 0; i < nums.length; i++) {
+    const current = nums[i];
+    if (current === 4) {
+      last4Index = i;
+    }
+  }
+
+  return nums.slice(++last4Index);
+}
+post4([2, 4, 1, 2]) // → 1,2	1,2	✔	
+post4([4, 1, 4, 2]) // → 2	2	✔	
+post4([4, 4, 1, 2, 3]) // → 1,2,3	1,2,3	✔	
+post4([4, 2]) // → 2	2	✔	
+post4([4, 4, 3]) // → 3	3	✔	
+post4([4, 4]) // →		✔	
+post4([4]) // →		✔	
+post4([2, 4, 1, 4, 3, 2]) // → 3,2	3,2	✔	
+post4([4, 1, 4, 2, 2, 2]) // → 2,2,2	2,2,2	✔	
+post4([3, 4, 3, 2]) // → 3,2	3,2	✔
+
+
+/* NOTALONE
+We'll say that an element in an array is "alone" if there are values before and after it, and those
+values are different from it. Return a version of the given array where every instance of the given
+value which is alone is replaced by whichever value to its left or right is larger.
+*/
+
+function notAlone(nums,val){
+  return nums.map((num, i) => {
+    if (i === 0 || i === nums.length - 1) {
+      return num;
+    }
+
+    if (num === val) {
+      const [left, right] = [
+        nums[i - 1],
+        nums[i + 1]
+      ];
+      if (num !== left && num !== right) {
+        return Math.max(left, right);
+      }
+    }
+
+    return num;
+  });
+}
+notAlone([1, 2, 3], 2) // → 1,3,3	1,3,3	✔	
+notAlone([1, 2, 3, 2, 5, 2], 2) // → 1,3,3,5,5,2	1,3,3,5,5,2	✔	
+notAlone([3, 4], 3) // → 3,4	3,4	✔	
+notAlone([3, 3], 3) // → 3,3	3,3	✔	
+notAlone([1, 3, 1, 2], 1) // → 1,3,3,2	1,3,3,2	✔	
+notAlone([3], 3) // → 3	3	✔	
+notAlone([], 3) // →		✔	
+notAlone([7, 1, 6], 1) // → 7,7,6	7,7,6	✔	
+notAlone([1, 1, 1], 1) // → 1,1,1	1,1,1	✔	
+notAlone([1, 1, 1, 2], 1) // → 1,1,1,2	1,1,1,2	✔
+
+
+/* ZEROFRONT
+Return an array that contains the exact same numbers as the given array, but rearranged so that all
+the zeros are grouped at the start of the array. The order of the non-zero numbers does not matter.
+So {1, 0, 0, 1} becomes {0 ,0, 1, 1}. You may modify and return the given array or make a new array.
+*/
+
+function zeroFront(nums){
+  const nonZeroes = [];
+  let zeroesCount = 0;
+  for (let num of nums) {
+    if (num === 0) {
+      zeroesCount++;
+    } else {
+      nonZeroes.push(num);
+    }
+  }
+
+  const zeroes = new Array(zeroesCount).fill(0);
+  return zeroes.concat(nonZeroes);
+}
+zeroFront([1, 0, 0, 1]) // → 0,0,1,1	0,0,1,1	✔	
+zeroFront([0, 1, 1, 0, 1]) // → 0,0,1,1,1	0,0,1,1,1	✔	
+zeroFront([1, 0]) // → 0,1	0,1	✔	
+zeroFront([0, 1]) // → 0,1	0,1	✔	
+zeroFront([1, 1, 1, 0]) // → 0,1,1,1	0,1,1,1	✔	
+zeroFront([2, 2, 2, 2]) // → 2,2,2,2	2,2,2,2	✔	
+zeroFront([0, 0, 1, 0]) // → 0,0,0,1	0,0,0,1	✔	
+zeroFront([-1, 0, 0, -1, 0]) // → 0,0,0,-1,-1	0,0,0,-1,-1	✔	
+zeroFront([0, -3, 0, -3]) // → 0,0,-3,-3	0,0,-3,-3	✔	
+zeroFront([]) // →		✔	
+zeroFront([9, 9, 0, 9, 0, 9]) // → 0,0,9,9,9,9	0,0,9,9,9,9	✔
+
+
