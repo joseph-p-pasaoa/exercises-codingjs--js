@@ -40,3 +40,132 @@ maxSpan([]) // → 0	0	✔
 maxSpan([1]) // → 1	1	✔
 
 
+/* FIX34
+Return an array that contains exactly the same numbers as the given array, but rearranged so that every 3 is
+immediately followed by a 4. Do not move the 3's, but every other number may move. The array contains the same
+number of 3's and 4's, every 3 has a number after it that is not a 3, and a 3 appears in the array before any 4.
+*/
+
+function fix34(nums){
+  let no34s = [];
+  nums.forEach(num => {
+    if (num === 3 || num === 4) return;
+
+    no34s.push(num);
+  });
+  no34s.reverse();
+
+  let output = [];
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    if (num === 3) {
+      output = output.concat([3, 4]);
+      i++;
+    } else {
+      output.push(no34s.pop());
+    }
+  }
+
+  return output;
+}
+fix34([1, 3, 1, 4]) // → 1,3,4,1	1,3,4,1	✔	
+fix34([1, 3, 1, 4, 4, 3, 1]) // → 1,3,4,1,1,3,4	1,3,4,1,1,3,4	✔	
+fix34([3, 2, 2, 4]) // → 3,4,2,2	3,4,2,2	✔	
+fix34([3, 2, 3, 2, 4, 4]) // → 3,4,3,4,2,2	3,4,3,4,2,2	✔	
+fix34([2, 3, 2, 3, 2, 4, 4]) // → 2,3,4,3,4,2,2	2,3,4,3,4,2,2	✔	
+fix34([5, 3, 5, 4, 5, 4, 5, 4, 3, 5, 3, 5]) // → 5,3,4,5,5,5,5,5,3,4,3,4	5,3,4,5,5,5,5,5,3,4,3,4	✔	
+fix34([3, 1, 4]) // → 3,4,1	3,4,1	✔	
+fix34([3, 4, 1]) // → 3,4,1	3,4,1	✔	
+fix34([1, 1, 1]) // → 1,1,1	1,1,1	✔	
+fix34([1]) // → 1	1	✔	
+fix34([]) // →		✔	
+fix34([7, 3, 7, 7, 4]) // → 7,3,4,7,7	7,3,4,7,7	✔	
+fix34([3, 1, 4, 3, 1, 4]) // → 3,4,1,3,4,1	3,4,1,3,4,1	✔	
+fix34([3, 1, 1, 3, 4, 4]) // → 3,4,1,3,4,1	3,4,1,3,4,1	✔
+
+
+/* FIX45
+(This is a slightly harder version of the fix34 problem.) Return an array that contains exactly the same numbers
+as the given array, but rearranged so that every 4 is immediately followed by a 5. Do not move the 4's, but every
+other number may move. The array contains the same number of 4's and 5's, and every 4 has a number after it that
+is not a 4. In this version, 5's may appear anywhere in the original array.
+*/
+
+function fix45(nums){
+  const no45s = [];
+  nums.forEach(num => {
+    if (num === 4 || num === 5) return;
+
+    no45s.push(num);
+  });
+  no45s.reverse();
+
+  let output = [];
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    if (num === 4) {
+      output = output.concat([4, 5]);
+      i++;
+    } else {
+      output.push(no45s.pop());
+    }
+  }
+
+  return output;
+}
+fix45([5, 4, 9, 4, 9, 5]) // → 9,4,5,4,5,9	9,4,5,4,5,9	✔	
+fix45([1, 4, 1, 5]) // → 1,4,5,1	1,4,5,1	✔	
+fix45([1, 4, 1, 5, 5, 4, 1]) // → 1,4,5,1,1,4,5	1,4,5,1,1,4,5	✔	
+fix45([4, 9, 4, 9, 5, 5, 4, 9, 5]) // → 4,5,4,5,9,9,4,5,9	4,5,4,5,9,9,4,5,9	✔	
+fix45([5, 5, 4, 1, 4, 1]) // → 1,1,4,5,4,5	1,1,4,5,4,5	✔	
+fix45([4, 2, 2, 5]) // → 4,5,2,2	4,5,2,2	✔	
+fix45([4, 2, 4, 2, 5, 5]) // → 4,5,4,5,2,2	4,5,4,5,2,2	✔	
+fix45([4, 2, 4, 5, 5]) // → 4,5,4,5,2	4,5,4,5,2	✔	
+fix45([1, 1, 1]) // → 1,1,1	1,1,1	✔	
+fix45([4, 5]) // → 4,5	4,5	✔	
+fix45([5, 4, 1]) // → 1,4,5	1,4,5	✔	
+fix45([]) // →		✔	
+fix45([5, 4, 5, 4, 1]) // → 1,4,5,4,5	1,4,5,4,5	✔	
+fix45([4, 5, 4, 1, 5]) // → 4,5,4,5,1	4,5,4,5,1	✔	
+fix45([3, 4, 5]) // → 3,4,5	3,4,5	✔	
+fix45([4, 1, 5]) // → 4,5,1	4,5,1	✔	
+fix45([5, 4, 1]) // → 1,4,5	1,4,5	✔	
+fix45([2, 4, 2, 5]) // → 2,4,5,2	2,4,5,2	✔
+
+
+/* CANBALANCE
+Given a non-empty array, return true if there is a place to split the array so that the sum of the
+numbers on one side is equal to the sum of the numbers on the other side.
+*/
+
+function canBalance(nums){
+  const total = nums.reduce((sum, curr) => sum + curr);
+
+  let currSum = 0;
+
+  const halfTotal = total / 2;
+  if (halfTotal % 1 !== 0) return false;
+
+  for (let num of nums) {
+    currSum += num;
+    if (currSum === halfTotal) {
+      return true;
+    }
+
+    if (currSum > halfTotal) break;
+  }
+  return false;
+}
+canBalance([1, 1, 1, 2, 1]) // → true	true	✔	
+canBalance([2, 1, 1, 2, 1]) // → false	false	✔	
+canBalance([10, 10]) // → true	true	✔	
+canBalance([10, 0, 1, -1, 10]) // → true	true	✔	
+canBalance([1, 1, 1, 1, 4]) // → true	true	✔	
+canBalance([2, 1, 1, 1, 4]) // → false	false	✔	
+canBalance([2, 3, 4, 1, 2]) // → false	false	✔	
+canBalance([1, 2, 3, 1, 0, 2, 3]) // → true	true	✔	
+canBalance([1, 2, 3, 1, 0, 1, 3]) // → false	false	✔	
+canBalance([1]) // → false	false	✔	
+canBalance([1, 1, 1, 2, 1]) // → true	true	✔
+
+
