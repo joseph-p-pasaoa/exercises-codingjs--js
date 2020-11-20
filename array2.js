@@ -972,3 +972,74 @@ zeroFront([]) // →		✔
 zeroFront([9, 9, 0, 9, 0, 9]) // → 0,0,9,9,9,9	0,0,9,9,9,9	✔
 
 
+/* WITHOUTTEN
+Return a version of the given array where all the 10's have been removed. The remaining elements should
+shift left towards the start of the array as needed, and the empty spaces a the end of the array should
+be 0. So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
+*/
+
+function withoutTen(nums){
+  const output = [];
+
+  let zeroesToAdd = 0;
+  nums.forEach(num => {
+    if (num === 10) {
+      zeroesToAdd++;
+    } else {
+      output.push(num);
+    }
+  });
+
+  while (zeroesToAdd > 0) {
+    output.push(0);
+    zeroesToAdd--;
+  }
+
+  return output;
+}
+withoutTen([1, 10, 10, 2]) // → 1,2,0,0	1,2,0,0	✔	
+withoutTen([10, 2, 10]) // → 2,0,0	2,0,0	✔	
+withoutTen([1, 99, 10]) // → 1,99,0	1,99,0	✔	
+withoutTen([10, 13, 10, 14]) // → 13,14,0,0	13,14,0,0	✔	
+withoutTen([10, 13, 10, 14, 10]) // → 13,14,0,0,0	13,14,0,0,0	✔	
+withoutTen([10, 10, 3]) // → 3,0,0	3,0,0	✔	
+withoutTen([1]) // → 1	1	✔	
+withoutTen([13, 1]) // → 13,1	13,1	✔	
+withoutTen([10]) // → 0	0	✔	
+withoutTen([]) // →		✔
+
+
+/* ZEROMAX
+Return a version of the given array where each zero value in the array is replaced by the largest odd value
+to the right of the zero in the array. If there is no odd value to the right of the zero, leave the zero
+as a zero.
+*/
+
+function zeroMax(nums){
+  let nextOdd = 0;
+  return nums.slice(0)
+    .reverse()
+    .map(num => {
+        if (num === 0) {
+          return nextOdd;
+        } else {
+          if (num % 2 === 1) {
+            nextOdd = Math.max(nextOdd, num);
+          }
+          return num;
+        }
+    })
+    .reverse();
+}
+zeroMax([0, 5, 0, 3]) // → 5,5,3,3	5,5,3,3	✔	
+zeroMax([0, 4, 0, 3]) // → 3,4,3,3	3,4,3,3	✔	
+zeroMax([0, 1, 0]) // → 1,1,0	1,1,0	✔	
+zeroMax([0, 1, 5]) // → 5,1,5	5,1,5	✔	
+zeroMax([0, 2, 0]) // → 0,2,0	0,2,0	✔	
+zeroMax([1]) // → 1	1	✔	
+zeroMax([0]) // → 0	0	✔	
+zeroMax([]) // →		✔	
+zeroMax([7, 0, 4, 3, 0, 2]) // → 7,3,4,3,0,2	7,3,4,3,0,2	✔	
+zeroMax([7, 0, 4, 3, 0, 1]) // → 7,3,4,3,1,1	7,3,4,3,1,1	✔	
+zeroMax([7, 0, 4, 3, 0, 0]) // → 7,3,4,3,0,0	7,3,4,3,0,0	✔	
+zeroMax([7, 0, 1, 0, 0, 7]) // → 7,7,1,7,7,7	7,7,1,7,7,7	✔
