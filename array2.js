@@ -1043,3 +1043,73 @@ zeroMax([7, 0, 4, 3, 0, 2]) // → 7,3,4,3,0,2	7,3,4,3,0,2	✔
 zeroMax([7, 0, 4, 3, 0, 1]) // → 7,3,4,3,1,1	7,3,4,3,1,1	✔	
 zeroMax([7, 0, 4, 3, 0, 0]) // → 7,3,4,3,0,0	7,3,4,3,0,0	✔	
 zeroMax([7, 0, 1, 0, 0, 7]) // → 7,7,1,7,7,7	7,7,1,7,7,7	✔
+
+
+/* EVENODD
+Return an array that contains the exact same numbers as the given array, but rearranged so that all the even
+numbers come before all the odd numbers. Other than that, the numbers can be in any order. You may modify and
+return the given array, or make a new array.
+*/
+
+function evenOdd(nums){
+  const evens = [], odds = [];
+  nums.forEach(num => {
+      if (num % 2 === 0) {
+        evens.push(num);
+      } else {
+        odds.push(num);
+      }
+  });
+  
+  return evens.concat(odds);
+}
+evenOdd([1, 0, 1, 0, 0, 1, 1]) // → 0,0,0,1,1,1,1	0,0,0,1,1,1,1	✔	
+evenOdd([3, 3, 2]) // → 2,3,3	2,3,3	✔	
+evenOdd([2, 2, 2]) // → 2,2,2	2,2,2	✔	
+evenOdd([3, 2, 2]) // → 2,2,3	2,2,3	✔	
+evenOdd([1, 1, 0, 1, 0]) // → 0,0,1,1,1	0,0,1,1,1	✔	
+evenOdd([1]) // → 1	1	✔	
+evenOdd([1, 2]) // → 2,1	2,1	✔	
+evenOdd([2, 1]) // → 2,1	2,1	✔	
+evenOdd([]) // →		✔
+
+
+/* FIZZBUZZ
+This is slightly more difficult version of the famous FizzBuzz problem which is sometimes given as a first
+problem for job interviews. Consider the series of numbers beginning at start and running up to but not
+including end, so for example start=1 and end=5 gives the series 1, 2, 3, 4. Return a new String[] array
+containing the string form of these numbers, except for multiples of 3, use "Fizz" instead of the number,
+for multiples of 5 use "Buzz", and for multiples of both 3 and 5 use "FizzBuzz". In Java, String.valueOf(xxx)
+will make the String form of an int or other type. This version is a little more complicated than the usual
+version since you have to allocate and index into an array instead of just printing, and we vary the
+start/end instead of just always doing 1..100.
+*/
+
+function fizzBuzz(start,end){
+  const output = [];
+  for (let i = start; i < end; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      output.push('FizzBuzz');
+    } else if (i % 3 === 0) {
+      output.push('Fizz');
+    } else if (i % 5 === 0) {
+      output.push('Buzz');
+    } else {
+      output.push(i.toString());
+    }
+  }
+  
+  return output;
+}
+fizzBuzz(1, 6) // → 1,2,Fizz,4,Buzz	1,2,Fizz,4,Buzz	✔	
+fizzBuzz(1, 8) // → 1,2,Fizz,4,Buzz,Fizz,7	1,2,Fizz,4,Buzz,Fizz,7	✔	
+fizzBuzz(1, 11) // → 1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz	1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz	✔	
+fizzBuzz(1, 16) // → 1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz	1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz	✔	
+fizzBuzz(1, 4) // → 1,2,Fizz	1,2,Fizz	✔	
+fizzBuzz(1, 2) // → 1	1	✔	
+fizzBuzz(50, 56) // → Buzz,Fizz,52,53,Fizz,Buzz	Buzz,Fizz,52,53,Fizz,Buzz	✔	
+fizzBuzz(15, 17) // → FizzBuzz,16	FizzBuzz,16	✔	
+fizzBuzz(30, 36) // → FizzBuzz,31,32,Fizz,34,Buzz	FizzBuzz,31,32,Fizz,34,Buzz	✔	
+fizzBuzz(1000, 1006) // → Buzz,1001,Fizz,1003,1004,FizzBuzz	Buzz,1001,Fizz,1003,1004,FizzBuzz	✔	
+fizzBuzz(99, 102) // → Fizz,Buzz,101	Fizz,Buzz,101	✔	
+fizzBuzz(14, 20) // → 14,FizzBuzz,16,17,Fizz,19	14,FizzBuzz,16,17,Fizz,19	✔
