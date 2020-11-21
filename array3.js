@@ -169,3 +169,70 @@ canBalance([1]) // → false	false	✔
 canBalance([1, 1, 1, 2, 1]) // → true	true	✔
 
 
+/* LINEARIN
+Given two arrays of ints sorted in increasing order, outer and inner, return true if all of the numbers
+in inner appear in outer. The best solution makes only a single "linear" pass of both arrays, taking
+advantage of the fact that both arrays are already in sorted order.
+*/
+
+function linearIn(outer,inner){
+  let outerIdx = 0;
+  for (let innerIdx = 0; innerIdx < inner.length; innerIdx++) {
+    const currentInner = inner[innerIdx];
+    while (outer[outerIdx] < currentInner) {
+      outerIdx++;
+    }
+
+    if (outer[outerIdx] === currentInner) {
+      continue;
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+}
+linearIn([1, 2, 4, 6], [2, 4]) // → true	true	✔	
+linearIn([1, 2, 4, 6], [2, 3, 4]) // → false	false	✔	
+linearIn([1, 2, 4, 4, 6], [2, 4]) // → true	true	✔	
+linearIn([2, 2, 4, 4, 6, 6], [2, 4]) // → true	true	✔	
+linearIn([2, 2, 2, 2, 2], [2, 2]) // → true	true	✔	
+linearIn([2, 2, 2, 2, 2], [2, 4]) // → false	false	✔	
+linearIn([2, 2, 2, 2, 4], [2, 4]) // → true	true	✔	
+linearIn([1, 2, 3], [2]) // → true	true	✔	
+linearIn([1, 2, 3], [-1]) // → false	false	✔	
+linearIn([1, 2, 3], []) // → true	true	✔	
+linearIn([-1, 0, 3, 3, 3, 10, 12], [-1, 0, 3, 12]) // → true	true	✔	
+linearIn([-1, 0, 3, 3, 3, 10, 12], [0, 3, 12, 14]) // → false	false	✔	
+linearIn([-1, 0, 3, 3, 3, 10, 12], [-1, 10, 11]) // → false	false	✔
+
+
+/* SQUAREUP
+Given n>=0, create an array length n*n with the following pattern, shown here for n=3 :
+{0, 0, 1, 0, 2, 1, 3, 2, 1} (spaces added to show the 3 groups).
+*/
+
+function squareUp(n){
+  let output = [];
+
+  for (let round = n; round > 0; round--) {
+    const segment = new Array(n).fill(0);
+
+    for (let i = 0; i < round; i++) {
+      const value = i + 1;
+      segment[i] = value;
+    }
+
+    output = output.concat(segment);
+  }
+  output.reverse();
+
+  return output;
+}
+squareUp(3) // → 0,0,1,0,2,1,3,2,1	0,0,1,0,2,1,3,2,1	✔	
+squareUp(2) // → 0,1,2,1	0,1,2,1	✔	
+squareUp(4) // → 0,0,0,1,0,0,2,1,0,3,2,1,4,3,2,1	0,0,0,1,0,0,2,1,0,3,2,1,4,3,2,1	✔	
+squareUp(1) // → 1	1	✔	
+squareUp(0) // →		✔
+
+
