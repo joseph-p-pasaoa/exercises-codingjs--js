@@ -373,3 +373,142 @@ scoresSpecial([], [20]) // → 20	20	✔
 scoresSpecial([14, 10, 4], [4, 20, 30]) // → 40	40	✔
 
 
+/* SUMHEIGHTS
+We have an array of heights, representing the altitude along a walking trail. Given start/end indexes into
+the array, return the sum of the changes for a walk beginning at the start index and ending at the end index.
+For example, with the heights {5, 3, 6, 7, 2} and start=2, end=4 yields a sum of 1 + 5 = 6. The start end end
+index will both be valid indexes into the array with start <= end.
+*/
+
+function sumHeights(heights,start,end){
+  let altSum = 0;
+  for (let i = start; i < end; i++) {
+    const [curr, next] = [
+      heights[i],
+      heights[i + 1]
+    ];
+    altSum += Math.abs(curr - next);
+  }
+
+  return altSum;
+}
+sumHeights([5, 3, 6, 7, 2], 2, 4) // → 6	6	✔	
+sumHeights([5, 3, 6, 7, 2], 0, 1) // → 2	2	✔	
+sumHeights([5, 3, 6, 7, 2], 0, 4) // → 11	11	✔	
+sumHeights([5, 3, 6, 7, 2], 1, 1) // → 0	0	✔	
+sumHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 0, 3) // → 3	3	✔	
+sumHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 4, 8) // → 11	11	✔	
+sumHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 7, 8) // → 8	8	✔	
+sumHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 8, 8) // → 0	0	✔	
+sumHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 2, 2) // → 0	0	✔	
+sumHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 3, 6) // → 3	3	✔	
+sumHeights([10, 8, 7, 7, 7, 6, 7], 1, 4) // → 1	1	✔	
+sumHeights([10, 8, 7, 7, 7, 6, 7], 1, 5) // → 2	2	✔
+
+
+/* SUMHEIGHTS2
+(A variation on the sumHeights problem.) We have an array of heights, representing the altitude along a
+walking trail. Given start/end indexes into the array, return the sum of the changes for a walk beginning
+at the start index and ending at the end index, however increases in height count double. For example, with
+the heights {5, 3, 6, 7, 2} and start=2, end=4 yields a sum of 1*2 + 5 = 7. The start end end index will
+both be valid indexes into the array with start <= end.
+*/
+
+function sumHeights2(heights,start,end){
+  let altTally = 0;
+  for (let i = start; i < end; i++) {
+    const [curr, next] = [
+      heights[i],
+      heights[i + 1]
+    ];
+    altTally += next > curr
+      ? Math.abs(next - curr) * 2
+      : Math.abs(next - curr);
+  }
+
+  return altTally;
+}
+sumHeights2([5, 3, 6, 7, 2], 2, 4) // → 7	7	✔	
+sumHeights2([5, 3, 6, 7, 2], 0, 1) // → 2	2	✔	
+sumHeights2([5, 3, 6, 7, 2], 0, 4) // → 15	15	✔	
+sumHeights2([5, 3, 6, 7, 2], 1, 1) // → 0	0	✔	
+sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 0, 3) // → 6	6	✔	
+sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 4, 8) // → 19	19	✔	
+sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 7, 8) // → 16	16	✔	
+sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 8, 8) // → 0	0	✔	
+sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 2, 2) // → 0	0	✔	
+sumHeights2([1, 2, 3, 4, 5, 4, 3, 2, 10], 3, 6) // → 4	4	✔	
+sumHeights2([10, 8, 7, 7, 7, 6, 7], 1, 4) // → 1	1	✔	
+sumHeights2([10, 8, 7, 7, 7, 6, 7], 1, 5) // → 2	2	✔
+
+
+/* BIGHEIGHTS
+(A variation on the sumHeights problem.) We have an array of heights, representing the altitude along a
+walking trail. Given start/end indexes into the array, return the number of "big" steps for a walk starting
+at the start index and ending at the end index. We'll say that step is big if it is 5 or more up or down.
+The start end end index will both be valid indexes into the array with start <= end.
+*/
+
+function bigHeights(heights,start,end){
+  let bigSteps = 0;
+  for (let i = start; i < end; i++) {
+    const [curr, next] = [
+      heights[i],
+      heights[i + 1]
+    ];
+    const diff = Math.abs(curr - next);
+    if (diff >= 5) bigSteps++;
+  }
+
+  return bigSteps;
+}
+bigHeights([5, 3, 6, 7, 2], 2, 4) // → 1	1	✔	
+bigHeights([5, 3, 6, 7, 2], 0, 1) // → 0	0	✔	
+bigHeights([5, 3, 6, 7, 2], 0, 4) // → 1	1	✔	
+bigHeights([5, 3, 6, 7, 3], 0, 4) // → 0	0	✔	
+bigHeights([5, 3, 6, 7, 2], 1, 1) // → 0	0	✔	
+bigHeights([5, 13, 6, 7, 2], 1, 2) // → 1	1	✔	
+bigHeights([5, 13, 6, 7, 2], 0, 2) // → 2	2	✔	
+bigHeights([5, 13, 6, 7, 2], 1, 4) // → 2	2	✔	
+bigHeights([5, 13, 6, 7, 2], 0, 4) // → 3	3	✔	
+bigHeights([5, 13, 6, 7, 2], 0, 3) // → 2	2	✔	
+bigHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 0, 3) // → 0	0	✔	
+bigHeights([1, 2, 3, 4, 5, 4, 3, 2, 10], 4, 8) // → 1	1	✔	
+bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 0, 3) // → 1	1	✔	
+bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 7, 8) // → 1	1	✔	
+bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 3, 8) // → 2	2	✔	
+bigHeights([1, 2, 3, 14, 5, 4, 3, 2, 10], 2, 8) // → 3	3	✔
+
+
+/* USERCOMPARE
+We have data for two users, A and B, each with a String name and an int id. The goal is to order the users
+such as for sorting. Return -1 if A comes before B, 1 if A comes after B, and 0 if they are the same. Order
+first by the string names, and then by the id numbers if the names are the same. Note: with Strings
+str1.compareTo(str2) returns an int value which is negative/0/positive to indicate how str1 is ordered to
+str2 (the value is not limited to -1/0/1). (On the AP, there would be two User objects, but here the code
+simply takes the two strings and two ints directly. The code logic is the same.)
+*/
+
+function userCompare(aName,aId,bName,bId){
+  if (aName !== bName) {
+    const sorted = [aName, bName].sort();
+    return sorted[0] === aName
+      ? -1
+      : 1;
+  }
+
+  if (aId === bId) return 0;
+  return aId < bId
+    ? -1
+    : 1;
+}
+userCompare('bb', 1, 'zz', 2) // → -1	-1	✔	
+userCompare('bb', 1, 'aa', 2) // → 1	1	✔	
+userCompare('bb', 1, 'bb', 1) // → 0	0	✔	
+userCompare('bb', 5, 'bb', 1) // → 1	1	✔	
+userCompare('bb', 5, 'bb', 10) // → -1	-1	✔	
+userCompare('adam', 1, 'bob', 2) // → -1	-1	✔	
+userCompare('bob', 1, 'bob', 2) // → -1	-1	✔	
+userCompare('bzb', 1, 'bob', 2) // → 1	1	✔
+
+
