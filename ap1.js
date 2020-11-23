@@ -512,3 +512,89 @@ userCompare('bob', 1, 'bob', 2) // → -1	-1	✔
 userCompare('bzb', 1, 'bob', 2) // → 1	1	✔
 
 
+/* MERGETWO
+Start with two arrays of strings, A and B, each with its elements in alphabetical order and without duplicates.
+Return a new array containing the first N elements from the two arrays. The result array should be in
+alphabetical order and without duplicates. A and B will both have a length which is N or more. The best
+"linear" solution makes a single pass over A and B, taking advantage of the fact that they are in alphabetical
+order, copying elements directly to the new array.
+*/
+
+function mergeTwo(a,b,n){
+  const merged = [];
+  let [aIdx, bIdx] = [0, 0];
+  let last = '';
+  while (merged.length < n) {
+
+    while (a[aIdx] <= last) {
+      aIdx++;
+    }
+    while (b[bIdx] <= last) {
+      bIdx++;
+    }
+
+    const currentAdd = a[aIdx] <= b[bIdx]
+      ? a[aIdx]
+      : b[bIdx];
+    merged.push(currentAdd);
+    last = currentAdd;
+  }
+
+  return merged;
+}
+mergeTwo(['a', 'c', 'z'], ['b', 'f', 'z'], 3) // → a,b,c	a,b,c	✔	
+mergeTwo(['a', 'c', 'z'], ['c', 'f', 'z'], 3) // → a,c,f	a,c,f	✔	
+mergeTwo(['f', 'g', 'z'], ['c', 'f', 'g'], 3) // → c,f,g	c,f,g	✔	
+mergeTwo(['a', 'c', 'z'], ['a', 'c', 'z'], 3) // → a,c,z	a,c,z	✔	
+mergeTwo(['a', 'b', 'c', 'z'], ['a', 'c', 'z'], 3) // → a,b,c	a,b,c	✔	
+mergeTwo(['a', 'c', 'z'], ['a', 'b', 'c', 'z'], 3) // → a,b,c	a,b,c	✔	
+mergeTwo(['a', 'c', 'z'], ['a', 'c', 'z'], 2) // → a,c	a,c	✔	
+mergeTwo(['a', 'c', 'z'], ['a', 'c', 'y', 'z'], 3) // → a,c,y	a,c,y	✔	
+mergeTwo(['x', 'y', 'z'], ['a', 'b', 'z'], 3) // → a,b,x	a,b,x	✔
+
+
+/* COMMONTWO
+Start with two arrays of strings, a and b, each in alphabetical order, possibly with duplicates. Return
+the count of the number of strings which appear in both arrays. The best "linear" solution makes a single
+pass over both arrays, taking advantage of the fact that they are in alphabetical order.
+*/
+
+function commonTwo(a,b){
+  let commons = 0;
+  let [aIdx, bIdx] = [0, 0];
+  let last = '';
+
+  while (aIdx < a.length && bIdx < b.length) {
+
+    if (a[aIdx] < b[bIdx] || a[aIdx] <= last) {
+      aIdx++;
+      continue;
+    }
+    if (b[bIdx] < a[aIdx] || b[bIdx] <= last) {
+      bIdx++;
+      continue;
+    }
+
+    commons++;
+    last = a[aIdx];
+
+  }
+
+  return commons;
+}
+commonTwo(['a', 'c', 'x'], ['b', 'c', 'd', 'x']) // → 2	2	✔	
+commonTwo(['a', 'c', 'x'], ['a', 'b', 'c', 'x', 'z']) // → 3	3	✔	
+commonTwo(['a', 'b', 'c'], ['a', 'b', 'c']) // → 3	3	✔	
+commonTwo(['a', 'a', 'b', 'b', 'c'], ['a', 'b', 'c']) // → 3	3	✔	
+commonTwo(['a', 'a', 'b', 'b', 'c'], ['a', 'b', 'b', 'b', 'c']) // → 3	3	✔	
+commonTwo(['a', 'a', 'b', 'b', 'c'], ['a', 'b', 'b', 'c', 'c']) // → 3	3	✔	
+commonTwo(['b', 'b', 'b', 'b', 'c'], ['a', 'b', 'b', 'b', 'c']) // → 2	2	✔	
+commonTwo(['a', 'b', 'c', 'c', 'd'], ['a', 'b', 'b', 'c', 'd', 'd']) // → 4	4	✔	
+commonTwo(['a', 'a', 'b', 'b', 'c'], ['b', 'b', 'b']) // → 1	1	✔	
+commonTwo(['a', 'a', 'b', 'b', 'c'], ['c', 'c']) // → 1	1	✔	
+commonTwo(['a', 'a', 'b', 'b', 'c'], ['b', 'b', 'b', 'x']) // → 1	1	✔	
+commonTwo(['a', 'a', 'b', 'b', 'c'], ['b', 'b']) // → 1	1	✔	
+commonTwo(['a'], ['a', 'b']) // → 1	1	✔	
+commonTwo(['a'], ['b']) // → 0	0	✔	
+commonTwo(['a', 'a'], ['b', 'b']) // → 0	0	✔	
+commonTwo(['a', 'b'], ['a', 'b']) // → 2	2	✔
