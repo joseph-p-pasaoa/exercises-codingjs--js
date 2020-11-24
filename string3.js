@@ -176,18 +176,18 @@ function countTriple(str){
 
   return count;
 }
-countTriple('abcXXXabc') → 1	1	✔	
-countTriple('xxxabyyyycd') → 3	3	✔	
-countTriple('a') → 0	0	✔	
-countTriple('') → 0	0	✔	
-countTriple('XXXabc') → 1	1	✔	
-countTriple('XXXXabc') → 2	2	✔	
-countTriple('XXXXXabc') → 3	3	✔	
-countTriple('222abyyycdXXX') → 3	3	✔	
-countTriple('abYYYabXXXXXab') → 4	4	✔	
-countTriple('abYYXabXXYXXab') → 0	0	✔	
-countTriple('abYYXabXXYXXab') → 0	0	✔	
-countTriple('122abhhh2') → 1	1	✔
+countTriple('abcXXXabc') // → 1	1	✔	
+countTriple('xxxabyyyycd') // → 3	3	✔	
+countTriple('a') // → 0	0	✔	
+countTriple('') // → 0	0	✔	
+countTriple('XXXabc') // → 1	1	✔	
+countTriple('XXXXabc') // → 2	2	✔	
+countTriple('XXXXXabc') // → 3	3	✔	
+countTriple('222abyyycdXXX') // → 3	3	✔	
+countTriple('abYYYabXXXXXab') // → 4	4	✔	
+countTriple('abYYXabXXYXXab') // → 0	0	✔	
+countTriple('abYYXabXXYXXab') // → 0	0	✔	
+countTriple('122abhhh2') // → 1	1	✔
 
 
 /* SUMDIGITS
@@ -207,14 +207,70 @@ function sumDigits(str){
 
   }, 0);
 }
-sumDigits('aa1bc2d3') → 6	6	✔	
-sumDigits('aa11b33') → 8	8	✔	
-sumDigits('Chocolate') → 0	0	✔	
-sumDigits('5hoco1a1e') → 7	7	✔	
-sumDigits('123abc123') → 12	12	✔	
-sumDigits('') → 0	0	✔	
-sumDigits('Hello') → 0	0	✔	
-sumDigits('X1z9b2') → 12	12	✔	
-sumDigits('5432a') → 14	14	✔
+sumDigits('aa1bc2d3') // → 6	6	✔	
+sumDigits('aa11b33') // → 8	8	✔	
+sumDigits('Chocolate') // → 0	0	✔	
+sumDigits('5hoco1a1e') // → 7	7	✔	
+sumDigits('123abc123') // → 12	12	✔	
+sumDigits('') // → 0	0	✔	
+sumDigits('Hello') // → 0	0	✔	
+sumDigits('X1z9b2') // → 12	12	✔	
+sumDigits('5432a') // → 14	14	✔
+
+
+/* SAMEENDS
+Given a string, return the longest substring that appears at both the beginning and end of the string without
+overlapping. For example, sameEnds("abXab") is "ab".
+*/
+
+function sameEnds(str){
+  const halfLen = Math.floor(str.length / 2);
+  const [front, back] = [
+    str.slice(0, halfLen),
+    str.slice(-halfLen)
+  ];
+
+  let frontLastIdx = 0;
+  let nextBackRestartIdx = -1;
+  for (let i = 0; i < back.length; i++) {
+
+    const [currFrontChar, currBackChar] = [
+      front[frontLastIdx],
+      back[i]
+    ];
+
+    if (
+      i > 0 &&
+      nextBackRestartIdx === -1 &&
+      currBackChar === currFrontChar[0]
+    ) {
+      nextBackRestartIdx = i;
+    }
+
+    if (currFrontChar === currBackChar) {
+      frontLastIdx++;
+    } else if (nextBackRestartIdx === -1) {
+      frontLastIdx = 0;
+    } else {
+      i = nextBackRestartIdx - 1;
+      nextBackRestartIdx = -1;
+      frontLastIdx = 0;
+    }
+  }
+
+  return str.slice(0, frontLastIdx);
+}
+sameEnds('abXYab') // → ab	✔	
+sameEnds('xx') // → x	✔	
+sameEnds('xxx') // → x	✔	
+sameEnds('xxxx') // → xx	✔	
+sameEnds('javaXYZjava') // → java	✔	
+sameEnds('javajava') // → java	✔	
+sameEnds('xavaXYZjava') // → 	✔	
+sameEnds('Hello! and Hello!') // → Hello!	✔	
+sameEnds('x') // → 	✔	
+sameEnds('') // → 	✔	
+sameEnds('abcb') // → 	✔	
+sameEnds('mymmy') // → my	✔
 
 
