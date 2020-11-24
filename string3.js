@@ -156,3 +156,65 @@ gHappy('mggm') // → true	true	✔
 gHappy('yyygggxyy') // → true	true	✔
 
 
+/* COUNTTRIPLE
+We'll say that a "triple" in a string is a char appearing three times in a row. Return the number of triples in the
+given string. The triples may overlap.
+*/
+
+function countTriple(str){
+  let count = 0;
+  for (let i = 0; i < str.length - 2; i++) {
+    const [first, second, third] = [
+      str[i],
+      str[i + 1],
+      str[i + 2]
+    ];
+    if (first === second && first === third) {
+      count++;
+    }
+  }
+
+  return count;
+}
+countTriple('abcXXXabc') → 1	1	✔	
+countTriple('xxxabyyyycd') → 3	3	✔	
+countTriple('a') → 0	0	✔	
+countTriple('') → 0	0	✔	
+countTriple('XXXabc') → 1	1	✔	
+countTriple('XXXXabc') → 2	2	✔	
+countTriple('XXXXXabc') → 3	3	✔	
+countTriple('222abyyycdXXX') → 3	3	✔	
+countTriple('abYYYabXXXXXab') → 4	4	✔	
+countTriple('abYYXabXXYXXab') → 0	0	✔	
+countTriple('abYYXabXXYXXab') → 0	0	✔	
+countTriple('122abhhh2') → 1	1	✔
+
+
+/* SUMDIGITS
+Given a string, return the sum of the digits 0-9 that appear in the string, ignoring all other characters.
+Return 0 if there are no digits in the string. (Note: Character.isDigit(char) tests if a char is one of the
+chars '0', '1', .. '9'. Integer.parseInt(string) converts a string to an int.)
+*/
+
+function sumDigits(str){
+  const chars = str.split('');
+
+  return chars.reduce((sum, char) => {
+
+    return !isNaN(char)
+      ? sum += parseInt(char)
+      : sum;
+
+  }, 0);
+}
+sumDigits('aa1bc2d3') → 6	6	✔	
+sumDigits('aa11b33') → 8	8	✔	
+sumDigits('Chocolate') → 0	0	✔	
+sumDigits('5hoco1a1e') → 7	7	✔	
+sumDigits('123abc123') → 12	12	✔	
+sumDigits('') → 0	0	✔	
+sumDigits('Hello') → 0	0	✔	
+sumDigits('X1z9b2') → 12	12	✔	
+sumDigits('5432a') → 14	14	✔
+
+
