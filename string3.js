@@ -274,3 +274,41 @@ sameEnds('abcb') // → 	✔
 sameEnds('mymmy') // → my	✔
 
 
+/* MIRROREDENDS
+Given a string, look for a mirror image (backwards) string at both the beginning and end of the given string.
+In other words, zero or more characters at the very begining of the given string, and at the very end of the
+string in reverse order (possibly overlapping). For example, the string "abXYZba" has the mirror end "ab".
+*/
+
+function mirrorEnds(string){
+  let mirroredEndIdx = 0;
+  
+  const reversed = string.split('')
+    .reverse();
+  for (let i = 0; i < string.length; i++) {
+    const [frontChar, backChar] = [
+      string[i],
+      reversed[i]
+    ];
+    if (frontChar !== backChar) {
+      break;
+    } else {
+      mirroredEndIdx++;
+    }
+  }
+
+  return string.slice(0, mirroredEndIdx);
+}
+mirrorEnds('abXYZba') // → ab	ab	✔	
+mirrorEnds('abca') // → a	a	✔	
+mirrorEnds('aba') // → aba	aba	✔	
+mirrorEnds('abab') // →		✔	
+mirrorEnds('xxx') // → xxx	xxx	✔	
+mirrorEnds('xxYxx') // → xxYxx	xxYxx	✔	
+mirrorEnds('Hi and iH') // → Hi	Hi	✔	
+mirrorEnds('x') // → x	x	✔	
+mirrorEnds('') // →		✔	
+mirrorEnds('123and then 321') // → 123	123	✔	
+mirrorEnds('band andab') // → ba	ba	✔
+
+
